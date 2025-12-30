@@ -1,0 +1,43 @@
+\doxysection{Position.\+hpp}
+\hypertarget{Position_8hpp_source}{}\label{Position_8hpp_source}\index{src/ClientAPI/Types/Position.hpp@{src/ClientAPI/Types/Position.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Position}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ POSITION\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ POSITION\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structclientapi_1_1Position}{Position}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ y;}
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}(\textcolor{keywordtype}{int}\ x\ =\ 0,\ \textcolor{keywordtype}{int}\ y\ =\ 0)\ :\ x(x),\ y(y)\ \{\}}
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x\ ==\ other.x\ \&\&\ y\ ==\ other.y;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ other);}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\ wrap(\textcolor{keywordtype}{int}\ mapWidth,\ \textcolor{keywordtype}{int}\ mapHeight)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\ wrapped;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ wrapped.x\ =\ ((x\ \%\ mapWidth)\ +\ mapWidth)\ \%\ mapWidth;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ wrapped.y\ =\ ((y\ \%\ mapHeight)\ +\ mapHeight)\ \%\ mapHeight;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wrapped;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !POSITION\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

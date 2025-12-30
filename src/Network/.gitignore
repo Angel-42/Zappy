@@ -1,0 +1,5 @@
+.vscode/
+tmp/
+crash.sh
+*.o
+coding-style-reports.log

@@ -1,0 +1,31 @@
+\doxysection{IState.\+hpp}
+\hypertarget{IState_8hpp_source}{}\label{IState_8hpp_source}\index{src/GUI/Renderer/State/IState.hpp@{src/GUI/Renderer/State/IState.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ IState.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SFML/Window/Event.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classStateMachine}{StateMachine}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIState}{IState}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classIState}{\string~IState}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ onEnter(\mbox{\hyperlink{classStateMachine}{StateMachine}}\ \&machine)\ =\ 0;\ \textcolor{comment}{//\ Called\ when\ the\ state\ becomes\ active}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ onExit(\mbox{\hyperlink{classStateMachine}{StateMachine}}\ \&machine)\ =\ 0;\ \ \textcolor{comment}{//\ Called\ when\ the\ state\ is\ about\ to\ be\ replaced}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{classStateMachine}{StateMachine}}\ \&machine,\ \textcolor{keywordtype}{float}\ deltaTime)\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ render(\mbox{\hyperlink{classStateMachine}{StateMachine}}\ \&machine)\ =\ 0;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ handleEvent(\mbox{\hyperlink{classStateMachine}{StateMachine}}\ \&machine,\ \textcolor{keyword}{const}\ sf::Event\ \&event)\ =\ 0;}
+\DoxyCodeLine{00025\ \};}
+
+\end{DoxyCode}

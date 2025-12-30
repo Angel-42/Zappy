@@ -1,0 +1,22 @@
+\doxysection{Usage}
+\hypertarget{Usage-example}{}\label{Usage-example}flow\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CommandBuffer\ buffer;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Client\ sends\ commands}}
+\DoxyCodeLine{buffer.addCommand(\textcolor{stringliteral}{"{}Forward"{}},\ player);\ \ \ \ \ \ \ \textcolor{comment}{//\ 7\ time\ units}}
+\DoxyCodeLine{buffer.addCommand(\textcolor{stringliteral}{"{}Look"{}},\ player);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 7\ time\ units\ \ }}
+\DoxyCodeLine{buffer.addCommand(\textcolor{stringliteral}{"{}Inventory"{}},\ player);\ \ \ \ \ \textcolor{comment}{//\ 1\ time\ unit}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Game\ loop\ processes\ time}}
+\DoxyCodeLine{buffer.processCommands(5);\ \ \textcolor{comment}{//\ Advance\ 5\ time\ units}}
+\DoxyCodeLine{buffer.processCommands(3);\ \ \textcolor{comment}{//\ Execute\ first\ command\ (7\ total)}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

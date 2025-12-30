@@ -1,0 +1,67 @@
+\doxysection{Game\+Manager.\+hpp}
+\hypertarget{GameManager_8hpp_source}{}\label{GameManager_8hpp_source}\index{src/ClientAPI/GameManager.hpp@{src/ClientAPI/GameManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ GameManager}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ GAMEMANAGER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ GAMEMANAGER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Elevation/ElevationRules.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Forward\ declarations\ to\ avoid\ circular\ dependencies}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }Map;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }PlayerManager;\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }TeamManager;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }Team;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPlayer}{Player}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classGameState}{GameState}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ WAITING\_FOR\_PLAYERS,}
+\DoxyCodeLine{00024\ \ \ \ \ RUNNING,}
+\DoxyCodeLine{00025\ \ \ \ \ PAUSED,}
+\DoxyCodeLine{00026\ \ \ \ \ ENDED}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1GameManager}{GameManager}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1GameManager}{GameManager}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1GameManager}{\string~GameManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startGame();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pauseGame();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ endGame();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameState}{GameState}}\ getGameState()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_gameState;\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ checkGameEnd(\mbox{\hyperlink{classclientapi_1_1Map}{Map}}*\ map,\ \mbox{\hyperlink{classclientapi_1_1PlayerManager}{PlayerManager}}*\ playerManager,\ \mbox{\hyperlink{classclientapi_1_1TeamManager}{TeamManager}}*\ teamManager);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ processIncantation(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player,\ \mbox{\hyperlink{classclientapi_1_1Map}{Map}}*\ map,\ \mbox{\hyperlink{classclientapi_1_1PlayerManager}{PlayerManager}}*\ playerManager);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processPlayerAction(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player,\ \textcolor{keyword}{const}\ std::string\&\ action,\ \mbox{\hyperlink{classclientapi_1_1Map}{Map}}*\ map);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Team}{Team}}*\ getWinningTeam()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isGameComplete()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ canPlayerPerformAction(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player,\ \textcolor{keyword}{const}\ std::string\&\ action)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handlePlayerDeath(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player,\ \mbox{\hyperlink{classclientapi_1_1Map}{Map}}*\ map,\ \mbox{\hyperlink{classclientapi_1_1PlayerManager}{PlayerManager}}*\ playerManager);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ respawnPlayer(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player,\ \mbox{\hyperlink{classclientapi_1_1Map}{Map}}*\ map);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGameState}{GameState}}\ \_gameState;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::unique\_ptr<ElevationRules>\ \_elevationRules;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Team}{Team}}*\ \_winningTeam;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ checkWinConditions(\mbox{\hyperlink{classclientapi_1_1TeamManager}{TeamManager}}*\ teamManager);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initializeGameRules();}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !GAMEMANAGER\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

@@ -1,0 +1,18 @@
+\doxysection{Basic}
+\hypertarget{Basic-example}{}\label{Basic-example}usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::string>\ teams\ =\ \{\textcolor{stringliteral}{"{}team1"{}},\ \textcolor{stringliteral}{"{}team2"{}}\};}
+\DoxyCodeLine{ConnectionManager\ manager(4242,\ teams,\ 5);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (manager.initialize())\ \{}
+\DoxyCodeLine{\ \ \ \ manager.run();\ \textcolor{comment}{//\ Blocks\ and\ handles\ all\ connections}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

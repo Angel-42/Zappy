@@ -1,0 +1,70 @@
+\doxysection{Animated\+Sprite Class Reference}
+\hypertarget{classAnimatedSprite}{}\label{classAnimatedSprite}\index{AnimatedSprite@{AnimatedSprite}}
+
+
+Inheritance diagram for Animated\+Sprite\+:
+% FIG 0
+
+
+Collaboration diagram for Animated\+Sprite\+:
+% FIG 1
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAnimatedSprite_aba12cbebeeaa10c02f10de40f594c7ec}\label{classAnimatedSprite_aba12cbebeeaa10c02f10de40f594c7ec} 
+using {\bfseries Callback} = std\+::function$<$ void()$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAnimatedSprite_ace5413523fd861c637bdea11b3bfeee6}\label{classAnimatedSprite_ace5413523fd861c637bdea11b3bfeee6} 
+{\bfseries Animated\+Sprite} (const sf\+::\+Texture \&texture, std\+::size\+\_\+t frame\+Width, std\+::size\+\_\+t frame\+Height, float frame\+Time=0.\+1f)
+\item 
+\Hypertarget{classAnimatedSprite_a0a8af91a63bf3266e3f14ce948a9b8c7}\label{classAnimatedSprite_a0a8af91a63bf3266e3f14ce948a9b8c7} 
+void {\bfseries set\+Texture} (const sf\+::\+Texture \&texture, std\+::size\+\_\+t frame\+Width, std\+::size\+\_\+t frame\+Height)
+\item 
+\Hypertarget{classAnimatedSprite_a2370080a47c818baffc354a85f53eaf9}\label{classAnimatedSprite_a2370080a47c818baffc354a85f53eaf9} 
+void {\bfseries add\+Frame} (const sf\+::\+Int\+Rect \&rect)
+\item 
+\Hypertarget{classAnimatedSprite_aa29052b0521aa8bfb3c1a11cc021e6de}\label{classAnimatedSprite_aa29052b0521aa8bfb3c1a11cc021e6de} 
+void {\bfseries set\+Frame\+Time} (float time)
+\item 
+\Hypertarget{classAnimatedSprite_a855a5a48ea2e1c51c7c9304857dd2f8c}\label{classAnimatedSprite_a855a5a48ea2e1c51c7c9304857dd2f8c} 
+void {\bfseries set\+Looped} (bool looped)
+\item 
+\Hypertarget{classAnimatedSprite_a44ab62293d3772cca45cdfb73ef50241}\label{classAnimatedSprite_a44ab62293d3772cca45cdfb73ef50241} 
+void {\bfseries set\+Callback} (Callback cb)
+\item 
+\Hypertarget{classAnimatedSprite_a203b968f1cb374cca5dbc89716174020}\label{classAnimatedSprite_a203b968f1cb374cca5dbc89716174020} 
+void {\bfseries play} ()
+\item 
+\Hypertarget{classAnimatedSprite_a48384db59427423b5c1d98f6ee94fe45}\label{classAnimatedSprite_a48384db59427423b5c1d98f6ee94fe45} 
+void {\bfseries pause} ()
+\item 
+\Hypertarget{classAnimatedSprite_af9734f4346d3d2370322b2dcaeef133c}\label{classAnimatedSprite_af9734f4346d3d2370322b2dcaeef133c} 
+void {\bfseries stop} ()
+\item 
+\Hypertarget{classAnimatedSprite_a0227c3b4fb4dd34d67bbc0b0b1994cc6}\label{classAnimatedSprite_a0227c3b4fb4dd34d67bbc0b0b1994cc6} 
+void {\bfseries reset} ()
+\item 
+\Hypertarget{classAnimatedSprite_a55f450add05d45e5369a6ad24f9e438f}\label{classAnimatedSprite_a55f450add05d45e5369a6ad24f9e438f} 
+bool {\bfseries is\+Playing} () const
+\item 
+\Hypertarget{classAnimatedSprite_aaf2c2fb0e1487e689af4a6bbeb7e3e85}\label{classAnimatedSprite_aaf2c2fb0e1487e689af4a6bbeb7e3e85} 
+bool {\bfseries is\+Looped} () const
+\item 
+\Hypertarget{classAnimatedSprite_afb49a134c72c09d142ecde4a928688c7}\label{classAnimatedSprite_afb49a134c72c09d142ecde4a928688c7} 
+std\+::size\+\_\+t {\bfseries get\+Frame\+Count} () const
+\item 
+\Hypertarget{classAnimatedSprite_a45c590b8f332f016da1f524328edf7fb}\label{classAnimatedSprite_a45c590b8f332f016da1f524328edf7fb} 
+std\+::size\+\_\+t {\bfseries get\+Current\+Frame} () const
+\item 
+\Hypertarget{classAnimatedSprite_acbe34826591e42d103e76302c3a3757b}\label{classAnimatedSprite_acbe34826591e42d103e76302c3a3757b} 
+void {\bfseries update} (float delta\+Time)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+SFMLUtils/\+Animated\+Sprites/Animated\+Sprite.\+hpp\item 
+src/\+GUI/\+SFMLUtils/\+Animated\+Sprites/Animated\+Sprite.\+cpp\end{DoxyCompactItemize}

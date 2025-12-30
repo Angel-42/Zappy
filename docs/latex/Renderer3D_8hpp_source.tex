@@ -1,0 +1,80 @@
+\doxysection{Renderer3\+D.\+hpp}
+\hypertarget{Renderer3D_8hpp_source}{}\label{Renderer3D_8hpp_source}\index{src/GUI/Renderer/3D/Renderer3D.hpp@{src/GUI/Renderer/3D/Renderer3D.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Renderer3D.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <GL/glew.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../IRenderer.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../UILayer/UILayer.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Utils/GLShader.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../3D/Camera/Camera.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Grid/Grid.hpp"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}Objects/Terrain/TerrainMesh.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}Objects/Water/WaterMesh.hpp"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}Shaders/ShaderManager.hpp"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}Textures/TextureManager.hpp"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}Textures/ProceduralTextureGenerator.hpp"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../Utils/ShaderFileLoader.hpp"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}Objects/Players/Player.hpp"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <SFML/System/Clock.hpp>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRenderer3D}{Renderer3D}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIRenderer}{IRenderer}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classRenderer3D}{Renderer3D}}(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer3D_a42354c4ef3f8f8a7a72791c24ca15f23}{initialize}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer3D_a3b1ecfb27c1d5f7a7b2e37a5583a3dc6}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer3D_a39bedcd55ab5e9c42dcc0cbd5fdc2f23}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRenderer3D_a8c92f4385c00fa7bc0001ac5c45528f6}{shutdown}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classUILayer}{UILayer}}\ \&\mbox{\hyperlink{classRenderer3D_a133bd3fffc320482f9f61077a8ec272b}{getUILayer}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ No\ documentation\ for\ private\ members\ by\ default.}}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classUILayer}{UILayer}}\ m\_uiLayer;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ std::unique\_ptr<GLShader>\ shader;}
+\DoxyCodeLine{00084\ \ \ \ \ std::unique\_ptr<Camera>\ camera;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{float}\ lastFrameTime\ =\ 0.f;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ firstMouse\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00088\ \ \ \ \ glm::vec2\ lastMousePos\ =\ glm::vec2(0.0f);}
+\DoxyCodeLine{00089\ \ \ \ \ sf::Clock\ m\_clock;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ OpenGL\ handles}}
+\DoxyCodeLine{00092\ \ \ \ \ GLuint\ m\_sandTexture\ =\ 0,\ m\_grassTexture\ =\ 0,\ m\_rockTexture\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ GLuint\ m\_waterNormalMap\ =\ 0,\ m\_waterCartoonTexture\ =\ 0,\ m\_waterDudvMap\ =\ 0;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classTerrainMesh}{TerrainMesh}}\ m\_terrainMesh;}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{classWaterMesh}{WaterMesh}}\ m\_waterMesh;}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classGrid}{Grid}}\ *m\_grid\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classShaderManager}{ShaderManager}}\ m\_shaderManager;}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classTextureManager}{TextureManager}}\ m\_textureManager;}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classProceduralTextureGenerator}{ProceduralTextureGenerator}}\ m\_proceduralTextureGenerator;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<std::unique\_ptr<renderer3d::Player>>\ m\_players;}
+\DoxyCodeLine{00104\ \};}
+
+\end{DoxyCode}

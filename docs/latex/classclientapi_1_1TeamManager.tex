@@ -1,0 +1,52 @@
+\doxysection{clientapi\+::Team\+Manager Class Reference}
+\hypertarget{classclientapi_1_1TeamManager}{}\label{classclientapi_1_1TeamManager}\index{clientapi::TeamManager@{clientapi::TeamManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_a77f43b7cdbd7dda504a4eddb49ecfd32}\label{classclientapi_1_1TeamManager_a77f43b7cdbd7dda504a4eddb49ecfd32} 
+{\bfseries Team\+Manager} (const std\+::vector$<$ std\+::string $>$ \&team\+Names, int max\+Players\+Per\+Team)
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_aec5a459305096cace7ddf8c9bc408902}\label{classclientapi_1_1TeamManager_aec5a459305096cace7ddf8c9bc408902} 
+\mbox{\hyperlink{classclientapi_1_1Team}{Team}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Team} (const std\+::string \&team\+Name)
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_a7b78c3acea9f20420adbee4952a142be}\label{classclientapi_1_1TeamManager_a7b78c3acea9f20420adbee4952a142be} 
+std\+::vector$<$ \mbox{\hyperlink{classclientapi_1_1Team}{Team}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+All\+Teams} ()
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_ab6576bcc9c875eb0958d459f1e5d338b}\label{classclientapi_1_1TeamManager_ab6576bcc9c875eb0958d459f1e5d338b} 
+void {\bfseries update\+Teams} ()
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_a8e42f2ac6f8fde0268ebee13ed568788}\label{classclientapi_1_1TeamManager_a8e42f2ac6f8fde0268ebee13ed568788} 
+bool {\bfseries add\+Player\+To\+Team} (const std\+::string \&team\+Name, int player\+Id)
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_af391516ebc1e974f5cd829d3e5e713a6}\label{classclientapi_1_1TeamManager_af391516ebc1e974f5cd829d3e5e713a6} 
+void {\bfseries remove\+Player\+From\+Team} (const std\+::string \&team\+Name, int player\+Id)
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_acb159ee20fe57e35a93546fd3f50acc3}\label{classclientapi_1_1TeamManager_acb159ee20fe57e35a93546fd3f50acc3} 
+bool {\bfseries is\+Valid\+Team} (const std\+::string \&team\+Name) const
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_ac63589936ce85e04992c54a3d1c25134}\label{classclientapi_1_1TeamManager_ac63589936ce85e04992c54a3d1c25134} 
+int {\bfseries get\+Available\+Slots} (const std\+::string \&team\+Name) const
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_a4420ff3586eb669b830e56c7da56dcd1}\label{classclientapi_1_1TeamManager_a4420ff3586eb669b830e56c7da56dcd1} 
+int {\bfseries get\+Team\+Player\+Count} (const std\+::string \&team\+Name) const
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_ad24621fe001f911bb6d349e8dfec5aca}\label{classclientapi_1_1TeamManager_ad24621fe001f911bb6d349e8dfec5aca} 
+void {\bfseries add\+Egg\+To\+Team} (const std\+::string \&team\+Name, const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&position)
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_aa4973be095253ef268393647473b8222}\label{classclientapi_1_1TeamManager_aa4973be095253ef268393647473b8222} 
+void {\bfseries remove\+Egg} (int egg\+Id)
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_a7523b2376bf59dc1c3db4fb69174fd48}\label{classclientapi_1_1TeamManager_a7523b2376bf59dc1c3db4fb69174fd48} 
+std\+::vector$<$ \mbox{\hyperlink{classclientapi_1_1Egg}{Egg}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+All\+Eggs} ()
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_af2631c5b89ba1e186df16372455a0ac1}\label{classclientapi_1_1TeamManager_af2631c5b89ba1e186df16372455a0ac1} 
+\mbox{\hyperlink{classclientapi_1_1Team}{Team}} \texorpdfstring{$\ast$}{*} {\bfseries check\+For\+Winner} () const
+\item 
+\Hypertarget{classclientapi_1_1TeamManager_a243c0cddbf6f55d5a7d697cc60dcc1cd}\label{classclientapi_1_1TeamManager_a243c0cddbf6f55d5a7d697cc60dcc1cd} 
+bool {\bfseries has\+Team\+Won} (const std\+::string \&team\+Name) const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Team/Team\+Manager.\+hpp\end{DoxyCompactItemize}

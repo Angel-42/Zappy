@@ -1,0 +1,97 @@
+\doxysection{Food Class Reference}
+\hypertarget{classFood}{}\label{classFood}\index{Food@{Food}}
+
+
+Inheritance diagram for Food\+:
+% FIG 0
+
+
+Collaboration diagram for Food\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFood_addd6bb533d83df592381acce78787a60}\label{classFood_addd6bb533d83df592381acce78787a60} 
+void {\bfseries draw} (sf\+::\+Render\+Window \&window, float x, float y)
+\item 
+\Hypertarget{classFood_ab96153c1a3999060e9bfd5f446094dbb}\label{classFood_ab96153c1a3999060e9bfd5f446094dbb} 
+void {\bfseries set\+Scale} (float x, float y)
+\item 
+\Hypertarget{classFood_addd6bb533d83df592381acce78787a60}\label{classFood_addd6bb533d83df592381acce78787a60} 
+void {\bfseries draw} (sf\+::\+Render\+Window \&window, float x, float y)
+\item 
+\Hypertarget{classFood_ab96153c1a3999060e9bfd5f446094dbb}\label{classFood_ab96153c1a3999060e9bfd5f446094dbb} 
+void {\bfseries set\+Scale} (float x, float y)
+\item 
+\Hypertarget{classFood_a657260cfed52e15f5ded3dd7805e718b}\label{classFood_a657260cfed52e15f5ded3dd7805e718b} 
+{\bfseries Food} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl)
+\item 
+void \mbox{\hyperlink{classFood_a7a70c9f220b448a18d4b9c26a766f2a1}{draw}} () override final
+\item 
+void \mbox{\hyperlink{classFood_af28d46544909ae99663842f5bb2f78c0}{update}} (float delta\+Time) override final
+\item 
+std\+::string \mbox{\hyperlink{classFood_a2fb687894ce5a8cc9fe3533c6a1508b4}{get\+Type}} () const override final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFood_ab1372aa48c9743bcad4a9b982139a1d9}\label{classFood_ab1372aa48c9743bcad4a9b982139a1d9} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classFood_aae5748413b7bf9f5557e6bd3f1bce405}\label{classFood_aae5748413b7bf9f5557e6bd3f1bce405} 
+glm\+::vec3 {\bfseries rotation}
+\item 
+\Hypertarget{classFood_ae463ac386ac0fd2e572a36ef66fbca6b}\label{classFood_ae463ac386ac0fd2e572a36ef66fbca6b} 
+glm\+::vec3 {\bfseries scale}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFood_ab5bf47507fa0b878be5c028bf94047a5}\label{classFood_ab5bf47507fa0b878be5c028bf94047a5} 
+static \mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries mesh}
+\item 
+\Hypertarget{classFood_aef35bdeb822f76442927bff9c3c6bc77}\label{classFood_aef35bdeb822f76442927bff9c3c6bc77} 
+static GLuint {\bfseries texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFood_a7a70c9f220b448a18d4b9c26a766f2a1}\label{classFood_a7a70c9f220b448a18d4b9c26a766f2a1} 
+\index{Food@{Food}!draw@{draw}}
+\index{draw@{draw}!Food@{Food}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Food\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classFood_a2fb687894ce5a8cc9fe3533c6a1508b4}\label{classFood_a2fb687894ce5a8cc9fe3533c6a1508b4} 
+\index{Food@{Food}!getType@{getType}}
+\index{getType@{getType}!Food@{Food}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Food\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classFood_af28d46544909ae99663842f5bb2f78c0}\label{classFood_af28d46544909ae99663842f5bb2f78c0} 
+\index{Food@{Food}!update@{update}}
+\index{update@{update}!Food@{Food}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Food\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Ile/2\+D/Food.\+hpp\item 
+src/\+GUI/\+Renderer/2\+D/Food.\+hpp\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+GRessources/\+Food/Food.\+hpp\item 
+src/\+GUI/\+Ile/2\+D/Food.\+cpp\item 
+src/\+GUI/\+Renderer/2\+D/Food.\+cpp\end{DoxyCompactItemize}

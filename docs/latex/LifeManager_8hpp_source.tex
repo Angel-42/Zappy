@@ -1,0 +1,81 @@
+\doxysection{Life\+Manager.\+hpp}
+\hypertarget{LifeManager_8hpp_source}{}\label{LifeManager_8hpp_source}\index{src/ClientAPI/Player/LifeManager.hpp@{src/ClientAPI/Player/LifeManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ LifeManager\ -\/\ Manages\ automatic\ food\ consumption\ and\ life\ systems}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LIFEMANAGER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LIFEMANAGER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1LifeManager}{LifeManager}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{DeathCallback}}\ =\ std::function<void(\textcolor{keywordtype}{int}\ playerId,\ \textcolor{keyword}{const}\ std::string\&\ teamName)>;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1LifeManager_a5e72c2df6039f2284f1220a75e3150f7}{LifeManager}}();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1LifeManager}{\string~LifeManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Player\ registration}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_abbb3e7b8745ee42c7f60811e7ef0176a}{registerPlayer}}(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a151a380ab04395cde799e51e06720afa}{unregisterPlayer}}(\textcolor{keywordtype}{int}\ playerId);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a13378edd656d5560336e3900e43ec736}{clearPlayers}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Life\ processing}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a0e89fdec5e2822838b924f4ae0ba2951}{processLifeConsumption}}(\textcolor{keywordtype}{int}\ timeUnits);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_ab884485ac4dd210fd08d6e48d9bf3747}{feedPlayer}}(\textcolor{keywordtype}{int}\ playerId,\ \textcolor{keywordtype}{int}\ amount\ =\ 1);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a760f84cbe2153d95694ab7d73218ae58}{getStarvingPlayers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classclientapi_1_1LifeManager_aea5411cad8d89dc292980db87b45d098}{getRecentDeaths}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_recentDeaths;\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Event\ handling}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a9aed5dcd35268f08eae6016e5a257211}{setDeathCallback}}(\mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{DeathCallback}}\ callback)\ \{\ \_deathCallback\ =\ callback;\ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a2cd9abd5c7e7f9f202d02a0c3b0e4fa7}{clearDeathCallback}}()\ \{\ \_deathCallback\ =\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Statistics\ and\ monitoring}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_aa1a11c3909a5b509b8b4ff5fc39d6615}{getAlivePlayerCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a191c95aeff84fbd6f515abc3b75b1731}{getStarvingPlayerCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1LifeManager_a2a0b0e9116dfafc0959716ff91d9992a}{getTotalFoodConsumed}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_totalFoodConsumed;\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ std::vector<Player*>\ \_players;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ std::vector<int>\ \_recentDeaths;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{DeathCallback}}\ \_deathCallback;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Statistics}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_totalFoodConsumed;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_totalPlayersManaged;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ processPlayerLife(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player,\ \textcolor{keywordtype}{int}\ timeUnits);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handlePlayerDeath(\mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ player);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearRecentDeaths()\ \{\ \_recentDeaths.clear();\ \}}
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !LIFEMANAGER\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\doxysection{Material Struct Reference}
+\hypertarget{structMaterial}{}\label{structMaterial}\index{Material@{Material}}
+
+
+Collaboration diagram for Material\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structMaterial_a7ea61c71ac05b6df27fafa0ce2680341}\label{structMaterial_a7ea61c71ac05b6df27fafa0ce2680341} 
+{\bfseries Material} (const \mbox{\hyperlink{structMaterial}{Material}} \&)=default
+\item 
+\Hypertarget{structMaterial_a60e3d041720d0e56f6038cb1887789e8}\label{structMaterial_a60e3d041720d0e56f6038cb1887789e8} 
+{\bfseries Material} (\mbox{\hyperlink{structMaterial}{Material}} \&\&) noexcept=default
+\item 
+\Hypertarget{structMaterial_a9de63795cf310f504d55b818dd40fe3c}\label{structMaterial_a9de63795cf310f504d55b818dd40fe3c} 
+\mbox{\hyperlink{structMaterial}{Material}} \& {\bfseries operator=} (const \mbox{\hyperlink{structMaterial}{Material}} \&)=default
+\item 
+\Hypertarget{structMaterial_a3c1af03647e840ed5d7897e9dd7bbbc9}\label{structMaterial_a3c1af03647e840ed5d7897e9dd7bbbc9} 
+\mbox{\hyperlink{structMaterial}{Material}} \& {\bfseries operator=} (\mbox{\hyperlink{structMaterial}{Material}} \&\&) noexcept=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structMaterial_affe06990f884293d0fe2f39110f71730}\label{structMaterial_affe06990f884293d0fe2f39110f71730} 
+std\+::string {\bfseries name}
+\item 
+\Hypertarget{structMaterial_a483869c2f4f828bf4217bc659b1d7127}\label{structMaterial_a483869c2f4f828bf4217bc659b1d7127} 
+\mbox{\hyperlink{structVec3}{Vec3}} {\bfseries diffuse\+Color}
+\item 
+\Hypertarget{structMaterial_a1f568b6509f509c0f8fe69b9e2ee7acf}\label{structMaterial_a1f568b6509f509c0f8fe69b9e2ee7acf} 
+\mbox{\hyperlink{structVec3}{Vec3}} {\bfseries specular\+Color}
+\item 
+\Hypertarget{structMaterial_ad7c9544f3dd8522cdec6ab74e8830ac9}\label{structMaterial_ad7c9544f3dd8522cdec6ab74e8830ac9} 
+\mbox{\hyperlink{structVec3}{Vec3}} {\bfseries ambient\+Color}
+\item 
+\Hypertarget{structMaterial_ad09c973155d9ad02f2d4a1811c5850ea}\label{structMaterial_ad09c973155d9ad02f2d4a1811c5850ea} 
+\mbox{\hyperlink{structVec3}{Vec3}} {\bfseries emissive\+Color}
+\item 
+\Hypertarget{structMaterial_a47b59097fd87ccf954c09351e9f3eae9}\label{structMaterial_a47b59097fd87ccf954c09351e9f3eae9} 
+std\+::optional$<$ float $>$ {\bfseries shininess}
+\item 
+\Hypertarget{structMaterial_a4ee05f9c1e11b5464280ebbdd9f16c96}\label{structMaterial_a4ee05f9c1e11b5464280ebbdd9f16c96} 
+std\+::optional$<$ float $>$ {\bfseries opacity}
+\item 
+\Hypertarget{structMaterial_a8970fe10266984483de675ba15600b37}\label{structMaterial_a8970fe10266984483de675ba15600b37} 
+std\+::optional$<$ std\+::string $>$ {\bfseries texture\+Path}
+\item 
+\Hypertarget{structMaterial_afa33278dea71980b48ba27945c54d4ea}\label{structMaterial_afa33278dea71980b48ba27945c54d4ea} 
+std\+::optional$<$ std\+::string $>$ {\bfseries specular\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a2bb2451a5be1ea5739d46a28b565488d}\label{structMaterial_a2bb2451a5be1ea5739d46a28b565488d} 
+std\+::optional$<$ std\+::string $>$ {\bfseries normal\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a1f207defc0baecab0155357a7155580a}\label{structMaterial_a1f207defc0baecab0155357a7155580a} 
+std\+::optional$<$ std\+::string $>$ {\bfseries alpha\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a1b2612c61c8c4656ca8b6e9f0133a478}\label{structMaterial_a1b2612c61c8c4656ca8b6e9f0133a478} 
+std\+::optional$<$ std\+::string $>$ {\bfseries bump\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a284024af61c04dec99a48800594a8d28}\label{structMaterial_a284024af61c04dec99a48800594a8d28} 
+std\+::optional$<$ std\+::string $>$ {\bfseries displacement\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a143ad775e40b5b595b28f1c0df4604ae}\label{structMaterial_a143ad775e40b5b595b28f1c0df4604ae} 
+std\+::optional$<$ std\+::string $>$ {\bfseries reflection\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a39eac659ff601c126f45a6d286701538}\label{structMaterial_a39eac659ff601c126f45a6d286701538} 
+std\+::optional$<$ std\+::string $>$ {\bfseries refraction\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_a2d887d26fb5dbe807df0ba0465d9c5b0}\label{structMaterial_a2d887d26fb5dbe807df0ba0465d9c5b0} 
+std\+::optional$<$ std\+::string $>$ {\bfseries roughness\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_ae4e801779e8e5fd01d15f816e652eada}\label{structMaterial_ae4e801779e8e5fd01d15f816e652eada} 
+std\+::optional$<$ std\+::string $>$ {\bfseries metallic\+Map\+Path}
+\item 
+\Hypertarget{structMaterial_ae3b4fa8164ac75d453b359edc098be46}\label{structMaterial_ae3b4fa8164ac75d453b359edc098be46} 
+std\+::optional$<$ std\+::string $>$ {\bfseries occlusion\+Map\+Path}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/\+Utils/\+OBJLoader/Struct\+Header.\+hpp\end{DoxyCompactItemize}

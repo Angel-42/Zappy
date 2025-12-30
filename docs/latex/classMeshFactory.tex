@@ -1,0 +1,49 @@
+\doxysection{Mesh\+Factory Class Reference}
+\hypertarget{classMeshFactory}{}\label{classMeshFactory}\index{MeshFactory@{MeshFactory}}
+
+
+Utility class for creating \doxylink{classMesh}{Mesh} objects from OBJ files.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Factory.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMesh}{Mesh}} $>$ \mbox{\hyperlink{classMeshFactory_af9b7cdbcf60ccb9e22ef33508d8098ce}{create\+From\+OBJ}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classMesh}{Mesh} object from an OBJ file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class for creating \doxylink{classMesh}{Mesh} objects from OBJ files. 
+
+\doxylink{classMeshFactory}{Mesh\+Factory} provides a static method to load a mesh from an OBJ file and return it as a unique pointer. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMeshFactory_af9b7cdbcf60ccb9e22ef33508d8098ce}\label{classMeshFactory_af9b7cdbcf60ccb9e22ef33508d8098ce} 
+\index{MeshFactory@{MeshFactory}!createFromOBJ@{createFromOBJ}}
+\index{createFromOBJ@{createFromOBJ}!MeshFactory@{MeshFactory}}
+\doxysubsubsection{\texorpdfstring{createFromOBJ()}{createFromOBJ()}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMesh}{Mesh}} $>$ Mesh\+Factory\+::create\+From\+OBJ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a \doxylink{classMesh}{Mesh} object from an OBJ file. 
+
+Attempts to load a mesh from the specified OBJ file path. If loading fails, returns nullptr.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The file path to the OBJ file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::unique\+\_\+ptr$<$\+Mesh$>$ A unique pointer to the loaded \doxylink{classMesh}{Mesh}, or nullptr if loading fails. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/\+Utils/\+OBJLoader/Mesh\+Factory.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,248 @@
+name: Chocolatine Workflow
+
+on:
+  # Trigger the workflow when a push event occurs on any branch, except those that start with 'ga-ignore-'.
+  push:
+    branches-ignore:
+      - 'ga-ignore-*'
+
+  # Trigger the workflow when a pull request event occurs on any branch, except those that start with 'ga-ignore-'.
+  pull_request:
+    branches-ignore:
+      - 'ga-ignore-*'
+
+  # Trigger the workflow manually using the GitHub Actions UI.
+  workflow_dispatch:
+
+env:
+  # The MIRROR_URL variable specifies the URL of the remote repository where the Chocolatine project is mirrored.
+  # The MIRROR_URL will be changed to a secret, but for now,
+  # it is a public variable, because it doesn't work with the secret, and I don't know why.
+  MIRROR_URL: ${{ secrets.MIRROR_URL }}
+
+# All jobs in the workflow are defined here.
+
+jobs:
+
+####################################################################################################
+##                                                                                                ##
+##                                                                                                ##
+##                                       check_repo_files :                                       ##
+##                     This workflow step checks if the repository is clean.                      ##
+##                    If the repository is not clean, the workflow will fail.                     ##
+##                                                                                                ##
+##                                                                                                ##
+####################################################################################################
+
+  check_repo_files:
+    needs: [check_merge]
+    name: "Checks if the repository is clean"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: check_repo_files
+        run: |
+          UNWANTED_FILES=$(find . -type f -not -path "./git/*" -wholename "*tmp/*" -or -name "*~" -or -name "*.o" -or -name "*.so" -or -name "*.gcno" -or -name "*.gcda" -or -name "*#" -or -name "#*" -or -name "*.gcov" -or -name "*pain_au_chocolat*")
+          for FILES in $UNWANTED_FILES; do
+            echo "::error file=${FILES#./},title=Unwanted file detected::${FILES#./}"
+          done
+          if [[ -n $UNWANTED_FILES ]]
+          then
+            exit 1
+          else
+            echo No unwanted files detected
+          fi
+        timeout-minutes: 3
+
+####################################################################################################
+##                                                                                                ##
+##                                                                                                ##
+##                                        push_to_mirror :                                        ##
+##                This workflow step pushes the changes to the remote repository.                 ##
+##                                                                                                ##
+##                                                                                                ##
+####################################################################################################
+
+  push_to_mirror:
+    if: ${{ github.event_name == 'push' }} && github.repository == 'Enichy/Zappy'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+        timeout-minutes: 1
+      - name: Add and commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: '.'
+          message: 'Add all changes before mirroring'
+          author_name: 'GitHub Action'
+          author_email: 'action@github.com'
+          push: false
+        timeout-minutes: 1
+      - name: Mirroring Repository
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: ${{ env.MIRROR_URL }}
+          ssh_private_key: ${{ secrets.SSH_KEY }}
+        timeout-minutes: 3
+
+####################################################################################################
+##                                                                                                ##
+##                                                                                                ##
+##                                       print_repo_name :                                        ##
+##                         This workflow step prints the repository name.                         ##
+##                                                                                                ##
+##                                                                                                ##
+####################################################################################################
+
+  print_repo_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print repository name
+        run: echo "You're on the repository > ${{ github.repository }}"
+        timeout-minutes: 1
+
+####################################################################################################
+##                                                                                                ##
+##                                                                                                ##
+##                                         check_merge :                                          ##
+##                   This workflow step checks if the commit is a merge commit.                   ##
+##                    If the commit is a merge commit, the workflow will fail.                    ##
+##                                                                                                ##
+##                                                                                                ##
+####################################################################################################
+
+  check_merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check if merge commit
+        run: |
+          if git log --merges -n 1 --pretty="%H" | grep -q "${{ github.sha }}"; then
+            echo "This is a merge commit."
+          else
+            echo "This is not a merge commit."
+          fi
+        timeout-minutes: 1
+
+
+####################################################################################################
+##                                                                                                ##
+##                                                                                                ##
+##                                       send_discord_notif :                                     ##
+##                     This workflow step sends a notification to Discord.                        ##
+##                  The notification will be sent only if the commit is not a merge commit.       ##
+##                                                                                                ##
+##                                                                                                ##
+####################################################################################################
+
+
+  get_commit_count:
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{ steps.get_commit_count.outputs.count }}
+    steps:
+      - name: Get commit count
+        id: get_commit_count
+        run: echo "count=$(jq '.commits | length' $GITHUB_EVENT_PATH)" >> $GITHUB_OUTPUT
+
+  send_discord_notif:
+    if: always() && github.repository == 'Enichy/Zappy'
+    needs: [get_commit_count]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification
+        env:
+          DISCORD_WEBHOOK_URL_MAIN: ${{ secrets.MAIN_WEBHOOK }}
+          DISCORD_WEBHOOK_URL_BRANCH: ${{ secrets.BRANCHES_WEBHOOK }}
+        run: |
+          GITHUB_SHA_SHORT=$(echo "${{ github.sha }}" | cut -c1-7)
+          BRANCH_NAME="${{ github.ref_name }}"
+          COMMIT_COUNT="${{ needs.get_commit_count.outputs.count }}"
+          MESSAGE="**[PROJECT: ${{ github.repository }}] [SHA: ${GITHUB_SHA_SHORT}] [BRANCH: ${BRANCH_NAME}]**\n**Commit message:** ${{ github.event.head_commit.message }}\nPush By -> $GITHUB_ACTOR | Number Commits -> ${COMMIT_COUNT}"
+          if [ "$BRANCH_NAME" = "main" ]; then
+            WEBHOOK_URL="$DISCORD_WEBHOOK_URL_MAIN"
+          else
+            WEBHOOK_URL="$DISCORD_WEBHOOK_URL_BRANCH"
+          fi
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{\"content\": \"$MESSAGE\"}" \
+          $WEBHOOK_URL
+
+    
+####################################################################################################
+##                                                                                                ##
+##                                                                                                ##
+##                                   generate_and_publish_doxygen :                               ##
+##                     This workflow step generates and publishes Doxygen documentation.          ##
+##                          The documentation will be published to GitHub Pages &                 ##
+##                     the repository will be updated with the latest documentation.              ##
+##                                                                                                ##
+##                                                                                                ##
+####################################################################################################
+
+  generate_and_publish_doxygen:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }} && github.repository == 'Enichy/Zappy' && github.ref_name == 'main'
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Install Doxygen and Graphviz
+        run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+      - name: Generate Doxygen documentation
+        run: doxygen Doxyfile
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/html
+
+  generate_and_upload_doxygen:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }} && github.repository == 'EpitechPromo2028/B-YEP-400-MPL-4-1-zappy-swann.peri-lunal' && github.ref_name == 'main'
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Install Doxygen and Graphviz
+        run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+      - name: Generate Doxygen documentation
+        run: doxygen Doxyfile
+      - name: Upload Doxygen HTML as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: doxygen-doc
+          path: ./docs/html
+
+
+######################################################################################################
+##                                                                                                  ##
+##                                                                                                  ##
+##                                       send_discord_notif_doxygen :                               ##
+##                     This workflow step sends a notification to Discord with the Doxygen link.    ##
+##                  The notification will be sent only if the commit is not a merge commit.         ##
+##                                                                                                  ##
+##                                                                                                  ##
+######################################################################################################
+
+  send_discord_notif_doxygen:
+    if: always() && github.repository == 'Enichy/Zappy'
+    needs: [generate_and_publish_doxygen, generate_and_upload_doxygen]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Notification with Doxygen link
+        env:
+          DISCORD_WEBHOOK_URL_DOXYGEN: ${{ secrets.DOXYGEN_WEBHOOK }}
+        run: |
+          GITHUB_SHA_SHORT=$(echo "${{ github.sha }}" | cut -c1-7)
+          BRANCH_NAME="${{ github.ref_name }}"
+          MESSAGE="**[PROJECT: ${{ github.repository }}] [SHA: ${GITHUB_SHA_SHORT}] [BRANCH: ${BRANCH_NAME}]**\nDoxygen documentation is available at: https://enichy.github.io/Zappy/"
+          WEBHOOK_URL="$DISCORD_WEBHOOK_URL_DOXYGEN"
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{\"content\": \"$MESSAGE\"}" \
+          $WEBHOOK_URL

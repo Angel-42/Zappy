@@ -1,0 +1,34 @@
+\doxysection{State\+Machine Class Reference}
+\hypertarget{classStateMachine}{}\label{classStateMachine}\index{StateMachine@{StateMachine}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classStateMachine_ac9ee51f8dd18a198a05e881539ccb4a6}\label{classStateMachine_ac9ee51f8dd18a198a05e881539ccb4a6} 
+void {\bfseries push\+State} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIState}{IState}} $>$ state)
+\item 
+\Hypertarget{classStateMachine_a1b5258c69ca405ee311e39c9904de099}\label{classStateMachine_a1b5258c69ca405ee311e39c9904de099} 
+void {\bfseries change\+State} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classIState}{IState}} $>$ state)
+\item 
+\Hypertarget{classStateMachine_a4d07313be0f8ef8a8d054302af0bfeb0}\label{classStateMachine_a4d07313be0f8ef8a8d054302af0bfeb0} 
+void {\bfseries pop\+State} ()
+\item 
+\Hypertarget{classStateMachine_a2f6c8838acf55211d012d5fd2a90ac72}\label{classStateMachine_a2f6c8838acf55211d012d5fd2a90ac72} 
+\mbox{\hyperlink{classIState}{IState}} \texorpdfstring{$\ast$}{*} {\bfseries current\+State} ()
+\item 
+\Hypertarget{classStateMachine_a55fceb4fc766532c5223802ad5e4bb7b}\label{classStateMachine_a55fceb4fc766532c5223802ad5e4bb7b} 
+void {\bfseries update} (float delta\+Time)
+\item 
+\Hypertarget{classStateMachine_a2d8604c45dd0ee0d42fb0fdd0849a196}\label{classStateMachine_a2d8604c45dd0ee0d42fb0fdd0849a196} 
+void {\bfseries render} ()
+\item 
+\Hypertarget{classStateMachine_ad7d9c2f83737cce80ea701cd93d130d1}\label{classStateMachine_ad7d9c2f83737cce80ea701cd93d130d1} 
+void {\bfseries handle\+Event} (const sf\+::\+Event \&event)
+\item 
+\Hypertarget{classStateMachine_aa87622ae6c2c3845a62db233f5d78fc8}\label{classStateMachine_aa87622ae6c2c3845a62db233f5d78fc8} 
+bool {\bfseries empty} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/\+State/State\+Machine.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\chapter{🌟 GOAL\+: SURVIVE}
+\hypertarget{md_src_2AI_2doc}{}\label{md_src_2AI_2doc}\index{🌟 GOAL: SURVIVE@{🌟 GOAL: SURVIVE}}
+\label{md_src_2AI_2doc_autotoc_md0}%
+\Hypertarget{md_src_2AI_2doc_autotoc_md0}%
+ {\bfseries{Condition}} \+: \doxylink{classFood}{Food} \texorpdfstring{$<$}{<} 5
+
+{\bfseries{Actions}} \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Inventory}
+\item {\ttfamily Look}
+\item Search tile vision for {\ttfamily food}
+\item Move towards food
+\item {\ttfamily Take food}
+\item If no food → {\ttfamily Forward} and repeat
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_src_2AI_2doc_autotoc_md2}{}\doxysubsection{\texorpdfstring{🌟 GOAL\+: LEVEL UP}{🌟 GOAL: LEVEL UP}}\label{md_src_2AI_2doc_autotoc_md2}
+{\bfseries{Condition}} \+: Has needed stones + enough same-\/level players
+
+{\bfseries{Actions}} \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Inventory}
+\item {\ttfamily Look}
+\item {\ttfamily Broadcast "{}\+RITUAL at (\+X,\+Y) level L"{}}
+\item Wait for allies
+\item {\ttfamily Set linemate}, {\ttfamily Set sibur}, ...
+\item {\ttfamily Incantation}
+\item Check for success
+\end{DoxyItemize}
+
+\begin{quote}
+Use a table to match current level to elevation requirements (from the PDF). \end{quote}
+\hypertarget{md_src_2AI_2doc_autotoc_md3}{}\doxysection{\texorpdfstring{$<$/blockquote$>$}{</blockquote>}}\label{md_src_2AI_2doc_autotoc_md3}
+\hypertarget{md_src_2AI_2doc_autotoc_md4}{}\doxysubsection{\texorpdfstring{🌟 GOAL\+: REPRODUCE}{🌟 GOAL: REPRODUCE}}\label{md_src_2AI_2doc_autotoc_md4}
+{\bfseries{Condition}} \+: {\ttfamily connect\+\_\+nbr} \texorpdfstring{$>$}{>} 0 and inventory has enough food
+
+{\bfseries{Actions}} \+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Fork}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_src_2AI_2doc_autotoc_md6}{}\doxysubsection{\texorpdfstring{🌟 GOAL\+: EXPLORE}{🌟 GOAL: EXPLORE}}\label{md_src_2AI_2doc_autotoc_md6}
+{\bfseries{Condition}} \+: Idle or nothing better to do
+
+{\bfseries{Actions}} \+:
+
+
+\begin{DoxyItemize}
+\item Random movement
+\item {\ttfamily Look} and react to surroundings 
+\end{DoxyItemize}

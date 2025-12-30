@@ -1,0 +1,93 @@
+\doxysection{Sibur Class Reference}
+\hypertarget{classSibur}{}\label{classSibur}\index{Sibur@{Sibur}}
+
+
+Inheritance diagram for Sibur\+:
+% FIG 0
+
+
+Collaboration diagram for Sibur\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSibur_a90246dbf559d679aceb36b832db8b559}\label{classSibur_a90246dbf559d679aceb36b832db8b559} 
+{\bfseries Sibur} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl)
+\item 
+void \mbox{\hyperlink{classSibur_a6b925242ae3dfe71dcaa12a19cb9b2f2}{draw}} () override final
+\item 
+void \mbox{\hyperlink{classSibur_ae381666e3a0a88dfdadaae388dacd26f}{update}} (float delta\+Time) override final
+\item 
+std\+::string \mbox{\hyperlink{classSibur_ae33bffa06462473e5838255f5d31a5f5}{get\+Type}} () const override final
+\item 
+void \mbox{\hyperlink{classSibur_a8bea79259e34e1ad2aa9e535eace3e9e}{get\+Mineral\+Type}} () const override final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSibur_ad80f33a7ab697059913824b84fbe5101}\label{classSibur_ad80f33a7ab697059913824b84fbe5101} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classSibur_aa34b0ba317d6dfd219a7fba17c4da07e}\label{classSibur_aa34b0ba317d6dfd219a7fba17c4da07e} 
+glm\+::vec3 {\bfseries rotation}
+\item 
+\Hypertarget{classSibur_a860ffb6e62d840b68305e4c2ba333796}\label{classSibur_a860ffb6e62d840b68305e4c2ba333796} 
+glm\+::vec3 {\bfseries scale}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSibur_adc4110ebe67b70d3fa09379cfe397ee2}\label{classSibur_adc4110ebe67b70d3fa09379cfe397ee2} 
+static \mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries mesh}
+\item 
+\Hypertarget{classSibur_ac158a9d047527afc4da48874e4ccf921}\label{classSibur_ac158a9d047527afc4da48874e4ccf921} 
+static GLuint {\bfseries texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSibur_a6b925242ae3dfe71dcaa12a19cb9b2f2}\label{classSibur_a6b925242ae3dfe71dcaa12a19cb9b2f2} 
+\index{Sibur@{Sibur}!draw@{draw}}
+\index{draw@{draw}!Sibur@{Sibur}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Sibur\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classSibur_a8bea79259e34e1ad2aa9e535eace3e9e}\label{classSibur_a8bea79259e34e1ad2aa9e535eace3e9e} 
+\index{Sibur@{Sibur}!getMineralType@{getMineralType}}
+\index{getMineralType@{getMineralType}!Sibur@{Sibur}}
+\doxysubsubsection{\texorpdfstring{getMineralType()}{getMineralType()}}
+{\footnotesize\ttfamily void Sibur\+::get\+Mineral\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIMinerals}{IMinerals}}.
+
+\Hypertarget{classSibur_ae33bffa06462473e5838255f5d31a5f5}\label{classSibur_ae33bffa06462473e5838255f5d31a5f5} 
+\index{Sibur@{Sibur}!getType@{getType}}
+\index{getType@{getType}!Sibur@{Sibur}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Sibur\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classSibur_ae381666e3a0a88dfdadaae388dacd26f}\label{classSibur_ae381666e3a0a88dfdadaae388dacd26f} 
+\index{Sibur@{Sibur}!update@{update}}
+\index{update@{update}!Sibur@{Sibur}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Sibur\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+GRessources/\+Minerals/\+Sibur/Sibur.\+hpp\end{DoxyCompactItemize}

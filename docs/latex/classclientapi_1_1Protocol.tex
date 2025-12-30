@@ -1,0 +1,220 @@
+\doxysection{clientapi\+::Protocol Class Reference}
+\hypertarget{classclientapi_1_1Protocol}{}\label{classclientapi_1_1Protocol}\index{clientapi::Protocol@{clientapi::Protocol}}
+
+
+Static utility class containing all Zappy network protocol constants and helper functions.  
+
+
+
+
+{\ttfamily \#include $<$Protocol.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classclientapi_1_1Protocol_ae815951016cf1eedf1256088d84b9689}{is\+Valid\+Command}} (const std\+::string \&command)
+\begin{DoxyCompactList}\small\item\em Validates if a command string is a recognized Zappy command. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ae8611d00b73c9060f2c6841073a2930a}\label{classclientapi_1_1Protocol_ae8611d00b73c9060f2c6841073a2930a} 
+static int {\bfseries get\+Command\+Time\+Limit} (const std\+::string \&command)
+\item 
+\Hypertarget{classclientapi_1_1Protocol_a99ba5863e0899fd97c392b2e44e7ab24}\label{classclientapi_1_1Protocol_a99ba5863e0899fd97c392b2e44e7ab24} 
+static std\+::string {\bfseries parse\+Command\+Name} (const std\+::string \&full\+Command)
+\item 
+\Hypertarget{classclientapi_1_1Protocol_acf97d9a8307208c80dd9348c6dc023d9}\label{classclientapi_1_1Protocol_acf97d9a8307208c80dd9348c6dc023d9} 
+static std\+::string {\bfseries parse\+Command\+Arguments} (const std\+::string \&full\+Command)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{classclientapi_1_1Protocol_a1802059e0e0e11990ca30afacda3118f}{WELCOME\+\_\+\+MESSAGE}} = "{}WELCOME"{}
+\begin{DoxyCompactList}\small\item\em Initial message sent to new connections\+: "{}\+WELCOME"{}. \end{DoxyCompactList}\item 
+static const std\+::string \mbox{\hyperlink{classclientapi_1_1Protocol_a2bd318364da788a46735c2fdc0f75705}{GRAPHIC\+\_\+\+TEAM}} = "{}GRAPHIC"{}
+\begin{DoxyCompactList}\small\item\em Reserved team name for GUI clients\+: "{}\+GRAPHIC"{}. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a536e8a1f712b026e6319d291a06f1639}\label{classclientapi_1_1Protocol_a536e8a1f712b026e6319d291a06f1639} 
+static const std\+::string {\bfseries CMD\+\_\+\+FORWARD} = "{}Forward"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Forward"{} -\/ Move up one tile (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a6a9e3a8f2b09a381f02d03ac9a29bfdf}\label{classclientapi_1_1Protocol_a6a9e3a8f2b09a381f02d03ac9a29bfdf} 
+static const std\+::string {\bfseries CMD\+\_\+\+RIGHT} = "{}Right"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Right"{} -\/ Turn 90° right (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_aef7913c77e81891f686a9865761580f2}\label{classclientapi_1_1Protocol_aef7913c77e81891f686a9865761580f2} 
+static const std\+::string {\bfseries CMD\+\_\+\+LEFT} = "{}Left"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Left"{} -\/ Turn 90° left (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a59830904fd298c338ecb7285217c9eba}\label{classclientapi_1_1Protocol_a59830904fd298c338ecb7285217c9eba} 
+static const std\+::string {\bfseries CMD\+\_\+\+LOOK} = "{}Look"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Look"{} -\/ \doxylink{classclientapi_1_1Look}{Look} around (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a7315e151396a7a80f8f9abc528f3d9b5}\label{classclientapi_1_1Protocol_a7315e151396a7a80f8f9abc528f3d9b5} 
+static const std\+::string {\bfseries CMD\+\_\+\+INVENTORY} = "{}Inventory"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Inventory"{} -\/ Check inventory (1/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a2e1a70d7c2ce08b4cba8857d8385f113}\label{classclientapi_1_1Protocol_a2e1a70d7c2ce08b4cba8857d8385f113} 
+static const std\+::string {\bfseries CMD\+\_\+\+BROADCAST} = "{}Broadcast"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Broadcast"{} -\/ Send message to all players (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_af04d80206bd03aeb7ae8c306cb5b176e}\label{classclientapi_1_1Protocol_af04d80206bd03aeb7ae8c306cb5b176e} 
+static const std\+::string {\bfseries CMD\+\_\+\+CONNECT\+\_\+\+NBR} = "{}Connect\+\_\+nbr"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Connect\+\_\+nbr"{} -\/ Get available team slots (instant) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ae0d1858efda495976d6fefce071da037}\label{classclientapi_1_1Protocol_ae0d1858efda495976d6fefce071da037} 
+static const std\+::string {\bfseries CMD\+\_\+\+FORK} = "{}Fork"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Fork"{} -\/ Create new player slot (42/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a06568b03f8370ae13bf3d8c598d3f38d}\label{classclientapi_1_1Protocol_a06568b03f8370ae13bf3d8c598d3f38d} 
+static const std\+::string {\bfseries CMD\+\_\+\+EJECT} = "{}Eject"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Eject"{} -\/ \doxylink{classclientapi_1_1Eject}{Eject} players from tile (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_aeaed4cddaade9ab48dcd5fc0f6d930cc}\label{classclientapi_1_1Protocol_aeaed4cddaade9ab48dcd5fc0f6d930cc} 
+static const std\+::string {\bfseries CMD\+\_\+\+TAKE} = "{}Take"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Take"{} -\/ Pick up object (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ad8631ed29b529066219ef7b5bf31dd05}\label{classclientapi_1_1Protocol_ad8631ed29b529066219ef7b5bf31dd05} 
+static const std\+::string {\bfseries CMD\+\_\+\+SET} = "{}Set"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Set"{} -\/ Drop object (7/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a51eec3fc93d6ca4a6a85db923d7a0cf7}\label{classclientapi_1_1Protocol_a51eec3fc93d6ca4a6a85db923d7a0cf7} 
+static const std\+::string {\bfseries CMD\+\_\+\+INCANTATION} = "{}Incantation"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Incantation"{} -\/ Start elevation ritual (300/f time units) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ab19c0959389eb425af2121c7817524bc}\label{classclientapi_1_1Protocol_ab19c0959389eb425af2121c7817524bc} 
+static const std\+::string {\bfseries RESP\+\_\+\+OK} = "{}ok"{}
+\begin{DoxyCompactList}\small\item\em "{}ok"{} -\/ Command executed successfully \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a581b1615e97c9647ef24e494db2b6e56}\label{classclientapi_1_1Protocol_a581b1615e97c9647ef24e494db2b6e56} 
+static const std\+::string {\bfseries RESP\+\_\+\+KO} = "{}ko"{}
+\begin{DoxyCompactList}\small\item\em "{}ko"{} -\/ Command failed or invalid \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a0a65f6d2cf6b8cc5a089eadcd4ee41e9}\label{classclientapi_1_1Protocol_a0a65f6d2cf6b8cc5a089eadcd4ee41e9} 
+static const std\+::string {\bfseries RESP\+\_\+\+DEAD} = "{}dead"{}
+\begin{DoxyCompactList}\small\item\em "{}dead"{} -\/ \doxylink{classclientapi_1_1Player}{Player} has died \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a237d704a0329517a116bd61bb304535b}\label{classclientapi_1_1Protocol_a237d704a0329517a116bd61bb304535b} 
+static const std\+::string {\bfseries RESP\+\_\+\+ELEVATION\+\_\+\+UNDERWAY} = "{}Elevation underway"{}
+\begin{DoxyCompactList}\small\item\em "{}\+Elevation underway"{} -\/ \doxylink{classclientapi_1_1Incantation}{Incantation} in progress \end{DoxyCompactList}\item 
+static const int \mbox{\hyperlink{classclientapi_1_1Protocol_a7e0bf2670854b94fc45642f02f28bdc8}{TIME\+\_\+\+MOVEMENT}} = 7
+\begin{DoxyCompactList}\small\item\em Time limit for movement commands (Forward, Right, Left, \doxylink{classclientapi_1_1Look}{Look}, \doxylink{classclientapi_1_1Broadcast}{Broadcast}, \doxylink{classclientapi_1_1Eject}{Eject}, Take, Set) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a112d4c1b2c708008773a0cab10711d3e}\label{classclientapi_1_1Protocol_a112d4c1b2c708008773a0cab10711d3e} 
+static const int {\bfseries TIME\+\_\+\+LOOK} = 7
+\begin{DoxyCompactList}\small\item\em \doxylink{classclientapi_1_1Look}{Look} command time limit. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ae5fb0012cf16038574aa23f8b2fe6b19}\label{classclientapi_1_1Protocol_ae5fb0012cf16038574aa23f8b2fe6b19} 
+static const int {\bfseries TIME\+\_\+\+INVENTORY} = 1
+\begin{DoxyCompactList}\small\item\em \doxylink{classclientapi_1_1Inventory}{Inventory} command time limit (fastest) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ae50599f2f718909497480bd3326e2180}\label{classclientapi_1_1Protocol_ae50599f2f718909497480bd3326e2180} 
+static const int {\bfseries TIME\+\_\+\+BROADCAST} = 7
+\begin{DoxyCompactList}\small\item\em \doxylink{classclientapi_1_1Broadcast}{Broadcast} command time limit. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a1bbeb9d4661c7a5cbc3267535e9ae349}\label{classclientapi_1_1Protocol_a1bbeb9d4661c7a5cbc3267535e9ae349} 
+static const int {\bfseries TIME\+\_\+\+FORK} = 42
+\begin{DoxyCompactList}\small\item\em \doxylink{classclientapi_1_1Fork}{Fork} command time limit (creates new player) \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a0c39749ad861d6b87c4e796763560c25}\label{classclientapi_1_1Protocol_a0c39749ad861d6b87c4e796763560c25} 
+static const int {\bfseries TIME\+\_\+\+EJECT} = 7
+\begin{DoxyCompactList}\small\item\em \doxylink{classclientapi_1_1Eject}{Eject} command time limit. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_a88caef88fe6327c3bdb19fd8a6693a18}\label{classclientapi_1_1Protocol_a88caef88fe6327c3bdb19fd8a6693a18} 
+static const int {\bfseries TIME\+\_\+\+TAKE\+\_\+\+SET} = 7
+\begin{DoxyCompactList}\small\item\em Take/\+Set object time limit. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1Protocol_ae3d63544e4477cb8d37419d70212649a}\label{classclientapi_1_1Protocol_ae3d63544e4477cb8d37419d70212649a} 
+static const int {\bfseries TIME\+\_\+\+INCANTATION} = 300
+\begin{DoxyCompactList}\small\item\em \doxylink{classclientapi_1_1Incantation}{Incantation} time limit (longest action) \end{DoxyCompactList}\item 
+static const int \mbox{\hyperlink{classclientapi_1_1Protocol_a362b0ed48002da0de5b4fd7e72be2743}{MAX\+\_\+\+BUFFERED\+\_\+\+COMMANDS}} = 10
+\begin{DoxyCompactList}\small\item\em Maximum number of commands a client can buffer before server drops new ones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Static utility class containing all Zappy network protocol constants and helper functions. 
+
+This class centralizes all protocol-\/related constants and provides utilities for\+:
+\begin{DoxyItemize}
+\item Command validation and parsing
+\item Message formatting according to Zappy specification
+\item Time limit management for different commands
+\item \doxylink{classclientapi_1_1Protocol}{Protocol} compliance checking
+\end{DoxyItemize}
+
+The \doxylink{classclientapi_1_1Protocol}{Protocol} class implements the exact specifications from the Zappy project requirements\+:
+\begin{DoxyItemize}
+\item AI client commands with proper time limits
+\item Standard response messages (ok, ko, dead, etc.)
+\item Command buffer limits (max 10 commands)
+\item Authentication flow (WELCOME -\/\texorpdfstring{$>$}{>} team name -\/\texorpdfstring{$>$}{>} game info)
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+All members are static -\/ this is a utility class, not meant to be instantiated 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classclientapi_1_1Protocol_ae815951016cf1eedf1256088d84b9689}\label{classclientapi_1_1Protocol_ae815951016cf1eedf1256088d84b9689} 
+\index{clientapi::Protocol@{clientapi::Protocol}!isValidCommand@{isValidCommand}}
+\index{isValidCommand@{isValidCommand}!clientapi::Protocol@{clientapi::Protocol}}
+\doxysubsubsection{\texorpdfstring{isValidCommand()}{isValidCommand()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Protocol\+::is\+Valid\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Validates if a command string is a recognized Zappy command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command string to validate (e.\+g., "{}\+Forward"{}, "{}\+Broadcast hello"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if command is valid, false otherwise
+\end{DoxyReturn}
+Checks only the command name part, ignoring arguments. Case-\/sensitive matching as per Zappy specification. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}{/home/angel/dev/school/\+Zappy/\+Zappy/src/\+Client\+API/\+Network/\+Protocol.\+hpp}}.\end{Desc}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classclientapi_1_1Protocol_a2bd318364da788a46735c2fdc0f75705}\label{classclientapi_1_1Protocol_a2bd318364da788a46735c2fdc0f75705} 
+\index{clientapi::Protocol@{clientapi::Protocol}!GRAPHIC\_TEAM@{GRAPHIC\_TEAM}}
+\index{GRAPHIC\_TEAM@{GRAPHIC\_TEAM}!clientapi::Protocol@{clientapi::Protocol}}
+\doxysubsubsection{\texorpdfstring{GRAPHIC\_TEAM}{GRAPHIC\_TEAM}}
+{\footnotesize\ttfamily const std\+::string clientapi\+::\+Protocol\+::\+GRAPHIC\+\_\+\+TEAM = "{}GRAPHIC"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reserved team name for GUI clients\+: "{}\+GRAPHIC"{}. 
+
+GUI clients authenticate by sending "{}\+GRAPHIC"{} as their team name. This triggers special handling and different game information format. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}{/home/angel/dev/school/\+Zappy/\+Zappy/src/\+Client\+API/\+Network/\+Protocol.\+hpp}}.\end{Desc}
+\Hypertarget{classclientapi_1_1Protocol_a362b0ed48002da0de5b4fd7e72be2743}\label{classclientapi_1_1Protocol_a362b0ed48002da0de5b4fd7e72be2743} 
+\index{clientapi::Protocol@{clientapi::Protocol}!MAX\_BUFFERED\_COMMANDS@{MAX\_BUFFERED\_COMMANDS}}
+\index{MAX\_BUFFERED\_COMMANDS@{MAX\_BUFFERED\_COMMANDS}!clientapi::Protocol@{clientapi::Protocol}}
+\doxysubsubsection{\texorpdfstring{MAX\_BUFFERED\_COMMANDS}{MAX\_BUFFERED\_COMMANDS}}
+{\footnotesize\ttfamily const int clientapi\+::\+Protocol\+::\+MAX\+\_\+\+BUFFERED\+\_\+\+COMMANDS = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Maximum number of commands a client can buffer before server drops new ones. 
+
+From specification\+: "{}\+The client can send up to 10 requests in a row without any  response from the server. Over 10, the server will no longer take them into account."{} \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}{/home/angel/dev/school/\+Zappy/\+Zappy/src/\+Client\+API/\+Network/\+Protocol.\+hpp}}.\end{Desc}
+\Hypertarget{classclientapi_1_1Protocol_a7e0bf2670854b94fc45642f02f28bdc8}\label{classclientapi_1_1Protocol_a7e0bf2670854b94fc45642f02f28bdc8} 
+\index{clientapi::Protocol@{clientapi::Protocol}!TIME\_MOVEMENT@{TIME\_MOVEMENT}}
+\index{TIME\_MOVEMENT@{TIME\_MOVEMENT}!clientapi::Protocol@{clientapi::Protocol}}
+\doxysubsubsection{\texorpdfstring{TIME\_MOVEMENT}{TIME\_MOVEMENT}}
+{\footnotesize\ttfamily const int clientapi\+::\+Protocol\+::\+TIME\+\_\+\+MOVEMENT = 7\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Time limit for movement commands (Forward, Right, Left, \doxylink{classclientapi_1_1Look}{Look}, \doxylink{classclientapi_1_1Broadcast}{Broadcast}, \doxylink{classclientapi_1_1Eject}{Eject}, Take, Set) 
+
+All basic movement and interaction commands take 7 time units. Actual time = 7 / frequency seconds (e.\+g., 7/100 = 0.\+07s with default frequency) \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}{/home/angel/dev/school/\+Zappy/\+Zappy/src/\+Client\+API/\+Network/\+Protocol.\+hpp}}.\end{Desc}
+\Hypertarget{classclientapi_1_1Protocol_a1802059e0e0e11990ca30afacda3118f}\label{classclientapi_1_1Protocol_a1802059e0e0e11990ca30afacda3118f} 
+\index{clientapi::Protocol@{clientapi::Protocol}!WELCOME\_MESSAGE@{WELCOME\_MESSAGE}}
+\index{WELCOME\_MESSAGE@{WELCOME\_MESSAGE}!clientapi::Protocol@{clientapi::Protocol}}
+\doxysubsubsection{\texorpdfstring{WELCOME\_MESSAGE}{WELCOME\_MESSAGE}}
+{\footnotesize\ttfamily const std\+::string clientapi\+::\+Protocol\+::\+WELCOME\+\_\+\+MESSAGE = "{}WELCOME"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initial message sent to new connections\+: "{}\+WELCOME"{}. 
+
+According to Zappy protocol\+:
+\begin{DoxyEnumerate}
+\item Client connects
+\item Server sends "{}\+WELCOME\textbackslash{}n"{}
+\item Client responds with team name
+\item Server sends game information 
+\end{DoxyEnumerate}\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}{/home/angel/dev/school/\+Zappy/\+Zappy/src/\+Client\+API/\+Network/\+Protocol.\+hpp}}.\end{Desc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Network/Protocol.\+hpp\item 
+src/\+Client\+API/\+Network/Protocol.\+cpp\end{DoxyCompactItemize}

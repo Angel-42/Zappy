@@ -1,0 +1,169 @@
+\doxysection{renderer3d\+::Player Class Reference}
+\hypertarget{classrenderer3d_1_1Player}{}\label{classrenderer3d_1_1Player}\index{renderer3d::Player@{renderer3d::Player}}
+
+
+Inheritance diagram for renderer3d\+::Player\+:
+% FIG 0
+
+
+Collaboration diagram for renderer3d\+::Player\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a98aac04c2a3c9df9e87276601695d350}\label{classrenderer3d_1_1Player_a98aac04c2a3c9df9e87276601695d350} 
+{\bfseries Player} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl, const std\+::string \&team)
+\item 
+void \mbox{\hyperlink{classrenderer3d_1_1Player_a7abe0fbf95b42b9ff4a2c0c7d334bc68}{draw}} () override
+\item 
+void \mbox{\hyperlink{classrenderer3d_1_1Player_a9acd4c2abd2a98d54a4bc574452c20a7}{update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classrenderer3d_1_1Player_a78d392168ff3b4033ca61200cb27eb25}{set\+Position}} (const glm\+::vec3 \&pos) override
+\item 
+glm\+::vec3 \mbox{\hyperlink{classrenderer3d_1_1Player_accae668811a70cc0979918fa30824416}{get\+Position}} () const override
+\item 
+void \mbox{\hyperlink{classrenderer3d_1_1Player_ac29bbe05c19cf25fb1dedfd39c3315e6}{set\+Rotation}} (const glm\+::vec3 \&rot) override
+\item 
+glm\+::vec3 \mbox{\hyperlink{classrenderer3d_1_1Player_a219a7aa4122cfefb199cb89ea98dc1c4}{get\+Rotation}} () const override
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a9d0752b614cb4101f870659265cad7e8}\label{classrenderer3d_1_1Player_a9d0752b614cb4101f870659265cad7e8} 
+void {\bfseries set\+Scale} (const glm\+::vec3 \&scl)
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a0814321f40b62a7a6b74da47c47ea6c8}\label{classrenderer3d_1_1Player_a0814321f40b62a7a6b74da47c47ea6c8} 
+glm\+::vec3 {\bfseries get\+Scale} () const
+\item 
+void \mbox{\hyperlink{classrenderer3d_1_1Player_a28af8b23720dac9cdbd05293ee4d765e}{set\+Team}} (const std\+::string \&team) override
+\item 
+std\+::string \mbox{\hyperlink{classrenderer3d_1_1Player_a30c39b0f99ddfd518272c0531cf060b2}{get\+Team}} () const override
+\item 
+void \mbox{\hyperlink{classrenderer3d_1_1Player_a1d98a0effca3333865eb4d03fa40d59d}{set\+Aura\+Color}} (const glm\+::vec3 \&color) override
+\item 
+glm\+::vec3 \mbox{\hyperlink{classrenderer3d_1_1Player_a1b11605f1743e91110654f7f2c2351a2}{get\+Aura\+Color}} () const override
+\item 
+\Hypertarget{classrenderer3d_1_1Player_abf8a4f676928775c2bd862521583c059}\label{classrenderer3d_1_1Player_abf8a4f676928775c2bd862521583c059} 
+void {\bfseries move} (const glm\+::vec3 \&direction, float speed)
+\item 
+\Hypertarget{classrenderer3d_1_1Player_aa66c124d5e7cf20c896b33a4aefc7b10}\label{classrenderer3d_1_1Player_aa66c124d5e7cf20c896b33a4aefc7b10} 
+void {\bfseries rotate} (const glm\+::vec3 \&axis, float angle)
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a4e6ed77e2571e440e0f07ad9daa60d6f}\label{classrenderer3d_1_1Player_a4e6ed77e2571e440e0f07ad9daa60d6f} 
+void {\bfseries set\+Mesh} (\mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*}m)
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a7d49fb4577284ae42450447f1559c0ad}\label{classrenderer3d_1_1Player_a7d49fb4577284ae42450447f1559c0ad} 
+\mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Mesh} () const
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a3f9d0aa9b2f9f7f83af8319969d628ec}\label{classrenderer3d_1_1Player_a3f9d0aa9b2f9f7f83af8319969d628ec} 
+void {\bfseries set\+Texture\+Id} (GLuint id)
+\item 
+\Hypertarget{classrenderer3d_1_1Player_a577ba581dcc863528b178c7b2d5dea27}\label{classrenderer3d_1_1Player_a577ba581dcc863528b178c7b2d5dea27} 
+GLuint {\bfseries get\+Texture\+Id} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrenderer3d_1_1Player_a7abe0fbf95b42b9ff4a2c0c7d334bc68}\label{classrenderer3d_1_1Player_a7abe0fbf95b42b9ff4a2c0c7d334bc68} 
+\index{renderer3d::Player@{renderer3d::Player}!draw@{draw}}
+\index{draw@{draw}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Player\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a1b11605f1743e91110654f7f2c2351a2}\label{classrenderer3d_1_1Player_a1b11605f1743e91110654f7f2c2351a2} 
+\index{renderer3d::Player@{renderer3d::Player}!getAuraColor@{getAuraColor}}
+\index{getAuraColor@{getAuraColor}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{getAuraColor()}{getAuraColor()}}
+{\footnotesize\ttfamily glm\+::vec3 Player\+::get\+Aura\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_accae668811a70cc0979918fa30824416}\label{classrenderer3d_1_1Player_accae668811a70cc0979918fa30824416} 
+\index{renderer3d::Player@{renderer3d::Player}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily glm\+::vec3 Player\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a219a7aa4122cfefb199cb89ea98dc1c4}\label{classrenderer3d_1_1Player_a219a7aa4122cfefb199cb89ea98dc1c4} 
+\index{renderer3d::Player@{renderer3d::Player}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily glm\+::vec3 Player\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a30c39b0f99ddfd518272c0531cf060b2}\label{classrenderer3d_1_1Player_a30c39b0f99ddfd518272c0531cf060b2} 
+\index{renderer3d::Player@{renderer3d::Player}!getTeam@{getTeam}}
+\index{getTeam@{getTeam}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}}
+{\footnotesize\ttfamily std\+::string Player\+::get\+Team (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a1d98a0effca3333865eb4d03fa40d59d}\label{classrenderer3d_1_1Player_a1d98a0effca3333865eb4d03fa40d59d} 
+\index{renderer3d::Player@{renderer3d::Player}!setAuraColor@{setAuraColor}}
+\index{setAuraColor@{setAuraColor}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{setAuraColor()}{setAuraColor()}}
+{\footnotesize\ttfamily void Player\+::set\+Aura\+Color (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a78d392168ff3b4033ca61200cb27eb25}\label{classrenderer3d_1_1Player_a78d392168ff3b4033ca61200cb27eb25} 
+\index{renderer3d::Player@{renderer3d::Player}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Player\+::set\+Position (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_ac29bbe05c19cf25fb1dedfd39c3315e6}\label{classrenderer3d_1_1Player_ac29bbe05c19cf25fb1dedfd39c3315e6} 
+\index{renderer3d::Player@{renderer3d::Player}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily void Player\+::set\+Rotation (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a28af8b23720dac9cdbd05293ee4d765e}\label{classrenderer3d_1_1Player_a28af8b23720dac9cdbd05293ee4d765e} 
+\index{renderer3d::Player@{renderer3d::Player}!setTeam@{setTeam}}
+\index{setTeam@{setTeam}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{setTeam()}{setTeam()}}
+{\footnotesize\ttfamily void Player\+::set\+Team (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{team }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+\Hypertarget{classrenderer3d_1_1Player_a9acd4c2abd2a98d54a4bc574452c20a7}\label{classrenderer3d_1_1Player_a9acd4c2abd2a98d54a4bc574452c20a7} 
+\index{renderer3d::Player@{renderer3d::Player}!update@{update}}
+\index{update@{update}!renderer3d::Player@{renderer3d::Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIPlayer}{IPlayer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+Players/Player.\+hpp\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+Players/Player.\+cpp\end{DoxyCompactItemize}

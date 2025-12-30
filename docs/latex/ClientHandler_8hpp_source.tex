@@ -1,0 +1,96 @@
+\doxysection{Client\+Handler.\+hpp}
+\hypertarget{ClientHandler_8hpp_source}{}\label{ClientHandler_8hpp_source}\index{src/ClientAPI/Network/ClientHandler.hpp@{src/ClientAPI/Network/ClientHandler.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ ClientHandler\ -\/\ Manages\ individual\ client\ connections\ and\ protocol\ handling}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ CLIENTHANDLER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ CLIENTHANDLER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Player/Player.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}CommandBuffer.hpp"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }ConnectionManager;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{enum\ class}\ ClientType\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ UNKNOWN,\ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ AI,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ GRAPHIC\ \ \ \ \ }
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1ClientHandler}{ClientHandler}}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1ClientHandler}{ClientHandler}}(\textcolor{keywordtype}{int}\ socket,\ \mbox{\hyperlink{classclientapi_1_1ConnectionManager}{ConnectionManager}}*\ manager);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a0f63683e7c1e3ed5cee4a25af0b67454}{\string~ClientHandler}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Network\ I/O\ Management}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a96cabc498142cdc1daed10f737a64525}{handleIncomingData}}();}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a9d6ebf8e473211ac5c4e12000f5daf01}{sendResponse}}(\textcolor{keyword}{const}\ std::string\&\ response);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_ad1c42e5c42678b1df68bcc39d93928bb}{sendWelcome}}();}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Authentication\ and\ Client\ Management}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a55563ba4270f4f48b7ce3e29b6058dd4}{authenticate}}(\textcolor{keyword}{const}\ std::string\&\ teamName);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a700a7f7afdba16111ffd7691fd9aad4f}{isAuthenticated}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_clientType\ !=\ ClientType::UNKNOWN;\ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Client\ Information\ Access}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_ad7644b888014760d6492e9ec198afb1f}{getSocket}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_socket;\ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a08f5f58dc7a4689dc4046ca2ea941f73}{getTeamName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_teamName;\ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ ClientType\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a73b98f90274478068ea7bc8d176832ed}{getClientType}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_clientType;\ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Player}{Player}}*\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_a761b1a340764c5b6647879352441f97a}{getPlayer}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_player.get();\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command\ Processing}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classclientapi_1_1ClientHandler_ada49ecdd7a7c1be43a99e46d63c31193}{processCommand}}(\textcolor{keyword}{const}\ std::string\&\ command);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Network\ connection}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_socket;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1ConnectionManager}{ConnectionManager}}*\ \_connectionManager;\ \ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Client\ state}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ ClientType\ \_clientType;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ std::string\ \_teamName;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Game\ objects\ (AI\ clients\ only)}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ std::unique\_ptr<Player>\ \_player;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ std::unique\_ptr<CommandBuffer>\ \_commandBuffer;\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Network\ buffering}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ std::string\ \_inputBuffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleAuthenticationResponse(\textcolor{keyword}{const}\ std::string\&\ input);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendGameInfo();}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ readFromSocket();}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processBufferedInput();}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ std::vector<std::string>\ splitCommands(\textcolor{keyword}{const}\ std::string\&\ input);}
+\DoxyCodeLine{00233\ \};}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !CLIENTHANDLER\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

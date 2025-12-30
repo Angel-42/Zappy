@@ -1,0 +1,46 @@
+\doxysection{clientapi\+::Game\+Manager Class Reference}
+\hypertarget{classclientapi_1_1GameManager}{}\label{classclientapi_1_1GameManager}\index{clientapi::GameManager@{clientapi::GameManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a9f7b49ea53f87ed95beed29b11b39a3a}\label{classclientapi_1_1GameManager_a9f7b49ea53f87ed95beed29b11b39a3a} 
+void {\bfseries start\+Game} ()
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a0b25b0a7d3cb92f21cb0d3b62f98cc1e}\label{classclientapi_1_1GameManager_a0b25b0a7d3cb92f21cb0d3b62f98cc1e} 
+void {\bfseries pause\+Game} ()
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a6958800167cf2c28d752593a6d662631}\label{classclientapi_1_1GameManager_a6958800167cf2c28d752593a6d662631} 
+void {\bfseries end\+Game} ()
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a8159e7c878a2e1254d6825e164a96417}\label{classclientapi_1_1GameManager_a8159e7c878a2e1254d6825e164a96417} 
+\mbox{\hyperlink{classGameState}{Game\+State}} {\bfseries get\+Game\+State} () const
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a1a64c750664b7ec21482f12f3f5b9fd5}\label{classclientapi_1_1GameManager_a1a64c750664b7ec21482f12f3f5b9fd5} 
+void {\bfseries check\+Game\+End} (\mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*}map, \mbox{\hyperlink{classclientapi_1_1PlayerManager}{Player\+Manager}} \texorpdfstring{$\ast$}{*}player\+Manager, \mbox{\hyperlink{classclientapi_1_1TeamManager}{Team\+Manager}} \texorpdfstring{$\ast$}{*}team\+Manager)
+\item 
+\Hypertarget{classclientapi_1_1GameManager_ac72aaa60a120e39e1dbae094e745c7b9}\label{classclientapi_1_1GameManager_ac72aaa60a120e39e1dbae094e745c7b9} 
+bool {\bfseries process\+Incantation} (\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*}map, \mbox{\hyperlink{classclientapi_1_1PlayerManager}{Player\+Manager}} \texorpdfstring{$\ast$}{*}player\+Manager)
+\item 
+\Hypertarget{classclientapi_1_1GameManager_ae63b2940db1cf669af353adbe36a1888}\label{classclientapi_1_1GameManager_ae63b2940db1cf669af353adbe36a1888} 
+void {\bfseries process\+Player\+Action} (\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player, const std\+::string \&action, \mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*}map)
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a85828e506adfed2747b3cb660b0b3444}\label{classclientapi_1_1GameManager_a85828e506adfed2747b3cb660b0b3444} 
+\mbox{\hyperlink{classclientapi_1_1Team}{Team}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Winning\+Team} () const
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a3ddce51d34bb19ddcfb34d1dedd8bdb6}\label{classclientapi_1_1GameManager_a3ddce51d34bb19ddcfb34d1dedd8bdb6} 
+bool {\bfseries is\+Game\+Complete} () const
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a5a1a09fe753f78d111a84743e16bf194}\label{classclientapi_1_1GameManager_a5a1a09fe753f78d111a84743e16bf194} 
+bool {\bfseries can\+Player\+Perform\+Action} (\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player, const std\+::string \&action) const
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a3e107f3926b30fcf3db3ebd36bc5b8bc}\label{classclientapi_1_1GameManager_a3e107f3926b30fcf3db3ebd36bc5b8bc} 
+void {\bfseries handle\+Player\+Death} (\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*}map, \mbox{\hyperlink{classclientapi_1_1PlayerManager}{Player\+Manager}} \texorpdfstring{$\ast$}{*}player\+Manager)
+\item 
+\Hypertarget{classclientapi_1_1GameManager_a2de8e4b81ddd8e3d8fb12c1900bbb1a0}\label{classclientapi_1_1GameManager_a2de8e4b81ddd8e3d8fb12c1900bbb1a0} 
+void {\bfseries respawn\+Player} (\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*}map)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/Game\+Manager.\+hpp\end{DoxyCompactItemize}

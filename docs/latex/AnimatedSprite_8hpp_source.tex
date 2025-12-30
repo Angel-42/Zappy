@@ -1,0 +1,61 @@
+\doxysection{Animated\+Sprite.\+hpp}
+\hypertarget{AnimatedSprite_8hpp_source}{}\label{AnimatedSprite_8hpp_source}\index{src/GUI/SFMLUtils/AnimatedSprites/AnimatedSprite.hpp@{src/GUI/SFMLUtils/AnimatedSprites/AnimatedSprite.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ AnimatedSprite.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAnimatedSprite}{AnimatedSprite}}\ :\ \textcolor{keyword}{public}\ sf::Drawable,\ \textcolor{keyword}{public}\ sf::Transformable}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{using\ }Callback\ =\ std::function<void()>;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classAnimatedSprite}{AnimatedSprite}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classAnimatedSprite}{AnimatedSprite}}(\textcolor{keyword}{const}\ sf::Texture\&\ texture,\ std::size\_t\ frameWidth,\ std::size\_t\ frameHeight,\ \textcolor{keywordtype}{float}\ frameTime\ =\ 0.1f);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ setTexture(\textcolor{keyword}{const}\ sf::Texture\&\ texture,\ std::size\_t\ frameWidth,\ std::size\_t\ frameHeight);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ addFrame(\textcolor{keyword}{const}\ sf::IntRect\&\ rect);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ setFrameTime(\textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ setLooped(\textcolor{keywordtype}{bool}\ looped);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ setCallback(Callback\ cb);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ play();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ pause();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ stop();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPlaying()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ isLooped()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \ \ std::size\_t\ getFrameCount()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ std::size\_t\ getCurrentFrame()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderTarget\&\ target,\ sf::RenderStates\ states)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ std::vector<sf::IntRect>\ m\_frames;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ sf::Texture*\ m\_texture\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_frameTime\ =\ 0.1f;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_currentTime\ =\ 0.f;}
+\DoxyCodeLine{00049\ \ \ \ \ std::size\_t\ m\_currentFrame\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ std::atomic<bool>\ m\_playing\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00051\ \ \ \ \ std::atomic<bool>\ m\_looped\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ m\_mutex;}
+\DoxyCodeLine{00053\ \ \ \ \ Callback\ m\_callback\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00054\ \ \ \ \ sf::Sprite\ m\_sprite;}
+\DoxyCodeLine{00055\ \};}
+
+\end{DoxyCode}

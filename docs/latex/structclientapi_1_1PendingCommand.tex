@@ -1,0 +1,64 @@
+\doxysection{clientapi\+::Pending\+Command Struct Reference}
+\hypertarget{structclientapi_1_1PendingCommand}{}\label{structclientapi_1_1PendingCommand}\index{clientapi::PendingCommand@{clientapi::PendingCommand}}
+
+
+Represents a command waiting for execution with timing information.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Buffer.\+hpp$>$}
+
+
+
+Collaboration diagram for clientapi\+::Pending\+Command\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structclientapi_1_1PendingCommand_a4462fd633144dec5f83896c57bd39d63}{Pending\+Command}} (const std\+::string \&cmd, \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}p, int time)
+\begin{DoxyCompactList}\small\item\em Constructs a new pending command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structclientapi_1_1PendingCommand_a35c06aa3c2a59d23fb4656ccc7c582c7}\label{structclientapi_1_1PendingCommand_a35c06aa3c2a59d23fb4656ccc7c582c7} 
+std\+::string {\bfseries command}
+\begin{DoxyCompactList}\small\item\em The full command string (e.\+g., "{}\+Broadcast hello"{}) \end{DoxyCompactList}\item 
+\Hypertarget{structclientapi_1_1PendingCommand_a3a1e20129b1cc333080e3b1be92eb137}\label{structclientapi_1_1PendingCommand_a3a1e20129b1cc333080e3b1be92eb137} 
+\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries player}
+\begin{DoxyCompactList}\small\item\em The player who issued this command. \end{DoxyCompactList}\item 
+\Hypertarget{structclientapi_1_1PendingCommand_a2bfc0b61aecf15c3c114a772af615c5d}\label{structclientapi_1_1PendingCommand_a2bfc0b61aecf15c3c114a772af615c5d} 
+int {\bfseries time\+Remaining}
+\begin{DoxyCompactList}\small\item\em Time units remaining before execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a command waiting for execution with timing information. 
+
+Each AI client command must wait for a specific amount of time before execution. This struct encapsulates all information needed to track and execute a command when its time limit has elapsed. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structclientapi_1_1PendingCommand_a4462fd633144dec5f83896c57bd39d63}\label{structclientapi_1_1PendingCommand_a4462fd633144dec5f83896c57bd39d63} 
+\index{clientapi::PendingCommand@{clientapi::PendingCommand}!PendingCommand@{PendingCommand}}
+\index{PendingCommand@{PendingCommand}!clientapi::PendingCommand@{clientapi::PendingCommand}}
+\doxysubsubsection{\texorpdfstring{PendingCommand()}{PendingCommand()}}
+{\footnotesize\ttfamily clientapi\+::\+Pending\+Command\+::\+Pending\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cmd,  }\item[{\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{int}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a new pending command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & The command string \\
+\hline
+{\em p} & Pointer to the player issuing the command \\
+\hline
+{\em time} & Initial time remaining in time units \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Network/Command\+Buffer.\+hpp\end{DoxyCompactItemize}

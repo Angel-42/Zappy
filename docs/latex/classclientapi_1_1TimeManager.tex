@@ -1,0 +1,37 @@
+\doxysection{clientapi\+::Time\+Manager Class Reference}
+\hypertarget{classclientapi_1_1TimeManager}{}\label{classclientapi_1_1TimeManager}\index{clientapi::TimeManager@{clientapi::TimeManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_aeb4ba986c7e135f28e9237e1a4ccc8b6}\label{classclientapi_1_1TimeManager_aeb4ba986c7e135f28e9237e1a4ccc8b6} 
+{\bfseries Time\+Manager} (double frequency)
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_a6b19bee1700aab8255f1bc252689102d}\label{classclientapi_1_1TimeManager_a6b19bee1700aab8255f1bc252689102d} 
+void {\bfseries tick} ()
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_a5f50c3ec0059cdfbb003943d3384993b}\label{classclientapi_1_1TimeManager_a5f50c3ec0059cdfbb003943d3384993b} 
+void {\bfseries set\+Frequency} (double frequency)
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_a1e9f933bfb430776e9ba68638c1b905c}\label{classclientapi_1_1TimeManager_a1e9f933bfb430776e9ba68638c1b905c} 
+double {\bfseries get\+Frequency} () const
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_a6b34f591bfd877cb25016058a7c21078}\label{classclientapi_1_1TimeManager_a6b34f591bfd877cb25016058a7c21078} 
+int {\bfseries schedule\+Event} (int time\+Units, std\+::function$<$ void()$>$ callback)
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_a6b51115a9302bb9b044ac0f3311e7381}\label{classclientapi_1_1TimeManager_a6b51115a9302bb9b044ac0f3311e7381} 
+void {\bfseries cancel\+Event} (int event\+Id)
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_a031091741a68ab125ce87d9b69dbe807}\label{classclientapi_1_1TimeManager_a031091741a68ab125ce87d9b69dbe807} 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries get\+Current\+Time} () const
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_acd9048fb0b76a5743291febf79d2cce2}\label{classclientapi_1_1TimeManager_acd9048fb0b76a5743291febf79d2cce2} 
+int {\bfseries get\+Elapsed\+Time\+Units} () const
+\item 
+\Hypertarget{classclientapi_1_1TimeManager_ac30546740f948114a134bdcae3aebe47}\label{classclientapi_1_1TimeManager_ac30546740f948114a134bdcae3aebe47} 
+void {\bfseries reset} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Time/Time\+Manager.\+hpp\end{DoxyCompactItemize}

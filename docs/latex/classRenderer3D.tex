@@ -1,0 +1,142 @@
+\doxysection{Renderer3D Class Reference}
+\hypertarget{classRenderer3D}{}\label{classRenderer3D}\index{Renderer3D@{Renderer3D}}
+
+
+3D renderer implementation for the GUI, handling Open\+GL rendering and resource management.  
+
+
+
+
+{\ttfamily \#include $<$Renderer3\+D.\+hpp$>$}
+
+
+
+Inheritance diagram for Renderer3D\+:
+% FIG 0
+
+
+Collaboration diagram for Renderer3D\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRenderer3D_a8ed76f48ac5013dcaa02f194d6011244}{Renderer3D}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classRenderer3D}{Renderer3D} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer3D_a42354c4ef3f8f8a7a72791c24ca15f23}{initialize}} () override
+\begin{DoxyCompactList}\small\item\em Initializes the renderer, loading resources and setting up Open\+GL state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer3D_a3b1ecfb27c1d5f7a7b2e37a5583a3dc6}{render}} () override
+\begin{DoxyCompactList}\small\item\em Renders the 3D scene, including terrain, water, and players. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer3D_a39bedcd55ab5e9c42dcc0cbd5fdc2f23}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the renderer state, including camera and animations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRenderer3D_a8c92f4385c00fa7bc0001ac5c45528f6}{shutdown}} () override
+\begin{DoxyCompactList}\small\item\em Releases resources and shuts down the renderer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUILayer}{UILayer}} \& \mbox{\hyperlink{classRenderer3D_a133bd3fffc320482f9f61077a8ec272b}{get\+UILayer}} ()
+\begin{DoxyCompactList}\small\item\em Returns a reference to the UI layer for overlay rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+3D renderer implementation for the GUI, handling Open\+GL rendering and resource management. 
+
+This class is responsible for initializing, updating, rendering, and shutting down the 3D rendering context. It manages Open\+GL resources, shaders, camera, terrain, water, and player rendering.
+
+@inherits \doxylink{classIRenderer}{IRenderer} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRenderer3D_a8ed76f48ac5013dcaa02f194d6011244}\label{classRenderer3D_a8ed76f48ac5013dcaa02f194d6011244} 
+\index{Renderer3D@{Renderer3D}!Renderer3D@{Renderer3D}}
+\index{Renderer3D@{Renderer3D}!Renderer3D@{Renderer3D}}
+\doxysubsubsection{\texorpdfstring{Renderer3D()}{Renderer3D()}}
+{\footnotesize\ttfamily Renderer3\+D\+::\+Renderer3D (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classRenderer3D}{Renderer3D} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Reference to the SFML render window used for rendering. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRenderer3D_a133bd3fffc320482f9f61077a8ec272b}\label{classRenderer3D_a133bd3fffc320482f9f61077a8ec272b} 
+\index{Renderer3D@{Renderer3D}!getUILayer@{getUILayer}}
+\index{getUILayer@{getUILayer}!Renderer3D@{Renderer3D}}
+\doxysubsubsection{\texorpdfstring{getUILayer()}{getUILayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUILayer}{UILayer}} \& Renderer3\+D\+::get\+UILayer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a reference to the UI layer for overlay rendering. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{classUILayer}{UILayer} object. 
+\end{DoxyReturn}
+\Hypertarget{classRenderer3D_a42354c4ef3f8f8a7a72791c24ca15f23}\label{classRenderer3D_a42354c4ef3f8f8a7a72791c24ca15f23} 
+\index{Renderer3D@{Renderer3D}!initialize@{initialize}}
+\index{initialize@{initialize}!Renderer3D@{Renderer3D}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Renderer3\+D\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initializes the renderer, loading resources and setting up Open\+GL state. 
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+\Hypertarget{classRenderer3D_a3b1ecfb27c1d5f7a7b2e37a5583a3dc6}\label{classRenderer3D_a3b1ecfb27c1d5f7a7b2e37a5583a3dc6} 
+\index{Renderer3D@{Renderer3D}!render@{render}}
+\index{render@{render}!Renderer3D@{Renderer3D}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Renderer3\+D\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renders the 3D scene, including terrain, water, and players. 
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+\Hypertarget{classRenderer3D_a8c92f4385c00fa7bc0001ac5c45528f6}\label{classRenderer3D_a8c92f4385c00fa7bc0001ac5c45528f6} 
+\index{Renderer3D@{Renderer3D}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Renderer3D@{Renderer3D}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void Renderer3\+D\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Releases resources and shuts down the renderer. 
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+\Hypertarget{classRenderer3D_a39bedcd55ab5e9c42dcc0cbd5fdc2f23}\label{classRenderer3D_a39bedcd55ab5e9c42dcc0cbd5fdc2f23} 
+\index{Renderer3D@{Renderer3D}!update@{update}}
+\index{update@{update}!Renderer3D@{Renderer3D}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Renderer3\+D\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the renderer state, including camera and animations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Time elapsed since the last update, in seconds. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/Renderer3\+D.\+hpp\item 
+src/\+GUI/\+Renderer/3\+D/Renderer3\+D.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,134 @@
+\doxysection{Player.\+hpp}
+\hypertarget{ClientAPI_2Player_2Player_8hpp_source}{}\label{ClientAPI_2Player_2Player_8hpp_source}\index{src/ClientAPI/Player/Player.hpp@{src/ClientAPI/Player/Player.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Player}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ PLAYER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Types/Position.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../Types/Direction.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../Types/ResourceType.hpp"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{enum\ class}\ PlayerState\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ ALIVE,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ STARVING,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ DEAD,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ INCANTATING\ \ \ \ \ }
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1Player}{Player}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Player}{Player}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ teamName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\&\ startPos);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Player}{\string~Player}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Basic\ getters}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_id;\ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getTeamName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_teamName;\ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\&\ getPosition()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_position;\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Direction\ getDirection()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_direction;\ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getLevel()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_level;\ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getVisionRange()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_level;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ State\ management}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ PlayerState\ getState()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_state;\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isAlive()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_state\ !=\ PlayerState::DEAD;\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isDead()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_state\ ==\ PlayerState::DEAD;\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isStarving()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_state\ ==\ PlayerState::STARVING;\ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isBusy()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_actionEndTime\ >\ 0;\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isIncantating()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_state\ ==\ PlayerState::INCANTATING;\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Food\ and\ life\ management\ (PDF\ compliant)}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getFood()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_food;\ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getLifeUnits()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_lifeUnits;\ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ getLifeTimeRemaining(\textcolor{keywordtype}{double}\ frequency)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ needsFood()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_lifeUnits\ <=\ 252;\ \}\ \textcolor{comment}{//\ Less\ than\ 2\ food\ units\ worth}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ consumeLifeOverTime(\textcolor{keywordtype}{int}\ timeUnits);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ eatFood(\textcolor{keywordtype}{int}\ amount\ =\ 1);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addFood(\textcolor{keywordtype}{int}\ amount);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ forceStarvation()\ \{\ \_lifeUnits\ =\ 0;\ updateState();\ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inventory\ management}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getResourceCount(ResourceType\ resource)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::map<ResourceType,\ int>\ getInventory()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_inventory;\ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ hasResource(ResourceType\ resource,\ \textcolor{keywordtype}{int}\ amount\ =\ 1)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ addResource(ResourceType\ resource,\ \textcolor{keywordtype}{int}\ amount\ =\ 1);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ removeResource(ResourceType\ resource,\ \textcolor{keywordtype}{int}\ amount\ =\ 1);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearInventory();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Position\ and\ movement}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\&\ pos)\ \{\ \_position\ =\ pos;\ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ turnLeft();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ turnRight();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\ getForwardPosition()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Level\ and\ elevation}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ levelUp()\ \{\ ++\_level;\ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ canElevate(\textcolor{keyword}{const}\ std::map<ResourceType,\ int>\&\ requirements)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setIncantating(\textcolor{keywordtype}{bool}\ incantating);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Action\ timing}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setBusy(\textcolor{keywordtype}{int}\ duration)\ \{\ \_actionEndTime\ =\ duration;\ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ decreaseActionTime(\textcolor{keywordtype}{int}\ timeUnits);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isActionComplete()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_actionEndTime\ <=\ 0;\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Network/Socket\ management}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setSocket(\textcolor{keywordtype}{int}\ socket)\ \{\ \_socket\ =\ socket;\ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getSocket()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_socket;\ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Game\ events}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onDeath();}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onFoodConsumed();}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ reset();\ \textcolor{comment}{//\ Reset\ to\ initial\ state\ (for\ respawn)}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Identity\ and\ team}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_id;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ std::string\ \_teamName;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Game\ state}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\ \_position;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ Direction\ \_direction;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_level;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ PlayerState\ \_state;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Food\ and\ life\ system\ (PDF\ specification)}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_food;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_lifeUnits;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_timeSinceLastFood;\ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Game\ mechanics}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ std::map<ResourceType,\ int>\ \_inventory;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_actionEndTime;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_socket;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Internal\ methods}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initializeInventory();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateState();}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ checkStarvation();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ canConsumeFood();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constants\ (PDF\ specification)}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ INITIAL\_FOOD\ =\ 10;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ INITIAL\_LIFE\ =\ 1260;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ FOOD\_TO\_LIFE\_RATIO\ =\ 126;\ \ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ STARVATION\_WARNING\ =\ 252;\ \ }
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !PLAYER\_HPP\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

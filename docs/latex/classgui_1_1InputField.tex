@@ -1,0 +1,42 @@
+\doxysection{gui\+::Input\+Field Class Reference}
+\hypertarget{classgui_1_1InputField}{}\label{classgui_1_1InputField}\index{gui::InputField@{gui::InputField}}
+
+
+Inheritance diagram for gui\+::Input\+Field\+:
+% FIG 0
+
+
+Collaboration diagram for gui\+::Input\+Field\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgui_1_1InputField_a18fc5bf66c4dcd3532b9d2d38fcfc656}\label{classgui_1_1InputField_a18fc5bf66c4dcd3532b9d2d38fcfc656} 
+{\bfseries Input\+Field} (const sf\+::\+Font \&font, const sf\+::\+Vector2f \&position, \mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}} style=\mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}())
+\item 
+\Hypertarget{classgui_1_1InputField_a43f23f1282786154853116df0a6e9c96}\label{classgui_1_1InputField_a43f23f1282786154853116df0a6e9c96} 
+bool {\bfseries handle\+Event} (const sf\+::\+Event \&ev)
+\item 
+\Hypertarget{classgui_1_1InputField_a18141631b6b5bdc3f29872f4e6c49a6f}\label{classgui_1_1InputField_a18141631b6b5bdc3f29872f4e6c49a6f} 
+bool {\bfseries confirmed} () const noexcept
+\item 
+\Hypertarget{classgui_1_1InputField_a1522ba7199a085b8a0d116add1073a65}\label{classgui_1_1InputField_a1522ba7199a085b8a0d116add1073a65} 
+const std\+::string \& {\bfseries text} () const noexcept
+\item 
+\Hypertarget{classgui_1_1InputField_a46548179daae0c17248647963db9b9a8}\label{classgui_1_1InputField_a46548179daae0c17248647963db9b9a8} 
+void {\bfseries reset} (bool keep\+Text=false) noexcept
+\item 
+\Hypertarget{classgui_1_1InputField_a8552ccf6792ebc7f8dde1f17b955f39c}\label{classgui_1_1InputField_a8552ccf6792ebc7f8dde1f17b955f39c} 
+void {\bfseries set\+On\+Confirm} (std\+::function$<$ void(const std\+::string \&)$>$ cb)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+SFMLUtils/\+Input\+Field/Input\+Field.\+hpp\item 
+src/\+GUI/\+SFMLUtils/\+Input\+Field/Input\+Field.\+cpp\end{DoxyCompactItemize}

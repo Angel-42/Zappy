@@ -1,0 +1,65 @@
+\doxysection{Input\+Field.\+hpp}
+\hypertarget{InputField_8hpp_source}{}\label{InputField_8hpp_source}\index{src/GUI/SFMLUtils/InputField/InputField.hpp@{src/GUI/SFMLUtils/InputField/InputField.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ InputField.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }gui}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgui_1_1InputField}{InputField}}\ :\ \textcolor{keyword}{public}\ sf::Drawable}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ size;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ borderThickness;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Color\ borderColor;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Color\ fillColor;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Color\ textColor;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ characterSize;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}()}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ size(200.f,\ 32.f),}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ borderThickness(2.f),}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ borderColor(sf::Color::White),}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fillColor(sf::Color(30,\ 30,\ 30)),}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ textColor(sf::Color::White),}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ characterSize(16)}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgui_1_1InputField}{InputField}}(\textcolor{keyword}{const}\ sf::Font\ \&font,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ sf::Vector2f\ \&position,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}\ style\ =\ \mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}());}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ handleEvent(\textcolor{keyword}{const}\ sf::Event\ \&ev);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ confirmed()\ const\ noexcept;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ [[nodiscard]]\ const\ std::\textcolor{keywordtype}{string}\ \&text()\ const\ noexcept;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ reset(\textcolor{keywordtype}{bool}\ keepText\ =\ false)\ noexcept;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setOnConfirm(std::function<\textcolor{keywordtype}{void}(const\ std::\textcolor{keywordtype}{string}\ \&)>\ cb);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ private:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ draw(sf::RenderTarget\ \&target,\ sf::RenderStates\ states)\ const\ override;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateGraphics\_();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgui_1_1InputField_1_1Style}{Style}}\ style\_;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ sf::RectangleShape\ box\_;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ sf::\mbox{\hyperlink{classText}{Text}}\ text\_;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ std::\textcolor{keywordtype}{string}\ buffer\_;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ confirmed\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::function<void(\textcolor{keyword}{const}\ std::string\ \&)>\ onConfirm\_;}
+\DoxyCodeLine{00058\ \ \ \ \ \};}
+\DoxyCodeLine{00059\ \}\ \textcolor{comment}{//\ namespace\ gui}}
+
+\end{DoxyCode}

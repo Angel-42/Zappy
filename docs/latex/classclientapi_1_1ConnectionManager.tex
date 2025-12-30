@@ -1,0 +1,216 @@
+\doxysection{clientapi\+::Connection\+Manager Class Reference}
+\hypertarget{classclientapi_1_1ConnectionManager}{}\label{classclientapi_1_1ConnectionManager}\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+
+
+Manages TCP server socket and all client connections for the Zappy server.  
+
+
+
+
+{\ttfamily \#include $<$Connection\+Manager.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classclientapi_1_1ConnectionManager_aba4a86f77932f41a09845326e1e071fb}{Connection\+Manager}} (int port, const std\+::vector$<$ std\+::string $>$ \&team\+Names, int clients\+Per\+Team)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classclientapi_1_1ConnectionManager}{Connection\+Manager} with server configuration. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1ConnectionManager_aff3595b63da8c40957f4e360ef1a6a97}\label{classclientapi_1_1ConnectionManager_aff3595b63da8c40957f4e360ef1a6a97} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Connection\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ automatically shuts down server and cleans up connections. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1ConnectionManager_a0420903eb2fce343e038eeb2712396ae}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the server socket and prepares for connections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1ConnectionManager_a5089c8fbc230e1a9b17c6d0d77e22270}{run}} ()
+\begin{DoxyCompactList}\small\item\em Main event loop -\/ handles all network I/O using select() \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1ConnectionManager_a1243de5539df550e3d984277d1bb4d55}\label{classclientapi_1_1ConnectionManager_a1243de5539df550e3d984277d1bb4d55} 
+void {\bfseries shutdown} ()
+\begin{DoxyCompactList}\small\item\em Gracefully shuts down the server and disconnects all clients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1ConnectionManager_adee715b64ac36e1c9012da15c56b1feb}{accept\+New\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Accepts a new client connection and creates a \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1ConnectionManager_a9d3b4cdd3fdc4ea6c3cb66caa62102f7}{remove\+Client}} (int socket)
+\begin{DoxyCompactList}\small\item\em Removes and disconnects a client by socket descriptor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classclientapi_1_1ClientHandler}{Client\+Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classclientapi_1_1ConnectionManager_acd6bcb741655ab2809c3786b284cb75a}{get\+Client}} (int socket)
+\begin{DoxyCompactList}\small\item\em Retrieves a client handler by socket descriptor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classclientapi_1_1ConnectionManager_a6e5fdbd0730b772f3bea16277b959bb9}{get\+Available\+Slots}} (const std\+::string \&team\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets the number of available connection slots for a team. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1ConnectionManager_aba98c474146a070c921da562709aa90e}{is\+Valid\+Team}} (const std\+::string \&team\+Name) const
+\begin{DoxyCompactList}\small\item\em Checks if a team name is valid for AI client connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages TCP server socket and all client connections for the Zappy server. 
+
+The \doxylink{classclientapi_1_1ConnectionManager}{Connection\+Manager} is responsible for\+:
+\begin{DoxyItemize}
+\item Setting up and managing the server socket
+\item Accepting new client connections (AI clients and GUI clients)
+\item Managing the lifecycle of all connected clients
+\item Enforcing team-\/based connection limits
+\item Using select() for non-\/blocking I/O multiplexing as required by the project
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This class implements the networking requirements specified in the Zappy protocol\+:
+\begin{DoxyItemize}
+\item Supports both AI clients (team-\/based authentication) and GRAPHIC clients
+\item Enforces maximum clients per team limits
+\item Uses select() for socket multiplexing (not poll as initially mentioned) 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classclientapi_1_1ConnectionManager_aba4a86f77932f41a09845326e1e071fb}\label{classclientapi_1_1ConnectionManager_aba4a86f77932f41a09845326e1e071fb} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!ConnectionManager@{ConnectionManager}}
+\index{ConnectionManager@{ConnectionManager}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{ConnectionManager()}{ConnectionManager()}}
+{\footnotesize\ttfamily clientapi\+::\+Connection\+Manager\+::\+Connection\+Manager (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{team\+Names,  }\item[{int}]{clients\+Per\+Team }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classclientapi_1_1ConnectionManager}{Connection\+Manager} with server configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Server port to listen on \\
+\hline
+{\em team\+Names} & List of valid team names for AI clients \\
+\hline
+{\em clients\+Per\+Team} & Maximum number of clients allowed per team\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The team name "{}\+GRAPHIC"{} is reserved for GUI clients and handled specially 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classclientapi_1_1ConnectionManager_adee715b64ac36e1c9012da15c56b1feb}\label{classclientapi_1_1ConnectionManager_adee715b64ac36e1c9012da15c56b1feb} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!acceptNewConnection@{acceptNewConnection}}
+\index{acceptNewConnection@{acceptNewConnection}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{acceptNewConnection()}{acceptNewConnection()}}
+{\footnotesize\ttfamily void clientapi\+::\+Connection\+Manager\+::accept\+New\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accepts a new client connection and creates a \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler}. 
+
+Called automatically when select() detects activity on the server socket. Creates a new \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} and sends the initial WELCOME message. \Hypertarget{classclientapi_1_1ConnectionManager_a6e5fdbd0730b772f3bea16277b959bb9}\label{classclientapi_1_1ConnectionManager_a6e5fdbd0730b772f3bea16277b959bb9} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!getAvailableSlots@{getAvailableSlots}}
+\index{getAvailableSlots@{getAvailableSlots}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{getAvailableSlots()}{getAvailableSlots()}}
+{\footnotesize\ttfamily int clientapi\+::\+Connection\+Manager\+::get\+Available\+Slots (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{team\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of available connection slots for a team. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team\+Name} & The team to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of remaining slots (0 if team is full or invalid)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Used during client authentication to enforce team limits 
+\end{DoxyNote}
+\Hypertarget{classclientapi_1_1ConnectionManager_acd6bcb741655ab2809c3786b284cb75a}\label{classclientapi_1_1ConnectionManager_acd6bcb741655ab2809c3786b284cb75a} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!getClient@{getClient}}
+\index{getClient@{getClient}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{getClient()}{getClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classclientapi_1_1ClientHandler}{Client\+Handler}} \texorpdfstring{$\ast$}{*} clientapi\+::\+Connection\+Manager\+::get\+Client (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})}
+
+
+
+Retrieves a client handler by socket descriptor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The socket descriptor to look up \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} if found, nullptr otherwise 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1ConnectionManager_a0420903eb2fce343e038eeb2712396ae}\label{classclientapi_1_1ConnectionManager_a0420903eb2fce343e038eeb2712396ae} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!initialize@{initialize}}
+\index{initialize@{initialize}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Connection\+Manager\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the server socket and prepares for connections. 
+
+\begin{DoxyReturn}{Returns}
+true if initialization successful, false otherwise
+\end{DoxyReturn}
+Sets up\+:
+\begin{DoxyItemize}
+\item TCP server socket with SO\+\_\+\+REUSEADDR
+\item Non-\/blocking socket mode
+\item Binds to specified port and starts listening 
+\end{DoxyItemize}\Hypertarget{classclientapi_1_1ConnectionManager_aba98c474146a070c921da562709aa90e}\label{classclientapi_1_1ConnectionManager_aba98c474146a070c921da562709aa90e} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!isValidTeam@{isValidTeam}}
+\index{isValidTeam@{isValidTeam}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{isValidTeam()}{isValidTeam()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Connection\+Manager\+::is\+Valid\+Team (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{team\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a team name is valid for AI client connections. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team\+Name} & The team name to validate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if team exists and accepts connections, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+"{}\+GRAPHIC"{} is always valid but handled separately for GUI clients 
+\end{DoxyNote}
+\Hypertarget{classclientapi_1_1ConnectionManager_a9d3b4cdd3fdc4ea6c3cb66caa62102f7}\label{classclientapi_1_1ConnectionManager_a9d3b4cdd3fdc4ea6c3cb66caa62102f7} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!removeClient@{removeClient}}
+\index{removeClient@{removeClient}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{removeClient()}{removeClient()}}
+{\footnotesize\ttfamily void clientapi\+::\+Connection\+Manager\+::remove\+Client (\begin{DoxyParamCaption}\item[{int}]{socket }\end{DoxyParamCaption})}
+
+
+
+Removes and disconnects a client by socket descriptor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The socket descriptor of the client to remove\\
+\hline
+\end{DoxyParams}
+Updates team counts and properly closes the socket connection. \Hypertarget{classclientapi_1_1ConnectionManager_a5089c8fbc230e1a9b17c6d0d77e22270}\label{classclientapi_1_1ConnectionManager_a5089c8fbc230e1a9b17c6d0d77e22270} 
+\index{clientapi::ConnectionManager@{clientapi::ConnectionManager}!run@{run}}
+\index{run@{run}!clientapi::ConnectionManager@{clientapi::ConnectionManager}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void clientapi\+::\+Connection\+Manager\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main event loop -\/ handles all network I/O using select() 
+
+This method blocks and continuously\+:
+\begin{DoxyItemize}
+\item Monitors all sockets for activity using select()
+\item Accepts new connections
+\item Processes incoming data from existing clients
+\item Removes disconnected clients
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This runs until \doxylink{classclientapi_1_1ConnectionManager_a1243de5539df550e3d984277d1bb4d55}{shutdown()} is called or an error occurs 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Network/Connection\+Manager.\+hpp\item 
+src/\+Client\+API/\+Network/Connection\+Manager.\+cpp\end{DoxyCompactItemize}

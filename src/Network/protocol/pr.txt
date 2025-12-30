@@ -1,0 +1,101 @@
+ZAPPY SERVER PROTOCOL
+====================
+
+SERVER LAUNCH
+-------------
+./zappy_server -p port -x width -y height -n name1 name2 ... -c clientsNb -f freq
+
+CLIENT LAUNCH
+-------------
+./zappy_gui -p port -h machine
+./zappy_ai -p port -n name -h machine
+
+INITIAL CONNECTION
+------------------
+<-- WELCOME\n
+--> TEAM_NAME\n
+<-- CLIENT_NUM\n
+<-- X Y\n
+
+AI COMMANDS
+----------
+Forward\n        - Move forward (7/f sec) -> ok\n
+Right\n          - Turn right (7/f sec) -> ok\n
+Left\n           - Turn left (7/f sec) -> ok\n
+Look\n           - View surroundings (7/f sec) -> [tile1,tile2,...]\n
+Inventory\n      - Check inventory (1/f sec) -> [food n, linemate n,...]\n
+Broadcast text\n - Send message (7/f sec) -> ok\n
+Connect_nbr\n    - Available slots -> value\n
+Fork\n           - Lay egg (42/f sec) -> ok\n
+Eject\n          - Eject players (7/f sec) -> ok\n/ko\n
+Take object\n    - Take resource (7/f sec) -> ok\n/ko\n
+Set object\n     - Drop resource (7/f sec) -> ok\n/ko\n
+Incantation\n    - Start elevation (300/f sec) -> Elevation underway\nCurrent level: ok\n/ko\n
+
+GUI COMMANDS TO SERVER
+----------------------
+msz\n            - Get map size
+bct X Y\n        - Get tile content
+mct\n            - Get full map content
+tna\n            - Get team names
+ppo #n\n         - Get player position
+plv #n\n         - Get player level
+pin #n\n         - Get player inventory
+sgt\n            - Get time unit
+sst T\n          - Set time unit
+
+SERVER TO GUI RESPONSES
+-----------------------
+msz X Y\n        - Map size
+bct X Y q0 q1 q2 q3 q4 q5 q6\n - Tile content
+tna N\n          - Team name
+pnw #n X Y O L N\n - New player
+ppo #n X Y O\n   - Player position
+plv #n L\n       - Player level
+pin #n X Y q0 q1 q2 q3 q4 q5 q6\n - Player inventory
+pex #n\n         - Player ejected
+pbc #n M\n       - Broadcast message
+pic X Y L #n #n...\n - Incantation start
+pie X Y R\n      - Incantation end
+pfk #n\n         - Egg laid
+pdr #n i\n       - Resource dropped
+pgt #n i\n       - Resource collected
+pdi #n\n         - Player died
+enw #e #n X Y\n  - New egg
+ebo #e\n         - Egg connected
+edi #e\n         - Egg died
+sgt T\n          - Current time unit
+seg N\n          - Game end (winning team)
+smg M\n          - Server message
+suc\n            - Unknown command
+sbp\n            - Bad parameter
+
+RESOURCE DENSITY
+----------------
+food: 0.5
+linemate: 0.3
+deraumere: 0.15
+sibur: 0.1
+mendiane: 0.1
+phiras: 0.08
+thystame: 0.05
+
+ELEVATION REQUIREMENTS
+----------------------
+Level | Players | Linemate | Deraumere | Sibur | Mendiane | Phiras | Thystame
+------|---------|----------|-----------|-------|----------|--------|---------
+1→2   | 1       | 1        | 0         | 0     | 0        | 0      | 0
+2→3   | 2       | 1        | 1         | 1     | 0        | 0      | 0
+3→4   | 2       | 2        | 0         | 1     | 0        | 2      | 0
+4→5   | 4       | 1        | 1         | 2     | 0        | 1      | 0
+5→6   | 4       | 1        | 2         | 1     | 3        | 0      | 0
+6→7   | 6       | 1        | 2         | 3     | 0        | 1      | 0
+7→8   | 6       | 2        | 2         | 2     | 2        | 2      | 1
+
+NOTES
+-----
+- All commands end with \n
+- Unknown commands return "ko\n"
+- Execution time = action / f (default f=100)
+- Server uses poll() for socket multiplexing
+- GUI authenticates with team name "GRAPHIC"

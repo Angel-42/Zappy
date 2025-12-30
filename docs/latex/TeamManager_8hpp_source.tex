@@ -1,0 +1,55 @@
+\doxysection{Team\+Manager.\+hpp}
+\hypertarget{TeamManager_8hpp_source}{}\label{TeamManager_8hpp_source}\index{src/ClientAPI/Team/TeamManager.hpp@{src/ClientAPI/Team/TeamManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ TeamManager}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ TEAMMANAGER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ TEAMMANAGER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Team.hpp"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1TeamManager}{TeamManager}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1TeamManager}{TeamManager}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ teamNames,\ \textcolor{keywordtype}{int}\ maxPlayersPerTeam);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1TeamManager}{\string~TeamManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Team}{Team}}*\ getTeam(\textcolor{keyword}{const}\ std::string\&\ teamName);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::vector<Team*>\ getAllTeams();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateTeams();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ addPlayerToTeam(\textcolor{keyword}{const}\ std::string\&\ teamName,\ \textcolor{keywordtype}{int}\ playerId);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removePlayerFromTeam(\textcolor{keyword}{const}\ std::string\&\ teamName,\ \textcolor{keywordtype}{int}\ playerId);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidTeam(\textcolor{keyword}{const}\ std::string\&\ teamName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getAvailableSlots(\textcolor{keyword}{const}\ std::string\&\ teamName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getTeamPlayerCount(\textcolor{keyword}{const}\ std::string\&\ teamName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addEggToTeam(\textcolor{keyword}{const}\ std::string\&\ teamName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1Position}{Position}}\&\ position);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeEgg(\textcolor{keywordtype}{int}\ eggId);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::vector<Egg*>\ getAllEggs();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Team}{Team}}*\ checkForWinner()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ hasTeamWon(\textcolor{keyword}{const}\ std::string\&\ teamName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::map<std::string,\ std::unique\_ptr<Team>>\ \_teams;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_maxPlayersPerTeam;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_nextEggId;}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !TEAMMANAGER\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

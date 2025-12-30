@@ -1,0 +1,243 @@
+\doxysection{clientapi\+::Life\+Manager Class Reference}
+\hypertarget{classclientapi_1_1LifeManager}{}\label{classclientapi_1_1LifeManager}\index{clientapi::LifeManager@{clientapi::LifeManager}}
+
+
+Manages automatic life consumption and food management for all players.  
+
+
+
+
+{\ttfamily \#include $<$Life\+Manager.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{Death\+Callback}} = std\+::function$<$ void(int player\+Id, const std\+::string \&team\+Name)$>$
+\begin{DoxyCompactList}\small\item\em Callback function type for player death events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1LifeManager_a5e72c2df6039f2284f1220a75e3150f7}\label{classclientapi_1_1LifeManager_a5e72c2df6039f2284f1220a75e3150f7} 
+{\bfseries Life\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classclientapi_1_1LifeManager}{Life\+Manager}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1LifeManager_abbb3e7b8745ee42c7f60811e7ef0176a}{register\+Player}} (\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player)
+\begin{DoxyCompactList}\small\item\em Registers a player for life management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1LifeManager_a151a380ab04395cde799e51e06720afa}{unregister\+Player}} (int player\+Id)
+\begin{DoxyCompactList}\small\item\em Unregisters a player from life management. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1LifeManager_a13378edd656d5560336e3900e43ec736}\label{classclientapi_1_1LifeManager_a13378edd656d5560336e3900e43ec736} 
+void {\bfseries clear\+Players} ()
+\begin{DoxyCompactList}\small\item\em Clears all registered players. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1LifeManager_a0e89fdec5e2822838b924f4ae0ba2951}{process\+Life\+Consumption}} (int time\+Units)
+\begin{DoxyCompactList}\small\item\em Processes life consumption for all registered players. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1LifeManager_ab884485ac4dd210fd08d6e48d9bf3747}{feed\+Player}} (int player\+Id, int amount=1)
+\begin{DoxyCompactList}\small\item\em Forces a specific player to consume food. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classclientapi_1_1LifeManager_a760f84cbe2153d95694ab7d73218ae58}{get\+Starving\+Players}} () const
+\begin{DoxyCompactList}\small\item\em Checks if any players are in critical condition. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classclientapi_1_1LifeManager_aea5411cad8d89dc292980db87b45d098}{get\+Recent\+Deaths}} () const
+\begin{DoxyCompactList}\small\item\em Gets players who died this tick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1LifeManager_a9aed5dcd35268f08eae6016e5a257211}{set\+Death\+Callback}} (\mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{Death\+Callback}} callback)
+\begin{DoxyCompactList}\small\item\em Sets the callback function for player death events. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1LifeManager_a2cd9abd5c7e7f9f202d02a0c3b0e4fa7}\label{classclientapi_1_1LifeManager_a2cd9abd5c7e7f9f202d02a0c3b0e4fa7} 
+void {\bfseries clear\+Death\+Callback} ()
+\begin{DoxyCompactList}\small\item\em Removes the death callback. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classclientapi_1_1LifeManager_aa1a11c3909a5b509b8b4ff5fc39d6615}{get\+Alive\+Player\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of alive players. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classclientapi_1_1LifeManager_a191c95aeff84fbd6f515abc3b75b1731}{get\+Starving\+Player\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of starving players. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classclientapi_1_1LifeManager_a2a0b0e9116dfafc0959716ff91d9992a}{get\+Total\+Food\+Consumed}} () const
+\begin{DoxyCompactList}\small\item\em Gets total food consumption statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages automatic life consumption and food management for all players. 
+
+According to the PDF specification\+:
+\begin{DoxyItemize}
+\item Players consume 1 life unit per time unit automatically
+\item Players start with 10 food units = 1260 life units
+\item Players die when life reaches 0 and they have no food
+\item \doxylink{classclientapi_1_1Food}{Food} is automatically consumed when life gets low
+\end{DoxyItemize}
+
+This class integrates with the \doxylink{classclientapi_1_1TimeManager}{Time\+Manager} to process life consumption every game tick and handles player death notifications. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}\label{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!DeathCallback@{DeathCallback}}
+\index{DeathCallback@{DeathCallback}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{DeathCallback}{DeathCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{clientapi\+::\+Life\+Manager\+::\+Death\+Callback}} =  std\+::function$<$void(int player\+Id, const std\+::string\& team\+Name)$>$}
+
+
+
+Callback function type for player death events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & The ID of the player who died \\
+\hline
+{\em team\+Name} & The team name of the deceased player \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classclientapi_1_1LifeManager_ab884485ac4dd210fd08d6e48d9bf3747}\label{classclientapi_1_1LifeManager_ab884485ac4dd210fd08d6e48d9bf3747} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!feedPlayer@{feedPlayer}}
+\index{feedPlayer@{feedPlayer}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{feedPlayer()}{feedPlayer()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Life\+Manager\+::feed\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+Id,  }\item[{int}]{amount = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Forces a specific player to consume food. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & The player to feed \\
+\hline
+{\em amount} & Amount of food to consume (default\+: 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if food was consumed successfully 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1LifeManager_aa1a11c3909a5b509b8b4ff5fc39d6615}\label{classclientapi_1_1LifeManager_aa1a11c3909a5b509b8b4ff5fc39d6615} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!getAlivePlayerCount@{getAlivePlayerCount}}
+\index{getAlivePlayerCount@{getAlivePlayerCount}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{getAlivePlayerCount()}{getAlivePlayerCount()}}
+{\footnotesize\ttfamily int clientapi\+::\+Life\+Manager\+::get\+Alive\+Player\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of alive players. 
+
+\begin{DoxyReturn}{Returns}
+Count of players with state != DEAD 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1LifeManager_aea5411cad8d89dc292980db87b45d098}\label{classclientapi_1_1LifeManager_aea5411cad8d89dc292980db87b45d098} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!getRecentDeaths@{getRecentDeaths}}
+\index{getRecentDeaths@{getRecentDeaths}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{getRecentDeaths()}{getRecentDeaths()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ clientapi\+::\+Life\+Manager\+::get\+Recent\+Deaths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets players who died this tick. 
+
+\begin{DoxyReturn}{Returns}
+Vector of player IDs who died during the last process\+Life\+Consumption call 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1LifeManager_a191c95aeff84fbd6f515abc3b75b1731}\label{classclientapi_1_1LifeManager_a191c95aeff84fbd6f515abc3b75b1731} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!getStarvingPlayerCount@{getStarvingPlayerCount}}
+\index{getStarvingPlayerCount@{getStarvingPlayerCount}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{getStarvingPlayerCount()}{getStarvingPlayerCount()}}
+{\footnotesize\ttfamily int clientapi\+::\+Life\+Manager\+::get\+Starving\+Player\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of starving players. 
+
+\begin{DoxyReturn}{Returns}
+Count of players with state == STARVING 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1LifeManager_a760f84cbe2153d95694ab7d73218ae58}\label{classclientapi_1_1LifeManager_a760f84cbe2153d95694ab7d73218ae58} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!getStarvingPlayers@{getStarvingPlayers}}
+\index{getStarvingPlayers@{getStarvingPlayers}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{getStarvingPlayers()}{getStarvingPlayers()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ clientapi\+::\+Life\+Manager\+::get\+Starving\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if any players are in critical condition. 
+
+\begin{DoxyReturn}{Returns}
+Vector of player IDs who are starving or close to death 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1LifeManager_a2a0b0e9116dfafc0959716ff91d9992a}\label{classclientapi_1_1LifeManager_a2a0b0e9116dfafc0959716ff91d9992a} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!getTotalFoodConsumed@{getTotalFoodConsumed}}
+\index{getTotalFoodConsumed@{getTotalFoodConsumed}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{getTotalFoodConsumed()}{getTotalFoodConsumed()}}
+{\footnotesize\ttfamily int clientapi\+::\+Life\+Manager\+::get\+Total\+Food\+Consumed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets total food consumption statistics. 
+
+\begin{DoxyReturn}{Returns}
+Total food units consumed since creation 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1LifeManager_a0e89fdec5e2822838b924f4ae0ba2951}\label{classclientapi_1_1LifeManager_a0e89fdec5e2822838b924f4ae0ba2951} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!processLifeConsumption@{processLifeConsumption}}
+\index{processLifeConsumption@{processLifeConsumption}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{processLifeConsumption()}{processLifeConsumption()}}
+{\footnotesize\ttfamily void clientapi\+::\+Life\+Manager\+::process\+Life\+Consumption (\begin{DoxyParamCaption}\item[{int}]{time\+Units }\end{DoxyParamCaption})}
+
+
+
+Processes life consumption for all registered players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Units} & Number of time units to advance\\
+\hline
+\end{DoxyParams}
+This method\+:
+\begin{DoxyEnumerate}
+\item Calls consume\+Life\+Over\+Time() for each alive player
+\item Handles automatic food consumption
+\item Detects player deaths and triggers callbacks
+\item Updates player states
+\end{DoxyEnumerate}
+
+Should be called every game tick by the main game loop. \Hypertarget{classclientapi_1_1LifeManager_abbb3e7b8745ee42c7f60811e7ef0176a}\label{classclientapi_1_1LifeManager_abbb3e7b8745ee42c7f60811e7ef0176a} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!registerPlayer@{registerPlayer}}
+\index{registerPlayer@{registerPlayer}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{registerPlayer()}{registerPlayer()}}
+{\footnotesize\ttfamily void clientapi\+::\+Life\+Manager\+::register\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+
+
+Registers a player for life management. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player to manage\\
+\hline
+\end{DoxyParams}
+The \doxylink{classclientapi_1_1LifeManager}{Life\+Manager} will automatically process life consumption for all registered players. \Hypertarget{classclientapi_1_1LifeManager_a9aed5dcd35268f08eae6016e5a257211}\label{classclientapi_1_1LifeManager_a9aed5dcd35268f08eae6016e5a257211} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!setDeathCallback@{setDeathCallback}}
+\index{setDeathCallback@{setDeathCallback}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{setDeathCallback()}{setDeathCallback()}}
+{\footnotesize\ttfamily void clientapi\+::\+Life\+Manager\+::set\+Death\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classclientapi_1_1LifeManager_a5e0d109388152cea2010f60c9248d02e}{Death\+Callback}}}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the callback function for player death events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & Function to call when a player dies \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classclientapi_1_1LifeManager_a151a380ab04395cde799e51e06720afa}\label{classclientapi_1_1LifeManager_a151a380ab04395cde799e51e06720afa} 
+\index{clientapi::LifeManager@{clientapi::LifeManager}!unregisterPlayer@{unregisterPlayer}}
+\index{unregisterPlayer@{unregisterPlayer}!clientapi::LifeManager@{clientapi::LifeManager}}
+\doxysubsubsection{\texorpdfstring{unregisterPlayer()}{unregisterPlayer()}}
+{\footnotesize\ttfamily void clientapi\+::\+Life\+Manager\+::unregister\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+Id }\end{DoxyParamCaption})}
+
+
+
+Unregisters a player from life management. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & The ID of the player to unregister \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Player/Life\+Manager.\+hpp\item 
+src/\+Client\+API/\+Player/Life\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\doxysection{Mesh Class Reference}
+\hypertarget{classMesh}{}\label{classMesh}\index{Mesh@{Mesh}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMesh_1_1MaterialGroup}{Material\+Group}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMesh_a7008e23cbaacd2878b7e81a01ac5d96b}\label{classMesh_a7008e23cbaacd2878b7e81a01ac5d96b} 
+void {\bfseries clear} ()
+\item 
+\Hypertarget{classMesh_add7c33626a95afdb2da1d2f7c30ed71b}\label{classMesh_add7c33626a95afdb2da1d2f7c30ed71b} 
+bool {\bfseries load\+OBJ} (const std\+::string \&path)
+\item 
+\Hypertarget{classMesh_a2423ff38b8e09445e6c07080da39f1e5}\label{classMesh_a2423ff38b8e09445e6c07080da39f1e5} 
+bool {\bfseries load\+MTL} (const std\+::string \&mtl\+Path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMesh_abc9a91f8c5a273e486155cf8a85ec693}\label{classMesh_abc9a91f8c5a273e486155cf8a85ec693} 
+std\+::vector$<$ \mbox{\hyperlink{structVec3}{Vec3}} $>$ {\bfseries vertices}
+\item 
+\Hypertarget{classMesh_a2b5f834794ab717b035a0cc0c682c895}\label{classMesh_a2b5f834794ab717b035a0cc0c682c895} 
+std\+::vector$<$ \mbox{\hyperlink{structVec3}{Vec3}} $>$ {\bfseries uvs}
+\item 
+\Hypertarget{classMesh_aa54459724068298348da23f3f3b791ab}\label{classMesh_aa54459724068298348da23f3f3b791ab} 
+std\+::vector$<$ \mbox{\hyperlink{structTri}{Tri}} $>$ {\bfseries triangles}
+\item 
+\Hypertarget{classMesh_a4b346471191b14c41ee95142508b4c8a}\label{classMesh_a4b346471191b14c41ee95142508b4c8a} 
+std\+::vector$<$ \mbox{\hyperlink{structVec3}{Vec3}} $>$ {\bfseries normals}
+\item 
+\Hypertarget{classMesh_a25a3ec2a0ea5776828526c40be72039d}\label{classMesh_a25a3ec2a0ea5776828526c40be72039d} 
+std\+::vector$<$ \mbox{\hyperlink{structVec3}{Vec3}} $>$ {\bfseries tangents}
+\item 
+\Hypertarget{classMesh_ac687e9dcfc7cc60b046fc2ec634200be}\label{classMesh_ac687e9dcfc7cc60b046fc2ec634200be} 
+std\+::string {\bfseries name}
+\item 
+\Hypertarget{classMesh_a0709f996936ac6fbaca8e18d59093460}\label{classMesh_a0709f996936ac6fbaca8e18d59093460} 
+std\+::string {\bfseries last\+Error}
+\item 
+\Hypertarget{classMesh_adf53f1f01e9e6a49df68ee107d5aa11a}\label{classMesh_adf53f1f01e9e6a49df68ee107d5aa11a} 
+sf\+::\+Image {\bfseries texture}
+\item 
+\Hypertarget{classMesh_a8b96e5847429ec576ab3f9f57a8eda21}\label{classMesh_a8b96e5847429ec576ab3f9f57a8eda21} 
+std\+::string {\bfseries mat\+Name}
+\item 
+\Hypertarget{classMesh_a4ccdf2cd73a313f38b769bfb59399ece}\label{classMesh_a4ccdf2cd73a313f38b769bfb59399ece} 
+sf\+::\+Texture {\bfseries specular\+Map}
+\item 
+\Hypertarget{classMesh_a9353e76a9ce073d55e22fdb2b2b3092e}\label{classMesh_a9353e76a9ce073d55e22fdb2b2b3092e} 
+sf\+::\+Texture {\bfseries bump\+Map}
+\item 
+\Hypertarget{classMesh_a354c44316e6413fc0e2d18f09df2a506}\label{classMesh_a354c44316e6413fc0e2d18f09df2a506} 
+sf\+::\+Image {\bfseries bump\+Image}
+\item 
+\Hypertarget{classMesh_a83c6e72cef4f7cb697c60e2200edf5f1}\label{classMesh_a83c6e72cef4f7cb697c60e2200edf5f1} 
+sf\+::\+Image {\bfseries specular\+Image}
+\item 
+\Hypertarget{classMesh_ad55869ba2932f38a7608316495aeb0d4}\label{classMesh_ad55869ba2932f38a7608316495aeb0d4} 
+std\+::vector$<$ \mbox{\hyperlink{structMesh_1_1MaterialGroup}{Material\+Group}} $>$ {\bfseries material\+Groups}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/\+Utils/\+OBJLoader/Mesh.\+hpp\item 
+src/\+GUI/\+Renderer/\+Utils/\+OBJLoader/Mesh.\+cpp\end{DoxyCompactItemize}

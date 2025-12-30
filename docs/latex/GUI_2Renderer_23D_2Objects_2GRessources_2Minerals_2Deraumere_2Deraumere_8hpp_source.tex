@@ -1,0 +1,37 @@
+\doxysection{Deraumere.\+hpp}
+\hypertarget{GUI_2Renderer_23D_2Objects_2GRessources_2Minerals_2Deraumere_2Deraumere_8hpp_source}{}\label{GUI_2Renderer_23D_2Objects_2GRessources_2Minerals_2Deraumere_2Deraumere_8hpp_source}\index{src/GUI/Renderer/3D/Objects/GRessources/Minerals/Deraumere/Deraumere.hpp@{src/GUI/Renderer/3D/Objects/GRessources/Minerals/Deraumere/Deraumere.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Deraumere.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../IMinerals.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../../../IMesh.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDeraumere}{Deraumere}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIMinerals}{IMinerals}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classDeraumere}{Deraumere}}(\textcolor{keyword}{const}\ glm::vec3\ \&pos,\ \textcolor{keyword}{const}\ glm::vec3\ \&rot,\ \textcolor{keyword}{const}\ glm::vec3\ \&scl);}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classDeraumere}{\string~Deraumere}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ draw()\ \textcolor{keyword}{override}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ getType()\ \textcolor{keyword}{const}\ \textcolor{keyword}{override}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ getMineralType()\ \textcolor{keyword}{const}\ \textcolor{keyword}{override}\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00026\ \ \ \ \ glm::vec3\ rotation;}
+\DoxyCodeLine{00027\ \ \ \ \ glm::vec3\ scale;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classIMesh}{IMesh}}\ *mesh;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ GLuint\ textureId;}
+\DoxyCodeLine{00031\ \};}
+
+\end{DoxyCode}

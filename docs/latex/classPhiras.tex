@@ -1,0 +1,93 @@
+\doxysection{Phiras Class Reference}
+\hypertarget{classPhiras}{}\label{classPhiras}\index{Phiras@{Phiras}}
+
+
+Inheritance diagram for Phiras\+:
+% FIG 0
+
+
+Collaboration diagram for Phiras\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPhiras_a1a349d95a6af689029bc54971d1a5856}\label{classPhiras_a1a349d95a6af689029bc54971d1a5856} 
+{\bfseries Phiras} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl)
+\item 
+void \mbox{\hyperlink{classPhiras_ad6a7bd81c7a33e70616b273536d12013}{draw}} () override final
+\item 
+void \mbox{\hyperlink{classPhiras_a9e36a938582952c43964c38987704a09}{update}} (float delta\+Time) override final
+\item 
+std\+::string \mbox{\hyperlink{classPhiras_a3c3f23d19a96fd416b61af45158ef731}{get\+Type}} () const override final
+\item 
+void \mbox{\hyperlink{classPhiras_a846faa5d999358b49d67e21f5a2f762e}{get\+Mineral\+Type}} () const override final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPhiras_adbf9a6e3c96d63f96e5b50c48d75d4a9}\label{classPhiras_adbf9a6e3c96d63f96e5b50c48d75d4a9} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classPhiras_a3c9513526d203371a5590da026483125}\label{classPhiras_a3c9513526d203371a5590da026483125} 
+glm\+::vec3 {\bfseries rotation}
+\item 
+\Hypertarget{classPhiras_a5c300baf9b6a6b3e552b55ffa5a4e7e0}\label{classPhiras_a5c300baf9b6a6b3e552b55ffa5a4e7e0} 
+glm\+::vec3 {\bfseries scale}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPhiras_a15f140de2f34272cd36a64e39654b9a5}\label{classPhiras_a15f140de2f34272cd36a64e39654b9a5} 
+static \mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries mesh}
+\item 
+\Hypertarget{classPhiras_aee6953470e80090a67ad3b1d2b9547c6}\label{classPhiras_aee6953470e80090a67ad3b1d2b9547c6} 
+static GLuint {\bfseries texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPhiras_ad6a7bd81c7a33e70616b273536d12013}\label{classPhiras_ad6a7bd81c7a33e70616b273536d12013} 
+\index{Phiras@{Phiras}!draw@{draw}}
+\index{draw@{draw}!Phiras@{Phiras}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Phiras\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classPhiras_a846faa5d999358b49d67e21f5a2f762e}\label{classPhiras_a846faa5d999358b49d67e21f5a2f762e} 
+\index{Phiras@{Phiras}!getMineralType@{getMineralType}}
+\index{getMineralType@{getMineralType}!Phiras@{Phiras}}
+\doxysubsubsection{\texorpdfstring{getMineralType()}{getMineralType()}}
+{\footnotesize\ttfamily void Phiras\+::get\+Mineral\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIMinerals}{IMinerals}}.
+
+\Hypertarget{classPhiras_a3c3f23d19a96fd416b61af45158ef731}\label{classPhiras_a3c3f23d19a96fd416b61af45158ef731} 
+\index{Phiras@{Phiras}!getType@{getType}}
+\index{getType@{getType}!Phiras@{Phiras}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Phiras\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classPhiras_a9e36a938582952c43964c38987704a09}\label{classPhiras_a9e36a938582952c43964c38987704a09} 
+\index{Phiras@{Phiras}!update@{update}}
+\index{update@{update}!Phiras@{Phiras}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Phiras\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+GRessources/\+Minerals/\+Phiras/Phiras.\+hpp\end{DoxyCompactItemize}

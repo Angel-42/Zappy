@@ -1,0 +1,7 @@
+zappy_*
+
+__pycache__
+.vscode/
+build/
+.vscode/
+clientapi_test

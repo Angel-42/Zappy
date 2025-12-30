@@ -1,0 +1,65 @@
+\doxysection{clientapi\+::Client\+APIWrapper Class Reference}
+\hypertarget{classclientapi_1_1ClientAPIWrapper}{}\label{classclientapi_1_1ClientAPIWrapper}\index{clientapi::ClientAPIWrapper@{clientapi::ClientAPIWrapper}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_ac63101332eae173ba29fabb637a0e7d5}\label{classclientapi_1_1ClientAPIWrapper_ac63101332eae173ba29fabb637a0e7d5} 
+{\bfseries Client\+APIWrapper} (const \mbox{\hyperlink{structclientapi_1_1ServerConfig}{Server\+Config}} \&config)
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a4ccb33a1ac8b07f584c82958b6346a55}\label{classclientapi_1_1ClientAPIWrapper_a4ccb33a1ac8b07f584c82958b6346a55} 
+bool {\bfseries initialize} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a78fc7e08f559e6651f5bb54a2f3c633a}\label{classclientapi_1_1ClientAPIWrapper_a78fc7e08f559e6651f5bb54a2f3c633a} 
+void {\bfseries run} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_acba591cdf1c6ef617dcb84267c038c80}\label{classclientapi_1_1ClientAPIWrapper_acba591cdf1c6ef617dcb84267c038c80} 
+void {\bfseries shutdown} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a962d8344b81627821f4496723deb0400}\label{classclientapi_1_1ClientAPIWrapper_a962d8344b81627821f4496723deb0400} 
+void {\bfseries start\+Game} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_aee86840e45848f6181451456772b9231}\label{classclientapi_1_1ClientAPIWrapper_aee86840e45848f6181451456772b9231} 
+void {\bfseries pause\+Game} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a51d6f868f3a88d046720e18b654bb928}\label{classclientapi_1_1ClientAPIWrapper_a51d6f868f3a88d046720e18b654bb928} 
+void {\bfseries reset\+Game} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_ae4f8f7c73694d8bc8e7ce56f6b8a2bcb}\label{classclientapi_1_1ClientAPIWrapper_ae4f8f7c73694d8bc8e7ce56f6b8a2bcb} 
+bool {\bfseries is\+Running} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a2b3aba83244aca326d7ec31e6448a46a}\label{classclientapi_1_1ClientAPIWrapper_a2b3aba83244aca326d7ec31e6448a46a} 
+bool {\bfseries is\+Paused} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a0ee5a9b25dd7afe835d032de9624e010}\label{classclientapi_1_1ClientAPIWrapper_a0ee5a9b25dd7afe835d032de9624e010} 
+\mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Map} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a3db9219233265377ecaaff77dc6dd2e0}\label{classclientapi_1_1ClientAPIWrapper_a3db9219233265377ecaaff77dc6dd2e0} 
+\mbox{\hyperlink{classclientapi_1_1PlayerManager}{Player\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player\+Manager} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_adae7a97aaa360da701e1c1edfd707440}\label{classclientapi_1_1ClientAPIWrapper_adae7a97aaa360da701e1c1edfd707440} 
+\mbox{\hyperlink{classclientapi_1_1TeamManager}{Team\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Team\+Manager} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a4d9fd22ea38680107d0313dd71d47fdf}\label{classclientapi_1_1ClientAPIWrapper_a4d9fd22ea38680107d0313dd71d47fdf} 
+\mbox{\hyperlink{classclientapi_1_1ConnectionManager}{Connection\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Connection\+Manager} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a55776b2ef4bd7eeeaf20e5fe5b671afa}\label{classclientapi_1_1ClientAPIWrapper_a55776b2ef4bd7eeeaf20e5fe5b671afa} 
+\mbox{\hyperlink{classclientapi_1_1TimeManager}{Time\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Time\+Manager} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_ade255afae496fd56c397b45da1ab89ce}\label{classclientapi_1_1ClientAPIWrapper_ade255afae496fd56c397b45da1ab89ce} 
+\mbox{\hyperlink{classclientapi_1_1GameManager}{Game\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Game\+Manager} () const
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a360b0163ce91b51c16788209bb368758}\label{classclientapi_1_1ClientAPIWrapper_a360b0163ce91b51c16788209bb368758} 
+void {\bfseries process\+Game\+Tick} ()
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_a04ccf492f49b15e2d7be507cfc6f36a0}\label{classclientapi_1_1ClientAPIWrapper_a04ccf492f49b15e2d7be507cfc6f36a0} 
+void {\bfseries broadcast\+To\+Clients} (const std\+::string \&message)
+\item 
+\Hypertarget{classclientapi_1_1ClientAPIWrapper_ac9fd4bbffab4c6a7ca205ccd8f750f78}\label{classclientapi_1_1ClientAPIWrapper_ac9fd4bbffab4c6a7ca205ccd8f750f78} 
+void {\bfseries send\+To\+Team} (const std\+::string \&team\+Name, const std\+::string \&message)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/Client\+APIWrapper.\+hpp\item 
+src/\+Client\+API/Client\+APIWrapper.\+cpp\end{DoxyCompactItemize}

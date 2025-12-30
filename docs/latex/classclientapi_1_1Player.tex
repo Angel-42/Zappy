@@ -1,0 +1,137 @@
+\doxysection{clientapi\+::Player Class Reference}
+\hypertarget{classclientapi_1_1Player}{}\label{classclientapi_1_1Player}\index{clientapi::Player@{clientapi::Player}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1Player_a54630b21afd06c395e9615cfadf62e69}\label{classclientapi_1_1Player_a54630b21afd06c395e9615cfadf62e69} 
+{\bfseries Player} (int id, const std\+::string \&team\+Name, const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&start\+Pos)
+\item 
+\Hypertarget{classclientapi_1_1Player_a8c0262883a39c3034348c2021e78f59c}\label{classclientapi_1_1Player_a8c0262883a39c3034348c2021e78f59c} 
+int {\bfseries get\+Id} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a36784c58abce43d0a8fcb8e42b7c0afb}\label{classclientapi_1_1Player_a36784c58abce43d0a8fcb8e42b7c0afb} 
+const std\+::string \& {\bfseries get\+Team\+Name} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a63aceb5bb9f6e8d2bbebf72efa9ae82d}\label{classclientapi_1_1Player_a63aceb5bb9f6e8d2bbebf72efa9ae82d} 
+const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \& {\bfseries get\+Position} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a1edde5964c117a498f6f01ee98faee37}\label{classclientapi_1_1Player_a1edde5964c117a498f6f01ee98faee37} 
+Direction {\bfseries get\+Direction} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a9e60575579623caa6f17a49272721aed}\label{classclientapi_1_1Player_a9e60575579623caa6f17a49272721aed} 
+int {\bfseries get\+Level} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_aaa6adf48f56bfca74611c400a2114fe0}\label{classclientapi_1_1Player_aaa6adf48f56bfca74611c400a2114fe0} 
+int {\bfseries get\+Vision\+Range} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a37c1de07f323dbc1f5b3c68a34e14153}\label{classclientapi_1_1Player_a37c1de07f323dbc1f5b3c68a34e14153} 
+Player\+State {\bfseries get\+State} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_abfeec5bbe9d81e73a72c985915903734}\label{classclientapi_1_1Player_abfeec5bbe9d81e73a72c985915903734} 
+bool {\bfseries is\+Alive} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a16eda3a9a97d72238d8b6f5c8726ca99}\label{classclientapi_1_1Player_a16eda3a9a97d72238d8b6f5c8726ca99} 
+bool {\bfseries is\+Dead} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_acfec71087255cd2c1f1e9b29c2fa59eb}\label{classclientapi_1_1Player_acfec71087255cd2c1f1e9b29c2fa59eb} 
+bool {\bfseries is\+Starving} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a09c5118eecb3ae93a8dc310939c9da13}\label{classclientapi_1_1Player_a09c5118eecb3ae93a8dc310939c9da13} 
+bool {\bfseries is\+Busy} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a8f24146b4a08f628e7de02e8ed9b4eb7}\label{classclientapi_1_1Player_a8f24146b4a08f628e7de02e8ed9b4eb7} 
+bool {\bfseries is\+Incantating} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_ad3e310b2f5c6ab82e0c21f27a08e9cca}\label{classclientapi_1_1Player_ad3e310b2f5c6ab82e0c21f27a08e9cca} 
+int {\bfseries get\+Food} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a3f949217e82da3412a8d75701a30ea7d}\label{classclientapi_1_1Player_a3f949217e82da3412a8d75701a30ea7d} 
+int {\bfseries get\+Life\+Units} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a45f62d2ef1b339c7c979a1668601d308}\label{classclientapi_1_1Player_a45f62d2ef1b339c7c979a1668601d308} 
+double {\bfseries get\+Life\+Time\+Remaining} (double frequency) const
+\item 
+\Hypertarget{classclientapi_1_1Player_ae0acbeea6b179b373fd5f36ecc4c09c3}\label{classclientapi_1_1Player_ae0acbeea6b179b373fd5f36ecc4c09c3} 
+bool {\bfseries needs\+Food} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a83e282d421f973fa4eb23c4ae4bf7ffc}\label{classclientapi_1_1Player_a83e282d421f973fa4eb23c4ae4bf7ffc} 
+void {\bfseries consume\+Life\+Over\+Time} (int time\+Units)
+\item 
+\Hypertarget{classclientapi_1_1Player_a6713cad926cd5c83c17c3d890c624916}\label{classclientapi_1_1Player_a6713cad926cd5c83c17c3d890c624916} 
+bool {\bfseries eat\+Food} (int amount=1)
+\item 
+\Hypertarget{classclientapi_1_1Player_a9b78cb907707119434f652786c3f84df}\label{classclientapi_1_1Player_a9b78cb907707119434f652786c3f84df} 
+void {\bfseries add\+Food} (int amount)
+\item 
+\Hypertarget{classclientapi_1_1Player_a9f078d88a02a46bbaab7e20f9be17b54}\label{classclientapi_1_1Player_a9f078d88a02a46bbaab7e20f9be17b54} 
+void {\bfseries force\+Starvation} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_a87f425ba38e5c92ee1c02d0004e0abfd}\label{classclientapi_1_1Player_a87f425ba38e5c92ee1c02d0004e0abfd} 
+int {\bfseries get\+Resource\+Count} (Resource\+Type resource) const
+\item 
+\Hypertarget{classclientapi_1_1Player_a3c19d29782f345b05b98e87bd3c2afcd}\label{classclientapi_1_1Player_a3c19d29782f345b05b98e87bd3c2afcd} 
+std\+::map$<$ Resource\+Type, int $>$ {\bfseries get\+Inventory} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a15d47beafeec3a93d6f4edba5c8af3f1}\label{classclientapi_1_1Player_a15d47beafeec3a93d6f4edba5c8af3f1} 
+bool {\bfseries has\+Resource} (Resource\+Type resource, int amount=1) const
+\item 
+\Hypertarget{classclientapi_1_1Player_a78f7d433a821a8ef988d079ce346247e}\label{classclientapi_1_1Player_a78f7d433a821a8ef988d079ce346247e} 
+bool {\bfseries add\+Resource} (Resource\+Type resource, int amount=1)
+\item 
+\Hypertarget{classclientapi_1_1Player_ae36cedadfd459d0c29134cbbf1213d37}\label{classclientapi_1_1Player_ae36cedadfd459d0c29134cbbf1213d37} 
+bool {\bfseries remove\+Resource} (Resource\+Type resource, int amount=1)
+\item 
+\Hypertarget{classclientapi_1_1Player_a47c64a76eac0bc4fc5434b742796f184}\label{classclientapi_1_1Player_a47c64a76eac0bc4fc5434b742796f184} 
+void {\bfseries clear\+Inventory} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_a878298c970026602551f8b711eb19dbb}\label{classclientapi_1_1Player_a878298c970026602551f8b711eb19dbb} 
+void {\bfseries set\+Position} (const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&pos)
+\item 
+\Hypertarget{classclientapi_1_1Player_a4d62fb71cd83fe2db9c767d9072eca47}\label{classclientapi_1_1Player_a4d62fb71cd83fe2db9c767d9072eca47} 
+void {\bfseries turn\+Left} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_a96e23cf166bec8bcdaa7e3a8a07a2f98}\label{classclientapi_1_1Player_a96e23cf166bec8bcdaa7e3a8a07a2f98} 
+void {\bfseries turn\+Right} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_adea5a50bb39d3919edaad314d45730eb}\label{classclientapi_1_1Player_adea5a50bb39d3919edaad314d45730eb} 
+\mbox{\hyperlink{structclientapi_1_1Position}{Position}} {\bfseries get\+Forward\+Position} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_a6ede7aea0687cf350d4d3aece4b151ac}\label{classclientapi_1_1Player_a6ede7aea0687cf350d4d3aece4b151ac} 
+void {\bfseries level\+Up} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_a3d9c9c16e532f4271e443d19bfcb6a84}\label{classclientapi_1_1Player_a3d9c9c16e532f4271e443d19bfcb6a84} 
+bool {\bfseries can\+Elevate} (const std\+::map$<$ Resource\+Type, int $>$ \&requirements) const
+\item 
+\Hypertarget{classclientapi_1_1Player_ace0ecc6b87575f78319a131a793ae8c1}\label{classclientapi_1_1Player_ace0ecc6b87575f78319a131a793ae8c1} 
+void {\bfseries set\+Incantating} (bool incantating)
+\item 
+\Hypertarget{classclientapi_1_1Player_a4dc93111f9427c0280112c8522d77196}\label{classclientapi_1_1Player_a4dc93111f9427c0280112c8522d77196} 
+void {\bfseries set\+Busy} (int duration)
+\item 
+\Hypertarget{classclientapi_1_1Player_a3e6775997e26cf21d45697e3e3176da0}\label{classclientapi_1_1Player_a3e6775997e26cf21d45697e3e3176da0} 
+void {\bfseries decrease\+Action\+Time} (int time\+Units)
+\item 
+\Hypertarget{classclientapi_1_1Player_a9961089979e027647f459c1299028b51}\label{classclientapi_1_1Player_a9961089979e027647f459c1299028b51} 
+bool {\bfseries is\+Action\+Complete} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_aeb485a8ed3b86eb17c7a85f623a525a7}\label{classclientapi_1_1Player_aeb485a8ed3b86eb17c7a85f623a525a7} 
+void {\bfseries set\+Socket} (int socket)
+\item 
+\Hypertarget{classclientapi_1_1Player_aa816bda0e87af3dd9f77f54c2b444d55}\label{classclientapi_1_1Player_aa816bda0e87af3dd9f77f54c2b444d55} 
+int {\bfseries get\+Socket} () const
+\item 
+\Hypertarget{classclientapi_1_1Player_add67d774e583288faf2c212dbbb66063}\label{classclientapi_1_1Player_add67d774e583288faf2c212dbbb66063} 
+void {\bfseries on\+Death} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_a4b804ee3802a2fd37ba18231ab87ffae}\label{classclientapi_1_1Player_a4b804ee3802a2fd37ba18231ab87ffae} 
+void {\bfseries on\+Food\+Consumed} ()
+\item 
+\Hypertarget{classclientapi_1_1Player_a1af5d39f7bac2aeaa1e30c7dda2332fa}\label{classclientapi_1_1Player_a1af5d39f7bac2aeaa1e30c7dda2332fa} 
+void {\bfseries reset} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Player/Player.\+hpp\item 
+src/\+Client\+API/\+Player/Player.\+cpp\end{DoxyCompactItemize}

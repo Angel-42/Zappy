@@ -1,0 +1,111 @@
+\doxysection{clientapi\+::Player\+Manager Class Reference}
+\hypertarget{classclientapi_1_1PlayerManager}{}\label{classclientapi_1_1PlayerManager}\index{clientapi::PlayerManager@{clientapi::PlayerManager}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classclientapi_1_1PlayerManager_afce34098393bfffbc7cfc2c4ec0afe12}{Player\+Death\+Callback}} = std\+::function$<$ void(int player\+Id, const std\+::string \&team\+Name)$>$
+\begin{DoxyCompactList}\small\item\em Callback for player death events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a96a587dddcc825c95cbbc3d35c498a80}\label{classclientapi_1_1PlayerManager_a96a587dddcc825c95cbbc3d35c498a80} 
+{\bfseries Player\+Manager} (\mbox{\hyperlink{classclientapi_1_1Map}{Map}} \texorpdfstring{$\ast$}{*}map)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a36a4d37b20ca793cb042fc39ba9113a8}\label{classclientapi_1_1PlayerManager_a36a4d37b20ca793cb042fc39ba9113a8} 
+\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries create\+Player} (const std\+::string \&team\+Name, int socket)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_aa31d4b4e8687dad3cb66c256dff5aeb0}\label{classclientapi_1_1PlayerManager_aa31d4b4e8687dad3cb66c256dff5aeb0} 
+void {\bfseries remove\+Player} (int player\+Id)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a5d206df4463d3135ded3b5322e137b6e}\label{classclientapi_1_1PlayerManager_a5d206df4463d3135ded3b5322e137b6e} 
+void {\bfseries remove\+Player\+By\+Socket} (int socket)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a9f0d9e944b3e041d14ec1415e4eaa219}\label{classclientapi_1_1PlayerManager_a9f0d9e944b3e041d14ec1415e4eaa219} 
+\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player} (int player\+Id)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a22312c3ee446a3b8b0fc5f53be557170}\label{classclientapi_1_1PlayerManager_a22312c3ee446a3b8b0fc5f53be557170} 
+\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player\+By\+Socket} (int socket)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_ac9e2d1c71ec2b7426cd4d95f1f0b7b7d}\label{classclientapi_1_1PlayerManager_ac9e2d1c71ec2b7426cd4d95f1f0b7b7d} 
+std\+::vector$<$ \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Players\+In\+Team} (const std\+::string \&team\+Name)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a884f99e7492e45c9bea24e4a5b514e10}\label{classclientapi_1_1PlayerManager_a884f99e7492e45c9bea24e4a5b514e10} 
+std\+::vector$<$ \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+All\+Players} ()
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_af19ee3556a1a825f313a0d4dc723d173}\label{classclientapi_1_1PlayerManager_af19ee3556a1a825f313a0d4dc723d173} 
+std\+::vector$<$ \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Alive\+Players} ()
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a909b38a4af8ea07c1cf58372d89f1aae}\label{classclientapi_1_1PlayerManager_a909b38a4af8ea07c1cf58372d89f1aae} 
+void {\bfseries update\+Players} ()
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_aba2515e54f4d608caf8729817808db55}\label{classclientapi_1_1PlayerManager_aba2515e54f4d608caf8729817808db55} 
+void {\bfseries move\+Player} (int player\+Id, const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&new\+Position)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_af95a414167cccd2cbc2b26431b2b0c83}\label{classclientapi_1_1PlayerManager_af95a414167cccd2cbc2b26431b2b0c83} 
+bool {\bfseries can\+Player\+Move\+To} (int player\+Id, const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&position)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a7b1fd6430b3bb4b9854567d7a56f2620}\label{classclientapi_1_1PlayerManager_a7b1fd6430b3bb4b9854567d7a56f2620} 
+void {\bfseries process\+Life\+Consumption} (int time\+Units)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a95e495c4ef383ef0c17579d3dbc13489}\label{classclientapi_1_1PlayerManager_a95e495c4ef383ef0c17579d3dbc13489} 
+void {\bfseries feed\+Player} (int player\+Id, int amount=1)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a24f764501c1336614c7cc24c308827c8}\label{classclientapi_1_1PlayerManager_a24f764501c1336614c7cc24c308827c8} 
+std\+::vector$<$ int $>$ {\bfseries get\+Starving\+Players} () const
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_ab6ec6b48e076b7a1a7eb6ee96f303b6b}\label{classclientapi_1_1PlayerManager_ab6ec6b48e076b7a1a7eb6ee96f303b6b} 
+int {\bfseries get\+Alive\+Player\+Count} () const
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a87a9ccfdc6deb5ef84705f6747b0c5ee}\label{classclientapi_1_1PlayerManager_a87a9ccfdc6deb5ef84705f6747b0c5ee} 
+void {\bfseries set\+Player\+Death\+Callback} (\mbox{\hyperlink{classclientapi_1_1PlayerManager_afce34098393bfffbc7cfc2c4ec0afe12}{Player\+Death\+Callback}} callback)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_af5fa8ac20f5333c5bcae3c9a555d1cd2}\label{classclientapi_1_1PlayerManager_af5fa8ac20f5333c5bcae3c9a555d1cd2} 
+void {\bfseries process\+Player\+Deaths} ()
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a9d12391e0a9a05d408dfb10fb3fc2e4b}\label{classclientapi_1_1PlayerManager_a9d12391e0a9a05d408dfb10fb3fc2e4b} 
+void {\bfseries handle\+Player\+Collisions} ()
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_af1d52619f0d1717e0d0cd61d6341e351}\label{classclientapi_1_1PlayerManager_af1d52619f0d1717e0d0cd61d6341e351} 
+std\+::vector$<$ \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Players\+At} (const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&position)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a53ac452e255b83fbbec671fc9fd2803f}\label{classclientapi_1_1PlayerManager_a53ac452e255b83fbbec671fc9fd2803f} 
+void {\bfseries respawn\+Player} (int player\+Id, const \mbox{\hyperlink{structclientapi_1_1Position}{Position}} \&spawn\+Position)
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a8a36b38d26727e6c6a9d856b4ed32cbc}\label{classclientapi_1_1PlayerManager_a8a36b38d26727e6c6a9d856b4ed32cbc} 
+int {\bfseries get\+Player\+Count} () const
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a742a4d9185c45dab7fea1b443f9e04eb}\label{classclientapi_1_1PlayerManager_a742a4d9185c45dab7fea1b443f9e04eb} 
+int {\bfseries get\+Team\+Player\+Count} (const std\+::string \&team\+Name) const
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_acf6c61f0ee68bc5dc3249107392b5cb7}\label{classclientapi_1_1PlayerManager_acf6c61f0ee68bc5dc3249107392b5cb7} 
+std\+::map$<$ std\+::string, int $>$ {\bfseries get\+Team\+Counts} () const
+\item 
+\Hypertarget{classclientapi_1_1PlayerManager_a7f3226ee0be22244ec60eaf04ad7e142}\label{classclientapi_1_1PlayerManager_a7f3226ee0be22244ec60eaf04ad7e142} 
+int {\bfseries get\+Total\+Food\+Consumed} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classclientapi_1_1PlayerManager_afce34098393bfffbc7cfc2c4ec0afe12}\label{classclientapi_1_1PlayerManager_afce34098393bfffbc7cfc2c4ec0afe12} 
+\index{clientapi::PlayerManager@{clientapi::PlayerManager}!PlayerDeathCallback@{PlayerDeathCallback}}
+\index{PlayerDeathCallback@{PlayerDeathCallback}!clientapi::PlayerManager@{clientapi::PlayerManager}}
+\doxysubsubsection{\texorpdfstring{PlayerDeathCallback}{PlayerDeathCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classclientapi_1_1PlayerManager_afce34098393bfffbc7cfc2c4ec0afe12}{clientapi\+::\+Player\+Manager\+::\+Player\+Death\+Callback}} =  std\+::function$<$void(int player\+Id, const std\+::string\& team\+Name)$>$}
+
+
+
+Callback for player death events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Id} & The ID of the player who died \\
+\hline
+{\em team\+Name} & The team of the deceased player \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Player/Player\+Manager.\+hpp\item 
+src/\+Client\+API/\+Player/Player\+Manager.\+cpp\end{DoxyCompactItemize}

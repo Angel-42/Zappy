@@ -1,0 +1,85 @@
+\doxysection{Game\+State Class Reference}
+\hypertarget{classGameState}{}\label{classGameState}\index{GameState@{GameState}}
+
+
+Inheritance diagram for Game\+State\+:
+% FIG 0
+
+
+Collaboration diagram for Game\+State\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGameState_a2f9cfb28cd71a71a642f6f2a0cd5c7d1}\label{classGameState_a2f9cfb28cd71a71a642f6f2a0cd5c7d1} 
+{\bfseries Game\+State} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classGameState_a6604ffc50fafebe5eb46b93d8b7b2ad2}{on\+Enter}} (\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&machine) override
+\item 
+void \mbox{\hyperlink{classGameState_aa23af60a03a24fe9658695c8eb5c4ea8}{on\+Exit}} (\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&machine) override
+\item 
+void \mbox{\hyperlink{classGameState_a70d248f9ebbcb9fe6f00c580f03dcb61}{update}} (\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&machine, float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classGameState_a9d1ec1f1053af34c19846c8c6f241b0a}{render}} (\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&machine) override
+\item 
+void \mbox{\hyperlink{classGameState_a4567d30bedd91da2da4f475948869d9b}{handle\+Event}} (\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&machine, const sf\+::\+Event \&event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameState_a4567d30bedd91da2da4f475948869d9b}\label{classGameState_a4567d30bedd91da2da4f475948869d9b} 
+\index{GameState@{GameState}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void Game\+State\+::handle\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&}]{machine,  }\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIState}{IState}}.
+
+\Hypertarget{classGameState_a6604ffc50fafebe5eb46b93d8b7b2ad2}\label{classGameState_a6604ffc50fafebe5eb46b93d8b7b2ad2} 
+\index{GameState@{GameState}!onEnter@{onEnter}}
+\index{onEnter@{onEnter}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{onEnter()}{onEnter()}}
+{\footnotesize\ttfamily void Game\+State\+::on\+Enter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&}]{machine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIState}{IState}}.
+
+\Hypertarget{classGameState_aa23af60a03a24fe9658695c8eb5c4ea8}\label{classGameState_aa23af60a03a24fe9658695c8eb5c4ea8} 
+\index{GameState@{GameState}!onExit@{onExit}}
+\index{onExit@{onExit}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{onExit()}{onExit()}}
+{\footnotesize\ttfamily void Game\+State\+::on\+Exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&}]{machine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIState}{IState}}.
+
+\Hypertarget{classGameState_a9d1ec1f1053af34c19846c8c6f241b0a}\label{classGameState_a9d1ec1f1053af34c19846c8c6f241b0a} 
+\index{GameState@{GameState}!render@{render}}
+\index{render@{render}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+State\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&}]{machine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIState}{IState}}.
+
+\Hypertarget{classGameState_a70d248f9ebbcb9fe6f00c580f03dcb61}\label{classGameState_a70d248f9ebbcb9fe6f00c580f03dcb61} 
+\index{GameState@{GameState}!update@{update}}
+\index{update@{update}!GameState@{GameState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+State\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStateMachine}{State\+Machine}} \&}]{machine,  }\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIState}{IState}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/\+State/Game\+State.\+hpp\item 
+src/\+GUI/\+Renderer/\+State/Game\+State.\+cpp\end{DoxyCompactItemize}

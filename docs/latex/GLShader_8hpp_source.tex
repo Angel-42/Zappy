@@ -1,0 +1,42 @@
+\doxysection{GLShader.\+hpp}
+\hypertarget{GLShader_8hpp_source}{}\label{GLShader_8hpp_source}\index{src/GUI/Renderer/Utils/GLShader.hpp@{src/GUI/Renderer/Utils/GLShader.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ GLShader.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <GL/glew.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGLShader}{GLShader}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classGLShader}{GLShader}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *vertexSrc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fragSrc);}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classGLShader}{\string~GLShader}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ use()\textcolor{keyword}{\ const\ }\{\ glUseProgram(m\_id);\ \}}
+\DoxyCodeLine{00026\ \ \ \ \ GLuint\ id()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_id;\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ setMat4(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ glm::mat4\ \&mat)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ glUniformMatrix4fv(glGetUniformLocation(\textcolor{keywordtype}{id}(),\ name.c\_str()),\ 1,\ GL\_FALSE,\ glm::value\_ptr(mat));}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ GLuint\ m\_id;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ checkCompile(GLuint\ obj,\ \textcolor{keywordtype}{bool}\ isProgram,\ \textcolor{keyword}{const}\ std::string\ \&stage);}
+\DoxyCodeLine{00036\ \};}
+
+\end{DoxyCode}

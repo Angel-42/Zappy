@@ -1,0 +1,260 @@
+\doxysection{clientapi\+::Client\+Handler Class Reference}
+\hypertarget{classclientapi_1_1ClientHandler}{}\label{classclientapi_1_1ClientHandler}\index{clientapi::ClientHandler@{clientapi::ClientHandler}}
+
+
+Manages a single client connection from authentication through gameplay.  
+
+
+
+
+{\ttfamily \#include $<$Client\+Handler.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classclientapi_1_1ClientHandler_af3cd145d6409d107e08e4e77fabda5db}{Client\+Handler}} (int socket, \mbox{\hyperlink{classclientapi_1_1ConnectionManager}{Connection\+Manager}} \texorpdfstring{$\ast$}{*}manager)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} for a new client connection. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1ClientHandler_a0f63683e7c1e3ed5cee4a25af0b67454}\label{classclientapi_1_1ClientHandler_a0f63683e7c1e3ed5cee4a25af0b67454} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Client\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ closes socket and cleans up resources. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1ClientHandler_a96cabc498142cdc1daed10f737a64525}{handle\+Incoming\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Handles incoming data from the client socket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1ClientHandler_a9d6ebf8e473211ac5c4e12000f5daf01}{send\+Response}} (const std\+::string \&response)
+\begin{DoxyCompactList}\small\item\em Sends a response message to the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1ClientHandler_ad1c42e5c42678b1df68bcc39d93928bb}{send\+Welcome}} ()
+\begin{DoxyCompactList}\small\item\em Sends the initial WELCOME message to a new client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1ClientHandler_a55563ba4270f4f48b7ce3e29b6058dd4}{authenticate}} (const std\+::string \&team\+Name)
+\begin{DoxyCompactList}\small\item\em Attempts to authenticate a client with the given team name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1ClientHandler_a700a7f7afdba16111ffd7691fd9aad4f}{is\+Authenticated}} () const
+\begin{DoxyCompactList}\small\item\em Checks if client has completed authentication. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classclientapi_1_1ClientHandler_ad7644b888014760d6492e9ec198afb1f}{get\+Socket}} () const
+\begin{DoxyCompactList}\small\item\em Gets the socket file descriptor for this client. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classclientapi_1_1ClientHandler_a08f5f58dc7a4689dc4046ca2ea941f73}{get\+Team\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the team name for authenticated clients. \end{DoxyCompactList}\item 
+Client\+Type \mbox{\hyperlink{classclientapi_1_1ClientHandler_a73b98f90274478068ea7bc8d176832ed}{get\+Client\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the client type (UNKNOWN, AI, or GRAPHIC) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classclientapi_1_1ClientHandler_a761b1a340764c5b6647879352441f97a}{get\+Player}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{classclientapi_1_1Player}{Player} instance for AI clients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1ClientHandler_ada49ecdd7a7c1be43a99e46d63c31193}{process\+Command}} (const std\+::string \&command)
+\begin{DoxyCompactList}\small\item\em Processes a command from an authenticated AI client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a single client connection from authentication through gameplay. 
+
+The \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} is responsible for\+:
+\begin{DoxyItemize}
+\item Managing the network connection for one client
+\item Handling the authentication flow (WELCOME -\/\texorpdfstring{$>$}{>} team name -\/\texorpdfstring{$>$}{>} game info)
+\item Processing incoming commands from AI clients
+\item Sending responses and game updates
+\item Managing the client\textquotesingle{}s \doxylink{classclientapi_1_1Player}{Player} instance (for AI clients)
+\item Buffering commands according to Zappy protocol (max 10 commands)
+\end{DoxyItemize}
+
+\doxylink{classclientapi_1_1Protocol}{Protocol} Flow\+:
+\begin{DoxyEnumerate}
+\item Client connects, \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} sends "{}\+WELCOME"{}
+\item Client sends team name (e.\+g., "{}team1"{} or "{}\+GRAPHIC"{})
+\item \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} authenticates and sends game info
+\item For AI clients\+: Commands are processed through \doxylink{classclientapi_1_1CommandBuffer}{Command\+Buffer}
+\item For GUI clients\+: \doxylink{classGame}{Game} events are sent as they occur
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+Each \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} is owned by \doxylink{classclientapi_1_1ConnectionManager}{Connection\+Manager} and represents one TCP connection 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classclientapi_1_1ClientHandler_af3cd145d6409d107e08e4e77fabda5db}\label{classclientapi_1_1ClientHandler_af3cd145d6409d107e08e4e77fabda5db} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!ClientHandler@{ClientHandler}}
+\index{ClientHandler@{ClientHandler}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{ClientHandler()}{ClientHandler()}}
+{\footnotesize\ttfamily clientapi\+::\+Client\+Handler\+::\+Client\+Handler (\begin{DoxyParamCaption}\item[{int}]{socket,  }\item[{\mbox{\hyperlink{classclientapi_1_1ConnectionManager}{Connection\+Manager}} \texorpdfstring{$\ast$}{*}}]{manager }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classclientapi_1_1ClientHandler}{Client\+Handler} for a new client connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The TCP socket file descriptor for this client \\
+\hline
+{\em manager} & Pointer to the \doxylink{classclientapi_1_1ConnectionManager}{Connection\+Manager} that owns this handler\\
+\hline
+\end{DoxyParams}
+Initializes the handler in UNKNOWN state and creates a \doxylink{classclientapi_1_1CommandBuffer}{Command\+Buffer} for AI clients. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classclientapi_1_1ClientHandler_a55563ba4270f4f48b7ce3e29b6058dd4}\label{classclientapi_1_1ClientHandler_a55563ba4270f4f48b7ce3e29b6058dd4} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Client\+Handler\+::authenticate (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{team\+Name }\end{DoxyParamCaption})}
+
+
+
+Attempts to authenticate a client with the given team name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team\+Name} & The team name sent by the client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if authentication successful, false otherwise
+\end{DoxyReturn}
+Authentication rules\+:
+\begin{DoxyItemize}
+\item "{}\+GRAPHIC"{} always authenticates as GUI client
+\item Valid team names authenticate as AI clients if slots available
+\item Invalid team names or full teams are rejected
+\end{DoxyItemize}
+
+On successful authentication\+:
+\begin{DoxyItemize}
+\item Sets client type and team name
+\item Creates \doxylink{classclientapi_1_1Player}{Player} instance for AI clients
+\item Sends game information to client 
+\end{DoxyItemize}\Hypertarget{classclientapi_1_1ClientHandler_a73b98f90274478068ea7bc8d176832ed}\label{classclientapi_1_1ClientHandler_a73b98f90274478068ea7bc8d176832ed} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!getClientType@{getClientType}}
+\index{getClientType@{getClientType}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{getClientType()}{getClientType()}}
+{\footnotesize\ttfamily Client\+Type clientapi\+::\+Client\+Handler\+::get\+Client\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the client type (UNKNOWN, AI, or GRAPHIC) 
+
+\begin{DoxyReturn}{Returns}
+Client\+Type enum value 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1ClientHandler_a761b1a340764c5b6647879352441f97a}\label{classclientapi_1_1ClientHandler_a761b1a340764c5b6647879352441f97a} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*} clientapi\+::\+Client\+Handler\+::get\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the \doxylink{classclientapi_1_1Player}{Player} instance for AI clients. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to \doxylink{classclientapi_1_1Player}{Player} object, or nullptr for non-\/\+AI clients 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1ClientHandler_ad7644b888014760d6492e9ec198afb1f}\label{classclientapi_1_1ClientHandler_ad7644b888014760d6492e9ec198afb1f} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!getSocket@{getSocket}}
+\index{getSocket@{getSocket}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{getSocket()}{getSocket()}}
+{\footnotesize\ttfamily int clientapi\+::\+Client\+Handler\+::get\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the socket file descriptor for this client. 
+
+\begin{DoxyReturn}{Returns}
+Socket file descriptor 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1ClientHandler_a08f5f58dc7a4689dc4046ca2ea941f73}\label{classclientapi_1_1ClientHandler_a08f5f58dc7a4689dc4046ca2ea941f73} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!getTeamName@{getTeamName}}
+\index{getTeamName@{getTeamName}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{getTeamName()}{getTeamName()}}
+{\footnotesize\ttfamily const std\+::string \& clientapi\+::\+Client\+Handler\+::get\+Team\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the team name for authenticated clients. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classclientapi_1_1Team}{Team} name string, or empty string if not authenticated 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1ClientHandler_a96cabc498142cdc1daed10f737a64525}\label{classclientapi_1_1ClientHandler_a96cabc498142cdc1daed10f737a64525} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!handleIncomingData@{handleIncomingData}}
+\index{handleIncomingData@{handleIncomingData}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{handleIncomingData()}{handleIncomingData()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Client\+Handler\+::handle\+Incoming\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles incoming data from the client socket. 
+
+\begin{DoxyReturn}{Returns}
+true if connection is still valid, false if client disconnected
+\end{DoxyReturn}
+This method\+:
+\begin{DoxyItemize}
+\item Reads available data from the socket (non-\/blocking)
+\item Buffers incomplete messages until newline is received
+\item Processes complete messages based on authentication state
+\item Handles authentication for new clients
+\item Forwards commands to \doxylink{classclientapi_1_1CommandBuffer}{Command\+Buffer} for authenticated AI clients 
+\end{DoxyItemize}\Hypertarget{classclientapi_1_1ClientHandler_a700a7f7afdba16111ffd7691fd9aad4f}\label{classclientapi_1_1ClientHandler_a700a7f7afdba16111ffd7691fd9aad4f} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!isAuthenticated@{isAuthenticated}}
+\index{isAuthenticated@{isAuthenticated}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{isAuthenticated()}{isAuthenticated()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Client\+Handler\+::is\+Authenticated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if client has completed authentication. 
+
+\begin{DoxyReturn}{Returns}
+true if client type is not UNKNOWN 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1ClientHandler_ada49ecdd7a7c1be43a99e46d63c31193}\label{classclientapi_1_1ClientHandler_ada49ecdd7a7c1be43a99e46d63c31193} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!processCommand@{processCommand}}
+\index{processCommand@{processCommand}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{processCommand()}{processCommand()}}
+{\footnotesize\ttfamily void clientapi\+::\+Client\+Handler\+::process\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command }\end{DoxyParamCaption})}
+
+
+
+Processes a command from an authenticated AI client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command string to process\\
+\hline
+\end{DoxyParams}
+For AI clients\+:
+\begin{DoxyItemize}
+\item Validates command format
+\item Adds command to buffer if space available (max 10)
+\item Sends "{}ko"{} for invalid commands or full buffer
+\end{DoxyItemize}
+
+For GUI clients\+:
+\begin{DoxyItemize}
+\item Commands are handled differently (GUI protocol) 
+\end{DoxyItemize}\Hypertarget{classclientapi_1_1ClientHandler_a9d6ebf8e473211ac5c4e12000f5daf01}\label{classclientapi_1_1ClientHandler_a9d6ebf8e473211ac5c4e12000f5daf01} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!sendResponse@{sendResponse}}
+\index{sendResponse@{sendResponse}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{sendResponse()}{sendResponse()}}
+{\footnotesize\ttfamily void clientapi\+::\+Client\+Handler\+::send\+Response (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{response }\end{DoxyParamCaption})}
+
+
+
+Sends a response message to the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & The message to send (newline will be added automatically)\\
+\hline
+\end{DoxyParams}
+Used for sending command responses, game updates, and protocol messages. \Hypertarget{classclientapi_1_1ClientHandler_ad1c42e5c42678b1df68bcc39d93928bb}\label{classclientapi_1_1ClientHandler_ad1c42e5c42678b1df68bcc39d93928bb} 
+\index{clientapi::ClientHandler@{clientapi::ClientHandler}!sendWelcome@{sendWelcome}}
+\index{sendWelcome@{sendWelcome}!clientapi::ClientHandler@{clientapi::ClientHandler}}
+\doxysubsubsection{\texorpdfstring{sendWelcome()}{sendWelcome()}}
+{\footnotesize\ttfamily void clientapi\+::\+Client\+Handler\+::send\+Welcome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sends the initial WELCOME message to a new client. 
+
+Called immediately when a new connection is accepted. Starts the authentication flow according to Zappy protocol. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Network/Client\+Handler.\+hpp\item 
+src/\+Client\+API/\+Network/Client\+Handler.\+cpp\end{DoxyCompactItemize}

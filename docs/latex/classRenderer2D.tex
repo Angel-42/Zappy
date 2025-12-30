@@ -1,0 +1,109 @@
+\doxysection{Renderer2D Class Reference}
+\hypertarget{classRenderer2D}{}\label{classRenderer2D}\index{Renderer2D@{Renderer2D}}
+
+
+Inheritance diagram for Renderer2D\+:
+% FIG 0
+
+
+Collaboration diagram for Renderer2D\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRenderer2D_af1fc4135c3c52c06132792a91d09b54c}\label{classRenderer2D_af1fc4135c3c52c06132792a91d09b54c} 
+{\bfseries Renderer2D} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classRenderer2D_a83e4eaa04d264ec319d0fe5fdcb60e6b}{initialize}} () override
+\item 
+void \mbox{\hyperlink{classRenderer2D_a45db2e5bfd09accb3df7d407051b5cf3}{render}} () override
+\item 
+void \mbox{\hyperlink{classRenderer2D_ad16fa645a38fdd4d48488478b84b6887}{update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classRenderer2D_af9804fcd175ce91562106f9071ee82f3}{shutdown}} () override
+\item 
+\Hypertarget{classRenderer2D_a91afe64ebcaf573d3c6c82f7e9d7920c}\label{classRenderer2D_a91afe64ebcaf573d3c6c82f7e9d7920c} 
+void {\bfseries handle\+Events} ()
+\item 
+\Hypertarget{classRenderer2D_a53135164d99d06d792bc7afb80a38448}\label{classRenderer2D_a53135164d99d06d792bc7afb80a38448} 
+bool {\bfseries is\+Open} () const
+\item 
+\Hypertarget{classRenderer2D_a620621cf37a42847ca985d1b7b97aafa}\label{classRenderer2D_a620621cf37a42847ca985d1b7b97aafa} 
+void {\bfseries display\+Map} ()
+\item 
+\Hypertarget{classRenderer2D_a1a381a25a5f89be29d7da7870058a7c9}\label{classRenderer2D_a1a381a25a5f89be29d7da7870058a7c9} 
+void {\bfseries initiate\+Drawables} ()
+\item 
+\Hypertarget{classRenderer2D_a2b1207d49dc5cf1f2c1712164ae3f9bb}\label{classRenderer2D_a2b1207d49dc5cf1f2c1712164ae3f9bb} 
+void {\bfseries spritesetscale} (float x, float y)
+\item 
+\Hypertarget{classRenderer2D_add24f9036983a71268f0314672089d05}\label{classRenderer2D_add24f9036983a71268f0314672089d05} 
+void {\bfseries set\+Map\+Size} (int size)
+\item 
+\Hypertarget{classRenderer2D_a99e010872c8d8f90c02c4d1aa8496014}\label{classRenderer2D_a99e010872c8d8f90c02c4d1aa8496014} 
+void {\bfseries set\+Player\+Count} (int count)
+\item 
+\Hypertarget{classRenderer2D_a81e709062bb9e5b84c5c594dc691e2e7}\label{classRenderer2D_a81e709062bb9e5b84c5c594dc691e2e7} 
+void {\bfseries set\+Food\+Count} (int count)
+\item 
+\Hypertarget{classRenderer2D_af6fda22401c80eae5b77a0a7c1f7571c}\label{classRenderer2D_af6fda22401c80eae5b77a0a7c1f7571c} 
+void {\bfseries spawn\+Food} ()
+\item 
+\Hypertarget{classRenderer2D_a9f25268a73cf5c827b73da62b9afc838}\label{classRenderer2D_a9f25268a73cf5c827b73da62b9afc838} 
+void {\bfseries spawn\+Player} ()
+\item 
+\Hypertarget{classRenderer2D_acef4316deda96f292a2512c424059dc3}\label{classRenderer2D_acef4316deda96f292a2512c424059dc3} 
+void {\bfseries move\+Players} ()
+\item 
+\Hypertarget{classRenderer2D_a59f90555dd3a4a8322523d921e52ce2e}\label{classRenderer2D_a59f90555dd3a4a8322523d921e52ce2e} 
+\mbox{\hyperlink{classUILayer}{UILayer}} \& {\bfseries get\+UILayer} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRenderer2D_a83e4eaa04d264ec319d0fe5fdcb60e6b}\label{classRenderer2D_a83e4eaa04d264ec319d0fe5fdcb60e6b} 
+\index{Renderer2D@{Renderer2D}!initialize@{initialize}}
+\index{initialize@{initialize}!Renderer2D@{Renderer2D}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Renderer2\+D\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+\Hypertarget{classRenderer2D_a45db2e5bfd09accb3df7d407051b5cf3}\label{classRenderer2D_a45db2e5bfd09accb3df7d407051b5cf3} 
+\index{Renderer2D@{Renderer2D}!render@{render}}
+\index{render@{render}!Renderer2D@{Renderer2D}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Renderer2\+D\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+\Hypertarget{classRenderer2D_af9804fcd175ce91562106f9071ee82f3}\label{classRenderer2D_af9804fcd175ce91562106f9071ee82f3} 
+\index{Renderer2D@{Renderer2D}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!Renderer2D@{Renderer2D}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void Renderer2\+D\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+\Hypertarget{classRenderer2D_ad16fa645a38fdd4d48488478b84b6887}\label{classRenderer2D_ad16fa645a38fdd4d48488478b84b6887} 
+\index{Renderer2D@{Renderer2D}!update@{update}}
+\index{update@{update}!Renderer2D@{Renderer2D}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Renderer2\+D\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRenderer}{IRenderer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/2\+D/Renderer2\+D.\+hpp\item 
+src/\+GUI/\+Renderer/2\+D/Renderer2\+D.\+cpp\end{DoxyCompactItemize}

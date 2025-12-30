@@ -1,0 +1,158 @@
+\doxysection{clientapi\+::Command\+Buffer Class Reference}
+\hypertarget{classclientapi_1_1CommandBuffer}{}\label{classclientapi_1_1CommandBuffer}\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+
+
+Manages command buffering and timed execution for individual AI clients.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Buffer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classclientapi_1_1CommandBuffer_a779c5e96a207da4f9ef7a4803791e76c}\label{classclientapi_1_1CommandBuffer_a779c5e96a207da4f9ef7a4803791e76c} 
+{\bfseries Command\+Buffer} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty command buffer. \end{DoxyCompactList}\item 
+\Hypertarget{classclientapi_1_1CommandBuffer_a499f087fe35ff951198c2b77a9eabf8d}\label{classclientapi_1_1CommandBuffer_a499f087fe35ff951198c2b77a9eabf8d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Command\+Buffer} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor -\/ cleans up any pending commands. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1CommandBuffer_a2662a38d5ccffaac21819014658bd64e}{add\+Command}} (const std\+::string \&command, \mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}player)
+\begin{DoxyCompactList}\small\item\em Adds a new command to the buffer for timed execution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1CommandBuffer_a352e186c74d515a3e04f903f21535bf2}{process\+Commands}} (int time\+Units)
+\begin{DoxyCompactList}\small\item\em Advances time and processes commands ready for execution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1CommandBuffer_a744b8f716ab0b32dae8150e9c7297309}{execute\+Ready\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Immediately executes all commands that are ready (time\+Remaining \texorpdfstring{$<$}{<}= 0) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classclientapi_1_1CommandBuffer_a81ba5b9164c8e32ec2af08ebfb1b5e0f}{get\+Buffer\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current number of commands in the buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classclientapi_1_1CommandBuffer_a917a72b272e6455c120d89806a82113d}{is\+Full}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the buffer is at maximum capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classclientapi_1_1CommandBuffer_a183b34d9e145ce2dc38276df7386b9f1}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Removes all pending commands from the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages command buffering and timed execution for individual AI clients. 
+
+The \doxylink{classclientapi_1_1CommandBuffer}{Command\+Buffer} implements the Zappy protocol requirement that\+:
+\begin{DoxyItemize}
+\item Clients can send up to 10 commands without waiting for responses
+\item Commands are executed in order after their time limit expires
+\item Commands have different execution times (e.\+g., Forward=7, \doxylink{classclientapi_1_1Fork}{Fork}=42, \doxylink{classclientapi_1_1Inventory}{Inventory}=1)
+\end{DoxyItemize}
+
+Key Features\+:
+\begin{DoxyItemize}
+\item FIFO command queue with timing
+\item Automatic command execution when time expires
+\item Protocol-\/compliant response formatting
+\item Command validation and error handling
+\item Buffer overflow protection (max 10 commands)
+\end{DoxyItemize}
+
+Time Management\+: Commands are executed based on time units, not real time. The actual execution time depends on the server frequency\+: actual\+\_\+seconds = time\+\_\+units / frequency 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classclientapi_1_1CommandBuffer_a2662a38d5ccffaac21819014658bd64e}\label{classclientapi_1_1CommandBuffer_a2662a38d5ccffaac21819014658bd64e} 
+\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}!addCommand@{addCommand}}
+\index{addCommand@{addCommand}!clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+\doxysubsubsection{\texorpdfstring{addCommand()}{addCommand()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Command\+Buffer\+::add\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command,  }\item[{\mbox{\hyperlink{classclientapi_1_1Player}{Player}} \texorpdfstring{$\ast$}{*}}]{player }\end{DoxyParamCaption})}
+
+
+
+Adds a new command to the buffer for timed execution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command string to execute (e.\+g., "{}\+Forward"{}, "{}\+Broadcast hello"{}) \\
+\hline
+{\em player} & The player issuing this command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if command was added successfully, false if buffer is full or command invalid
+\end{DoxyReturn}
+Validation performed\+:
+\begin{DoxyItemize}
+\item Checks if buffer has space (max 10 commands)
+\item Validates command syntax using \doxylink{classclientapi_1_1Protocol_ae815951016cf1eedf1256088d84b9689}{Protocol\+::is\+Valid\+Command()}
+\item Determines execution time using Protocol\+::get\+Command\+Time\+Limit()
+\end{DoxyItemize}
+
+If validation fails, an immediate "{}ko"{} response should be sent to the client. If buffer is full, additional commands are dropped as per Zappy specification. \Hypertarget{classclientapi_1_1CommandBuffer_a183b34d9e145ce2dc38276df7386b9f1}\label{classclientapi_1_1CommandBuffer_a183b34d9e145ce2dc38276df7386b9f1} 
+\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}!clear@{clear}}
+\index{clear@{clear}!clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void clientapi\+::\+Command\+Buffer\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes all pending commands from the buffer. 
+
+Used when a player disconnects or dies to clean up their pending commands. \Hypertarget{classclientapi_1_1CommandBuffer_a744b8f716ab0b32dae8150e9c7297309}\label{classclientapi_1_1CommandBuffer_a744b8f716ab0b32dae8150e9c7297309} 
+\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}!executeReadyCommands@{executeReadyCommands}}
+\index{executeReadyCommands@{executeReadyCommands}!clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+\doxysubsubsection{\texorpdfstring{executeReadyCommands()}{executeReadyCommands()}}
+{\footnotesize\ttfamily void clientapi\+::\+Command\+Buffer\+::execute\+Ready\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Immediately executes all commands that are ready (time\+Remaining \texorpdfstring{$<$}{<}= 0) 
+
+Alternative to \doxylink{classclientapi_1_1CommandBuffer_a352e186c74d515a3e04f903f21535bf2}{process\+Commands()} for processing without advancing time. Useful for handling commands that should execute immediately. \Hypertarget{classclientapi_1_1CommandBuffer_a81ba5b9164c8e32ec2af08ebfb1b5e0f}\label{classclientapi_1_1CommandBuffer_a81ba5b9164c8e32ec2af08ebfb1b5e0f} 
+\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}!getBufferSize@{getBufferSize}}
+\index{getBufferSize@{getBufferSize}!clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+\doxysubsubsection{\texorpdfstring{getBufferSize()}{getBufferSize()}}
+{\footnotesize\ttfamily size\+\_\+t clientapi\+::\+Command\+Buffer\+::get\+Buffer\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current number of commands in the buffer. 
+
+\begin{DoxyReturn}{Returns}
+Number of pending commands 
+\end{DoxyReturn}
+\Hypertarget{classclientapi_1_1CommandBuffer_a917a72b272e6455c120d89806a82113d}\label{classclientapi_1_1CommandBuffer_a917a72b272e6455c120d89806a82113d} 
+\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}!isFull@{isFull}}
+\index{isFull@{isFull}!clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+\doxysubsubsection{\texorpdfstring{isFull()}{isFull()}}
+{\footnotesize\ttfamily bool clientapi\+::\+Command\+Buffer\+::is\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the buffer is at maximum capacity. 
+
+\begin{DoxyReturn}{Returns}
+true if buffer contains 10 commands (maximum), false otherwise
+\end{DoxyReturn}
+When buffer is full, new commands should be dropped as per Zappy protocol\+: "{}\+Over 10, the server will no longer take them into account."{} \Hypertarget{classclientapi_1_1CommandBuffer_a352e186c74d515a3e04f903f21535bf2}\label{classclientapi_1_1CommandBuffer_a352e186c74d515a3e04f903f21535bf2} 
+\index{clientapi::CommandBuffer@{clientapi::CommandBuffer}!processCommands@{processCommands}}
+\index{processCommands@{processCommands}!clientapi::CommandBuffer@{clientapi::CommandBuffer}}
+\doxysubsubsection{\texorpdfstring{processCommands()}{processCommands()}}
+{\footnotesize\ttfamily void clientapi\+::\+Command\+Buffer\+::process\+Commands (\begin{DoxyParamCaption}\item[{int}]{time\+Units }\end{DoxyParamCaption})}
+
+
+
+Advances time and processes commands ready for execution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Units} & Number of time units to advance\\
+\hline
+\end{DoxyParams}
+This method\+:
+\begin{DoxyEnumerate}
+\item Reduces time\+Remaining for all pending commands
+\item Executes commands whose time\+Remaining reaches 0 or below
+\item Maintains command order (FIFO execution)
+\item Sends appropriate responses to clients
+\end{DoxyEnumerate}
+
+Called by the game\textquotesingle{}s main time management system each tick. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Client\+API/\+Network/Command\+Buffer.\+hpp\item 
+src/\+Client\+API/\+Network/Command\+Buffer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,100 @@
+\doxysection{/home/angel/dev/school/\+Zappy/\+Zappy/src/\+Client\+API/\+Network/\+Protocol.\+hpp}
+\hypertarget{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}{}\label{_2home_2angel_2dev_2school_2Zappy_2Zappy_2src_2ClientAPI_2Network_2Protocol_8hpp-example}Gets the time limit for a command in time units.
+
+Gets the time limit for a command in time units 
+\begin{DoxyParams}{Parameters}
+{\em command} & The command string (command name is extracted automatically) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Time limit in time units, or 0 for instant commands like Connect\+\_\+nbr
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ limit\ =\ getCommandTimeLimit(\textcolor{stringliteral}{"{}Forward"{}});\ \ \ \ \ \ \textcolor{comment}{//\ Returns\ 7}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ limit\ =\ getCommandTimeLimit(\textcolor{stringliteral}{"{}Connect\_nbr"{}});\ \ \textcolor{comment}{//\ Returns\ 0\ (instant)}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ limit\ =\ getCommandTimeLimit(\textcolor{stringliteral}{"{}Fork"{}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Returns\ 42}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{\textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{\textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{\textcolor{comment}{**\ Protocol\ -\/\ Zappy\ network\ protocol\ constants\ and\ utilities}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ PROTOCOL\_HPP\_}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PROTOCOL\_HPP\_}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }Protocol\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connection\ and\ Authentication\ Messages}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a1802059e0e0e11990ca30afacda3118f}{WELCOME\_MESSAGE}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a2bd318364da788a46735c2fdc0f75705}{GRAPHIC\_TEAM}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ AI\ Client\ Command\ Names\ (case-\/sensitive\ as\ per\ specification)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a536e8a1f712b026e6319d291a06f1639}{CMD\_FORWARD}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a6a9e3a8f2b09a381f02d03ac9a29bfdf}{CMD\_RIGHT}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_aef7913c77e81891f686a9865761580f2}{CMD\_LEFT}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a59830904fd298c338ecb7285217c9eba}{CMD\_LOOK}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a7315e151396a7a80f8f9abc528f3d9b5}{CMD\_INVENTORY}};\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a2e1a70d7c2ce08b4cba8857d8385f113}{CMD\_BROADCAST}};\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_af04d80206bd03aeb7ae8c306cb5b176e}{CMD\_CONNECT\_NBR}};\ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_ae0d1858efda495976d6fefce071da037}{CMD\_FORK}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a06568b03f8370ae13bf3d8c598d3f38d}{CMD\_EJECT}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_aeaed4cddaade9ab48dcd5fc0f6d930cc}{CMD\_TAKE}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_ad8631ed29b529066219ef7b5bf31dd05}{CMD\_SET}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a51eec3fc93d6ca4a6a85db923d7a0cf7}{CMD\_INCANTATION}};\ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Standard\ Response\ Messages}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_ab19c0959389eb425af2121c7817524bc}{RESP\_OK}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a581b1615e97c9647ef24e494db2b6e56}{RESP\_KO}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a0a65f6d2cf6b8cc5a089eadcd4ee41e9}{RESP\_DEAD}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classclientapi_1_1Protocol_a237d704a0329517a116bd61bb304535b}{RESP\_ELEVATION\_UNDERWAY}};\ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command\ Time\ Limits\ (in\ time\ units,\ divide\ by\ frequency\ for\ actual\ seconds)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_a7e0bf2670854b94fc45642f02f28bdc8}{TIME\_MOVEMENT}}\ =\ 7;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_a112d4c1b2c708008773a0cab10711d3e}{TIME\_LOOK}}\ =\ 7;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_ae5fb0012cf16038574aa23f8b2fe6b19}{TIME\_INVENTORY}}\ =\ 1;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_ae50599f2f718909497480bd3326e2180}{TIME\_BROADCAST}}\ =\ 7;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_a1bbeb9d4661c7a5cbc3267535e9ae349}{TIME\_FORK}}\ =\ 42;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_a0c39749ad861d6b87c4e796763560c25}{TIME\_EJECT}}\ =\ 7;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_a88caef88fe6327c3bdb19fd8a6693a18}{TIME\_TAKE\_SET}}\ =\ 7;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_ae3d63544e4477cb8d37419d70212649a}{TIME\_INCANTATION}}\ =\ 300;\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Protocol\ Limits}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classclientapi_1_1Protocol_a362b0ed48002da0de5b4fd7e72be2743}{MAX\_BUFFERED\_COMMANDS}}\ =\ 10;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command\ Processing\ Utilities}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classclientapi_1_1Protocol_ae815951016cf1eedf1256088d84b9689}{isValidCommand}}(\textcolor{keyword}{const}\ std::string\&\ command);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ getCommandTimeLimit(\textcolor{keyword}{const}\ std::string\&\ command);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ parseCommandName(\textcolor{keyword}{const}\ std::string\&\ fullCommand);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ parseCommandArguments(\textcolor{keyword}{const}\ std::string\&\ fullCommand);}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !PROTOCOL\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCodeInclude}
+ 

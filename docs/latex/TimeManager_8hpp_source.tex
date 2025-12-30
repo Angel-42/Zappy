@@ -1,0 +1,63 @@
+\doxysection{Time\+Manager.\+hpp}
+\hypertarget{TimeManager_8hpp_source}{}\label{TimeManager_8hpp_source}\index{src/ClientAPI/Time/TimeManager.hpp@{src/ClientAPI/Time/TimeManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ TimeManager}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ TIMEMANAGER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ TIMEMANAGER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structclientapi_1_1TimedEvent}{TimedEvent}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ std::chrono::steady\_clock::time\_point\ executeTime;}
+\DoxyCodeLine{00019\ \ \ \ \ std::function<void()>\ callback;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1TimedEvent}{TimedEvent}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ executeTime\ >\ other.executeTime;}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1TimeManager}{TimeManager}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1TimeManager}{TimeManager}}(\textcolor{keywordtype}{double}\ frequency);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1TimeManager}{\string~TimeManager}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ tick();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setFrequency(\textcolor{keywordtype}{double}\ frequency);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ getFrequency()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_frequency;\ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ scheduleEvent(\textcolor{keywordtype}{int}\ timeUnits,\ std::function<\textcolor{keywordtype}{void}()>\ callback);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ cancelEvent(\textcolor{keywordtype}{int}\ eventId);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::chrono::steady\_clock::time\_point\ getCurrentTime()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getElapsedTimeUnits()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \_frequency;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::chrono::steady\_clock::time\_point\ \_startTime;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::chrono::steady\_clock::time\_point\ \_lastTick;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::priority\_queue<TimedEvent>\ \_eventQueue;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_nextEventId;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_totalTimeUnits;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processScheduledEvents();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::chrono::milliseconds\ timeUnitsToMilliseconds(\textcolor{keywordtype}{int}\ timeUnits)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !TIMEMANAGER\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

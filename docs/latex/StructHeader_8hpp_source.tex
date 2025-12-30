@@ -1,0 +1,324 @@
+\doxysection{Struct\+Header.\+hpp}
+\hypertarget{StructHeader_8hpp_source}{}\label{StructHeader_8hpp_source}\index{src/GUI/Renderer/Utils/OBJLoader/StructHeader.hpp@{src/GUI/Renderer/Utils/OBJLoader/StructHeader.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ StructHeader.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ This\ header\ defines\ core\ mathematical\ and\ data\ structures\ used\ for\ 3D\ model}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ representation\ and\ manipulation,\ particularly\ for\ OBJ\ file\ loading\ and\ rendering.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ Structures:}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ -\/\ Vec2:\ 2D\ vector\ with\ arithmetic,\ normalization,\ and\ dot\ product\ operations.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**\ -\/\ Vec3:\ 3D\ vector\ with\ arithmetic,\ normalization,\ dot/cross\ product\ operations.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ -\/\ Vec4:\ 4D\ vector,\ often\ used\ for\ homogeneous\ coordinates,\ with\ arithmetic\ and\ conversion\ to\ Vec3.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ -\/\ Ray:\ Represents\ a\ 3D\ ray\ with\ origin\ and\ direction.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**\ -\/\ Tri:\ Represents\ a\ triangle\ with\ 3\ vertices\ and\ optional\ UV\ coordinates.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ -\/\ Face:\ Stores\ indices\ for\ vertices,\ UVs,\ and\ normals\ for\ a\ polygonal\ face.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ -\/\ Material:\ Stores\ material\ properties\ (colors,\ shininess,\ texture\ paths,\ etc.)\ for\ rendering.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ -\/\ OBJModel:\ Aggregates\ all\ geometry\ and\ material\ data\ for\ a\ loaded\ OBJ\ model.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ Additional\ Features:}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ -\/\ Equality\ and\ three-\/way\ comparison\ operators\ for\ Vec2,\ Vec3,\ Vec4.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ -\/\ std::hash\ specializations\ for\ Vec2,\ Vec3,\ Vec4\ to\ allow\ their\ use\ in\ hash-\/based\ containers.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{**\ Dependencies:}}
+\DoxyCodeLine{00025\ \textcolor{comment}{**\ -\/\ Standard\ C++\ headers:\ <iostream>,\ <fstream>,\ <sstream>,\ <string>,\ <vector>,\ <cmath>,\ <optional>,\ <compare>,\ <functional>}}
+\DoxyCodeLine{00026\ \textcolor{comment}{**}}
+\DoxyCodeLine{00027\ \textcolor{comment}{**\ Usage:}}
+\DoxyCodeLine{00028\ \textcolor{comment}{**\ Include\ this\ header\ in\ any\ module\ that\ needs\ to\ manipulate\ 2D/3D/4D\ vectors,}}
+\DoxyCodeLine{00029\ \textcolor{comment}{**\ handle\ OBJ\ model\ data,\ or\ work\ with\ materials\ in\ a\ rendering\ context.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <compare>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVec2}{Vec2}}}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ x,\ y;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}()\ noexcept\ :\ x(0),\ y(0)\ \{\}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}(\textcolor{keywordtype}{float}\ X,\ \textcolor{keywordtype}{float}\ Y)\ noexcept\ :\ x(X),\ y(Y)\ \{\}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec2}{Vec2}}(x\ -\/\ o.x,\ y\ -\/\ o.y);\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec2}{Vec2}}(x\ +\ o.x,\ y\ +\ o.y);\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ operator*(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec2}{Vec2}}(x\ *\ s,\ y\ *\ s);\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ operator/(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec2}{Vec2}}(x\ /\ s,\ y\ /\ s);\ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&o)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ x\ +=\ o.x;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ y\ +=\ o.y;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&o)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ x\ -\/=\ o.x;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ y\ -\/=\ o.y;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&operator*=(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ x\ *=\ s;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ y\ *=\ s;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&operator/=(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00073\ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ x\ /=\ s;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ y\ /=\ s;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ length()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(x\ *\ x\ +\ y\ *\ y);\ \}}
+\DoxyCodeLine{00079\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{structVec2}{Vec2}}\ normalized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ len\ =\ length();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ len\ >\ 0\ ?\ *\textcolor{keyword}{this}\ /\ len\ :\ \mbox{\hyperlink{structVec2}{Vec2}}();}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ dot(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ x\ *\ o.x\ +\ y\ *\ o.y;\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ operator<=>(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVec3}{Vec3}}}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{float}\ x,\ y,\ z;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}()\ noexcept\ :\ x(0),\ y(0),\ z(0)\ \{\}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}(\textcolor{keywordtype}{float}\ X,\ \textcolor{keywordtype}{float}\ Y,\ \textcolor{keywordtype}{float}\ Z)\ noexcept\ :\ x(X),\ y(Y),\ z(Z)\ \{\}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec3}{Vec3}}(x\ -\/\ o.x,\ y\ -\/\ o.y,\ z\ -\/\ o.z);\ \}}
+\DoxyCodeLine{00096\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec3}{Vec3}}(x\ +\ o.x,\ y\ +\ o.y,\ z\ +\ o.z);\ \}}
+\DoxyCodeLine{00097\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ operator*(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec3}{Vec3}}(x\ *\ s,\ y\ *\ s,\ z\ *\ s);\ \}}
+\DoxyCodeLine{00098\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ operator/(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec3}{Vec3}}(x\ /\ s,\ y\ /\ s,\ z\ /\ s);\ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ x\ +=\ o.x;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ y\ +=\ o.y;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ z\ +=\ o.z;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ x\ -\/=\ o.x;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ y\ -\/=\ o.y;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ z\ -\/=\ o.z;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&operator*=(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ x\ *=\ s;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ y\ *=\ s;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ z\ *=\ s;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&operator/=(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00121\ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ x\ /=\ s;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ y\ /=\ s;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ z\ /=\ s;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ length()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(x\ *\ x\ +\ y\ *\ y\ +\ z\ *\ z);\ \}}
+\DoxyCodeLine{00129\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{structVec3}{Vec3}}\ normalized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00130\ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ len\ =\ length();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ len\ >\ 0\ ?\ *\textcolor{keyword}{this}\ /\ len\ :\ \mbox{\hyperlink{structVec3}{Vec3}}();}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ dot(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ x\ *\ o.x\ +\ y\ *\ o.y\ +\ z\ *\ o.z;\ \}}
+\DoxyCodeLine{00135\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ cross(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec3}{Vec3}}(}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ y\ *\ o.z\ -\/\ z\ *\ o.y,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ z\ *\ o.x\ -\/\ x\ *\ o.z,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ x\ *\ o.y\ -\/\ y\ *\ o.x);}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ operator<=>(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVec4}{Vec4}}}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{float}\ x,\ y,\ z,\ w;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}()\ noexcept\ :\ x(0),\ y(0),\ z(0),\ w(0)\ \{\}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}(\textcolor{keywordtype}{float}\ X,\ \textcolor{keywordtype}{float}\ Y,\ \textcolor{keywordtype}{float}\ Z,\ \textcolor{keywordtype}{float}\ W)\ noexcept\ :\ x(X),\ y(Y),\ z(Z),\ w(W)\ \{\}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&v,\ \textcolor{keywordtype}{float}\ W\ =\ 1.0f)\ noexcept\ :\ x(v.x),\ y(v.y),\ z(v.z),\ w(W)\ \{\}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec4}{Vec4}}(x\ -\/\ o.x,\ y\ -\/\ o.y,\ z\ -\/\ o.z,\ w\ -\/\ o.w);\ \}}
+\DoxyCodeLine{00154\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec4}{Vec4}}(x\ +\ o.x,\ y\ +\ o.y,\ z\ +\ o.z,\ w\ +\ o.w);\ \}}
+\DoxyCodeLine{00155\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ operator*(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec4}{Vec4}}(x\ *\ s,\ y\ *\ s,\ z\ *\ s,\ w\ *\ s);\ \}}
+\DoxyCodeLine{00156\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ operator/(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec4}{Vec4}}(x\ /\ s,\ y\ /\ s,\ z\ /\ s,\ w\ /\ s);\ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&operator+=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&o)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ x\ +=\ o.x;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ y\ +=\ o.y;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ z\ +=\ o.z;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ w\ +=\ o.w;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&operator-\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&o)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ x\ -\/=\ o.x;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ y\ -\/=\ o.y;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ z\ -\/=\ o.z;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ w\ -\/=\ o.w;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&operator*=(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00174\ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ x\ *=\ s;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ y\ *=\ s;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ z\ *=\ s;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ w\ *=\ s;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&operator/=(\textcolor{keywordtype}{float}\ s)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00182\ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ x\ /=\ s;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ y\ /=\ s;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ z\ /=\ s;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ w\ /=\ s;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ length()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ std::sqrt(x\ *\ x\ +\ y\ *\ y\ +\ z\ *\ z\ +\ w\ *\ w);\ \}}
+\DoxyCodeLine{00191\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{structVec4}{Vec4}}\ normalized()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00192\ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ len\ =\ length();}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ len\ >\ 0\ ?\ *\textcolor{keyword}{this}\ /\ len\ :\ \mbox{\hyperlink{structVec4}{Vec4}}();}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ dot(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&o)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ x\ *\ o.x\ +\ y\ *\ o.y\ +\ z\ *\ o.z\ +\ w\ *\ o.w;\ \}}
+\DoxyCodeLine{00197\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structVec3}{Vec3}}\ toVec3()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structVec3}{Vec3}}(x,\ y,\ z);\ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ operator<=>(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00200\ \};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRay}{Ray}}}
+\DoxyCodeLine{00203\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ orig,\ dir;}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structRay}{Ray}}()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structRay}{Ray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&d)\ noexcept\ :\ orig(o),\ dir(d)\ \{\}}
+\DoxyCodeLine{00207\ \};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTri}{Tri}}}
+\DoxyCodeLine{00210\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ v0,\ v1,\ v2;}
+\DoxyCodeLine{00212\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ uv0,\ uv1,\ uv2;}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structTri}{Tri}}()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structTri}{Tri}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&b,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&c,}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&uva\ =\ \mbox{\hyperlink{structVec3}{Vec3}}(),\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&uvb\ =\ \mbox{\hyperlink{structVec3}{Vec3}}(),\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&uvc\ =\ \mbox{\hyperlink{structVec3}{Vec3}}())\ noexcept}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ :\ v0(a),\ v1(b),\ v2(c),\ uv0(uva),\ uv1(uvb),\ uv2(uvc)\ \{\}}
+\DoxyCodeLine{00217\ \};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structFace}{Face}}}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ std::vector<int>\ vertexIndices;}
+\DoxyCodeLine{00222\ \ \ \ \ std::vector<int>\ uvIndices;}
+\DoxyCodeLine{00223\ \ \ \ \ std::vector<int>\ normalIndices;}
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{structFace}{Face}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{structFace}{\string~Face}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{structFace}{Face}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structFace}{Face}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00227\ \ \ \ \ \mbox{\hyperlink{structFace}{Face}}(\mbox{\hyperlink{structFace}{Face}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{structFace}{Face}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structFace}{Face}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{structFace}{Face}}\ \&operator=(\mbox{\hyperlink{structFace}{Face}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00230\ \};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMaterial}{Material}}}
+\DoxyCodeLine{00233\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ diffuseColor;}
+\DoxyCodeLine{00236\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ specularColor;}
+\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ ambientColor;}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{structVec3}{Vec3}}\ emissiveColor;}
+\DoxyCodeLine{00239\ \ \ \ \ std::optional<float>\ shininess;}
+\DoxyCodeLine{00240\ \ \ \ \ std::optional<float>\ opacity;}
+\DoxyCodeLine{00241\ \ \ \ \ std::optional<std::string>\ texturePath;}
+\DoxyCodeLine{00242\ \ \ \ \ std::optional<std::string>\ specularMapPath;}
+\DoxyCodeLine{00243\ \ \ \ \ std::optional<std::string>\ normalMapPath;}
+\DoxyCodeLine{00244\ \ \ \ \ std::optional<std::string>\ alphaMapPath;}
+\DoxyCodeLine{00245\ \ \ \ \ std::optional<std::string>\ bumpMapPath;}
+\DoxyCodeLine{00246\ \ \ \ \ std::optional<std::string>\ displacementMapPath;}
+\DoxyCodeLine{00247\ \ \ \ \ std::optional<std::string>\ reflectionMapPath;}
+\DoxyCodeLine{00248\ \ \ \ \ std::optional<std::string>\ refractionMapPath;}
+\DoxyCodeLine{00249\ \ \ \ \ std::optional<std::string>\ roughnessMapPath;}
+\DoxyCodeLine{00250\ \ \ \ \ std::optional<std::string>\ metallicMapPath;}
+\DoxyCodeLine{00251\ \ \ \ \ std::optional<std::string>\ occlusionMapPath;}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{structMaterial}{Material}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00253\ \ \ \ \ \mbox{\hyperlink{structMaterial}{\string~Material}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{structMaterial}{Material}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMaterial}{Material}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{structMaterial}{Material}}(\mbox{\hyperlink{structMaterial}{Material}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00256\ \ \ \ \ \mbox{\hyperlink{structMaterial}{Material}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMaterial}{Material}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{structMaterial}{Material}}\ \&operator=(\mbox{\hyperlink{structMaterial}{Material}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00258\ \};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structOBJModel}{OBJModel}}}
+\DoxyCodeLine{00261\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ std::vector<Vec3>\ vertices;}
+\DoxyCodeLine{00263\ \ \ \ \ std::vector<Vec3>\ normals;}
+\DoxyCodeLine{00264\ \ \ \ \ std::vector<Vec2>\ uvs;}
+\DoxyCodeLine{00265\ \ \ \ \ std::vector<Face>\ faces;}
+\DoxyCodeLine{00266\ \ \ \ \ std::vector<Material>\ materials;}
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{structOBJModel}{OBJModel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00268\ \ \ \ \ \mbox{\hyperlink{structOBJModel}{\string~OBJModel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00269\ \ \ \ \ \mbox{\hyperlink{structOBJModel}{OBJModel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structOBJModel}{OBJModel}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{structOBJModel}{OBJModel}}(\mbox{\hyperlink{structOBJModel}{OBJModel}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00271\ \ \ \ \ \mbox{\hyperlink{structOBJModel}{OBJModel}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structOBJModel}{OBJModel}}\ \&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00272\ \ \ \ \ \mbox{\hyperlink{structOBJModel}{OBJModel}}\ \&operator=(\mbox{\hyperlink{structOBJModel}{OBJModel}}\ \&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00273\ \};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{comment}{//\ Equality\ and\ three-\/way\ comparison\ operators}}
+\DoxyCodeLine{00276\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&b)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ a.x\ ==\ b.x\ \&\&\ a.y\ ==\ b.y;\ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&b)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ a.x\ ==\ b.x\ \&\&\ a.y\ ==\ b.y\ \&\&\ a.z\ ==\ b.z;\ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&b)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ a.x\ ==\ b.x\ \&\&\ a.y\ ==\ b.y\ \&\&\ a.z\ ==\ b.z\ \&\&\ a.w\ ==\ b.w;\ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{comment}{//\ std::hash\ specializations}}
+\DoxyCodeLine{00283\ \textcolor{keyword}{namespace\ }std}
+\DoxyCodeLine{00284\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keyword}{struct\ }hash<\mbox{\hyperlink{structVec2}{Vec2}}>}
+\DoxyCodeLine{00287\ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ std::size\_t\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec2}{Vec2}}\ \&v)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h1\ =\ std::hash<float>\{\}(v.x);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h2\ =\ std::hash<float>\{\}(v.y);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h1\ \string^\ (h2\ <<\ 1);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \ \ \ \ \};}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keyword}{struct\ }hash<\mbox{\hyperlink{structVec3}{Vec3}}>}
+\DoxyCodeLine{00297\ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ std::size\_t\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec3}{Vec3}}\ \&v)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h1\ =\ std::hash<float>\{\}(v.x);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h2\ =\ std::hash<float>\{\}(v.y);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h3\ =\ std::hash<float>\{\}(v.z);}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h1\ \string^\ (h2\ <<\ 1)\ \string^\ (h3\ <<\ 2);}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \};}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{struct\ }hash<\mbox{\hyperlink{structVec4}{Vec4}}>}
+\DoxyCodeLine{00308\ \ \ \ \ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ std::size\_t\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{structVec4}{Vec4}}\ \&v)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h1\ =\ std::hash<float>\{\}(v.x);}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h2\ =\ std::hash<float>\{\}(v.y);}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h3\ =\ std::hash<float>\{\}(v.z);}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ h4\ =\ std::hash<float>\{\}(v.w);}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h1\ \string^\ (h2\ <<\ 1)\ \string^\ (h3\ <<\ 2)\ \string^\ (h4\ <<\ 3);}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \};}
+\DoxyCodeLine{00318\ \}}
+
+\end{DoxyCode}

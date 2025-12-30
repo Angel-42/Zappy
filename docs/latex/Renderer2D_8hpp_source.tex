@@ -1,0 +1,86 @@
+\doxysection{Renderer2\+D.\+hpp}
+\hypertarget{Renderer2D_8hpp_source}{}\label{Renderer2D_8hpp_source}\index{src/GUI/Renderer/2D/Renderer2D.hpp@{src/GUI/Renderer/2D/Renderer2D.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Renderer2D.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../IRenderer.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../UILayer/UILayer.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <SFML/Audio.hpp>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}\ \textcolor{comment}{//a\ enlever\ une\ fois\ les\ Drawables\ faits}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}Food.hpp"{}}\ \textcolor{comment}{//a\ enlever\ une\ fois\ les\ Drawables\ faits}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ SCALE\_X\ this-\/>m\_window.getSize().x\ /\ 800.0f}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SCALE\_Y\ this-\/>m\_window.getSize().y\ /\ 600.0f}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{enum}\ Drawables\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ PLAYER,}
+\DoxyCodeLine{00026\ \ \ \ \ FOOD,}
+\DoxyCodeLine{00027\ \ \ \ \ EMPTY,}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRenderer2D}{Renderer2D}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIRenderer}{IRenderer}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRenderer2D}{Renderer2D}}(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRenderer2D}{\string~Renderer2D}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initialize()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ render()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ shutdown()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//a\ enlever\ quand\ on\ utiliser\ m\_uiLayer}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvents();}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isOpen()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_window.isOpen();\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ displayMap();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initiateDrawables();}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ spritesetscale(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setMapSize(\textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPlayerCount(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setFoodCount(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ spawnFood();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ spawnPlayer();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ movePlayers();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classUILayer}{UILayer}}\ \&getUILayer()\ \{\ \textcolor{keywordflow}{return}\ m\_uiLayer;\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ sf::RenderWindow\ \&m\_window;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classUILayer}{UILayer}}\ m\_uiLayer;\ \textcolor{comment}{//\ Layer\ for\ 2D\ UI\ elements}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ sf::Event\ m\_event;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ sf::Clock\ m\_clock;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ sf::View\ m\_view;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ sf::Texture\ waterTexture;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ sf::Sprite\ waterSprite;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ sf::IntRect\ waterRect;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ sf::Texture\ IslandTexture;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ sf::Sprite\ IslandSprite;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ sf::Music\ bgMusic;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::vector<int>\ m\_map;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ 0;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ std::vector<Player>\ players;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ std::vector<Food>\ items;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ playerCount\ =\ 0;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ foodCount\ =\ 0;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ displayTile\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00080\ \};}
+
+\end{DoxyCode}

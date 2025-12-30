@@ -1,0 +1,59 @@
+\doxysection{Resource\+Type.\+hpp}
+\hypertarget{ResourceType_8hpp_source}{}\label{ResourceType_8hpp_source}\index{src/ClientAPI/Types/ResourceType.hpp@{src/ClientAPI/Types/ResourceType.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ ResourceType}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ RESOURCETYPE\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ RESOURCETYPE\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum\ class}\ ResourceType\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ FOOD,}
+\DoxyCodeLine{00017\ \ \ \ \ LINEMATE,}
+\DoxyCodeLine{00018\ \ \ \ \ DERAUMERE,}
+\DoxyCodeLine{00019\ \ \ \ \ SIBUR,}
+\DoxyCodeLine{00020\ \ \ \ \ MENDIANE,}
+\DoxyCodeLine{00021\ \ \ \ \ PHIRAS,}
+\DoxyCodeLine{00022\ \ \ \ \ THYSTAME}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Helper\ function\ to\ convert\ ResourceType\ to\ string}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{inline}\ std::string\ resourceTypeToString(ResourceType\ type)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{switch}\ (type)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::FOOD:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}food"{}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::LINEMATE:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}linemate"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::DERAUMERE:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}deraumere"{}};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::SIBUR:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}sibur"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::MENDIANE:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}mendiane"{}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::PHIRAS:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}phiras"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ResourceType::THYSTAME:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}thystame"{}};}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}unknown"{}};}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Helper\ function\ to\ convert\ string\ to\ ResourceType}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{inline}\ ResourceType\ stringToResourceType(\textcolor{keyword}{const}\ std::string\&\ str)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}food"{}})\ \textcolor{keywordflow}{return}\ ResourceType::FOOD;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}linemate"{}})\ \textcolor{keywordflow}{return}\ ResourceType::LINEMATE;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}deraumere"{}})\ \textcolor{keywordflow}{return}\ ResourceType::DERAUMERE;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}sibur"{}})\ \textcolor{keywordflow}{return}\ ResourceType::SIBUR;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}mendiane"{}})\ \textcolor{keywordflow}{return}\ ResourceType::MENDIANE;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}phiras"{}})\ \textcolor{keywordflow}{return}\ ResourceType::PHIRAS;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{stringliteral}{"{}thystame"{}})\ \textcolor{keywordflow}{return}\ ResourceType::THYSTAME;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ ResourceType::FOOD;\ \textcolor{comment}{//\ default}}
+\DoxyCodeLine{00049\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !RESOURCETYPE\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

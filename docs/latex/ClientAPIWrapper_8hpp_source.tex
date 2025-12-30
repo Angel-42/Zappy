@@ -1,0 +1,93 @@
+\doxysection{Client\+APIWrapper.\+hpp}
+\hypertarget{ClientAPIWrapper_8hpp_source}{}\label{ClientAPIWrapper_8hpp_source}\index{src/ClientAPI/ClientAPIWrapper.hpp@{src/ClientAPI/ClientAPIWrapper.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2025}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ ClientAPIWrapper\ -\/\ Main\ game\ client\ API\ wrapper\ controller}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ CLIENTAPIWRAPPER\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ CLIENTAPIWRAPPER\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}GameManager.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}Map/Map.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Player/PlayerManager.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}Team/TeamManager.hpp"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}Network/ConnectionManager.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}Time/TimeManager.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }clientapi\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structclientapi_1_1ServerConfig}{ServerConfig}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ port;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ mapWidth;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ mapHeight;}
+\DoxyCodeLine{00027\ \ \ \ \ std::vector<std::string>\ teamNames;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ clientsPerTeam;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ frequency;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ autoStart;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ displayEggs;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classclientapi_1_1ClientAPIWrapper}{ClientAPIWrapper}}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1ClientAPIWrapper}{ClientAPIWrapper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structclientapi_1_1ServerConfig}{ServerConfig}}\&\ config);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1ClientAPIWrapper}{\string~ClientAPIWrapper}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initialize();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ run();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ shutdown();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startGame();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pauseGame();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ resetGame();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isRunning()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_isRunning;\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isPaused()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_isPaused;\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1Map}{Map}}*\ getMap()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_map.get();\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1PlayerManager}{PlayerManager}}*\ getPlayerManager()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_playerManager.get();\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1TeamManager}{TeamManager}}*\ getTeamManager()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_teamManager.get();\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1ConnectionManager}{ConnectionManager}}*\ getConnectionManager()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_connectionManager.get();\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1TimeManager}{TimeManager}}*\ getTimeManager()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_timeManager.get();\ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classclientapi_1_1GameManager}{GameManager}}*\ getGameManager()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_gameManager.get();\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processGameTick();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ broadcastToClients(\textcolor{keyword}{const}\ std::string\&\ message);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendToTeam(\textcolor{keyword}{const}\ std::string\&\ teamName,\ \textcolor{keyword}{const}\ std::string\&\ message);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclientapi_1_1ServerConfig}{ServerConfig}}\ \_config;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isRunning;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isPaused;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::unique\_ptr<Map>\ \_map;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::unique\_ptr<PlayerManager>\ \_playerManager;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::unique\_ptr<TeamManager>\ \_teamManager;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::unique\_ptr<ConnectionManager>\ \_connectionManager;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::unique\_ptr<TimeManager>\ \_timeManager;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::unique\_ptr<GameManager>\ \_gameManager;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initializeMap();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initializePlayerManager();}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initializeTeamManager();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initializeConnectionManager();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initializeTimeManager();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initializeGameManager();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateSystems();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleNetworkEvents();}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processCommands();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateGameState();}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \}\ \textcolor{comment}{//\ namespace\ clientapi}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !CLIENTAPIWRAPPER\_HPP\_\ */}\textcolor{preprocessor}{\ }}
+
+\end{DoxyCode}

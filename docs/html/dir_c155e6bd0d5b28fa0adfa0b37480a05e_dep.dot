@@ -1,0 +1,12 @@
+digraph "src/ClientAPI/Actions/Incantation"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_ed7478f328863a92922ff082596321aa {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="Actions", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_ed7478f328863a92922ff082596321aa.html",tooltip=""]
+  dir_c155e6bd0d5b28fa0adfa0b37480a05e [label="Incantation", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_c155e6bd0d5b28fa0adfa0b37480a05e.html",tooltip=""];
+  }
+}

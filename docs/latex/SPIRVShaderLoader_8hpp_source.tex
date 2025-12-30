@@ -1,0 +1,65 @@
+\doxysection{SPIRVShader\+Loader.\+hpp}
+\hypertarget{SPIRVShaderLoader_8hpp_source}{}\label{SPIRVShaderLoader_8hpp_source}\index{src/GUI/Renderer/Utils/SPIRVShaderLoader.hpp@{src/GUI/Renderer/Utils/SPIRVShaderLoader.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ SPIRVShaderLoader.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <format>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <GL/glew.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSPIRVShaderLoader}{SPIRVShaderLoader}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ loadBinary(\textcolor{keyword}{const}\ std::filesystem::path\ \&path)}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::filesystem::exists(path))}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}SPIR-\/V\ file\ does\ not\ exist:\ \{\}"{}},\ path.string()));}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::ifstream\ file(path,\ std::ios::binary\ |\ std::ios::ate);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}Failed\ to\ open\ SPIR-\/V\ file:\ \{\}"{}},\ path.string()));}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ fileSize\ =\ file.tellg();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileSize\ \%\ 4\ !=\ 0)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}SPIR-\/V\ file\ size\ is\ not\ a\ multiple\ of\ 4:\ \{\}"{}},\ path.string()));}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ buffer(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(fileSize)\ /\ 4);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ file.seekg(0);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ file.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(buffer.data()),\ fileSize);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ buffer;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ GLuint\ createShader(GLenum\ stage,\ \textcolor{keyword}{const}\ std::filesystem::path\ \&path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *entryPoint\ =\ \textcolor{stringliteral}{"{}main"{}})}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ spirv\ =\ loadBinary(path);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ GLuint\ shader\ =\ glCreateShader(stage);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ glShaderBinary(1,\ \&shader,\ GL\_SHADER\_BINARY\_FORMAT\_SPIR\_V,\ spirv.data(),\ \textcolor{keyword}{static\_cast<}GLsizei\textcolor{keyword}{>}(spirv.size()\ *\ \textcolor{keyword}{sizeof}(uint32\_t)));}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ glSpecializeShader(shader,\ entryPoint,\ 0,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ GLint\ success\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ glGetShaderiv(shader,\ GL\_COMPILE\_STATUS,\ \&success);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!success)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ infoLog[512];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ glGetShaderInfoLog(shader,\ 512,\ \textcolor{keyword}{nullptr},\ infoLog);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(std::format(\textcolor{stringliteral}{"{}SPIR-\/V\ shader\ compilation\ failed:\ \{\}"{}},\ infoLog));}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ shader;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \};}
+
+\end{DoxyCode}

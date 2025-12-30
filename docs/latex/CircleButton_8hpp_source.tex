@@ -1,0 +1,38 @@
+\doxysection{Circle\+Button.\+hpp}
+\hypertarget{CircleButton_8hpp_source}{}\label{CircleButton_8hpp_source}\index{src/GUI/SFMLUtils/Button/CircleButton.hpp@{src/GUI/SFMLUtils/Button/CircleButton.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ CircleButton.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}IButton.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCircleButton}{CircleButton}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIButton}{IButton}},\ \textcolor{keyword}{public}\ sf::Drawable}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classCircleButton}{CircleButton}}(\textcolor{keywordtype}{float}\ radius,\ \textcolor{keyword}{const}\ std::string\ \&text\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ sf::Vector2f\ \&pos)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ setSize(\textcolor{keyword}{const}\ sf::Vector2f\ \&size)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ setText(\textcolor{keyword}{const}\ std::string\ \&text)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ setCallback(std::function<\textcolor{keywordtype}{void}()>\ callback)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvent(\textcolor{keyword}{const}\ sf::Event\ \&event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderTarget\ \&target,\ sf::RenderStates\ states)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ sf::CircleShape\ m\_shape;}
+\DoxyCodeLine{00029\ \ \ \ \ sf::Text\ m\_text;}
+\DoxyCodeLine{00030\ \ \ \ \ std::function<void()>\ m\_callback;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hovered\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \};}
+
+\end{DoxyCode}

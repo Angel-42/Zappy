@@ -1,0 +1,93 @@
+\doxysection{Mendiane Class Reference}
+\hypertarget{classMendiane}{}\label{classMendiane}\index{Mendiane@{Mendiane}}
+
+
+Inheritance diagram for Mendiane\+:
+% FIG 0
+
+
+Collaboration diagram for Mendiane\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMendiane_a6c43455a726c93343959098ad5d04864}\label{classMendiane_a6c43455a726c93343959098ad5d04864} 
+{\bfseries Mendiane} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl)
+\item 
+void \mbox{\hyperlink{classMendiane_a0c7112e9f2f3a2950db48f7661708041}{draw}} () override final
+\item 
+void \mbox{\hyperlink{classMendiane_a31537d60418c773892f28d20020010d7}{update}} (float delta\+Time) override final
+\item 
+std\+::string \mbox{\hyperlink{classMendiane_a6d721eeb26da325b3964c6ea78ebd85c}{get\+Type}} () const override final
+\item 
+void \mbox{\hyperlink{classMendiane_a3500fd64fd7764222550a55a3bc01347}{get\+Mineral\+Type}} () const override final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMendiane_a87117e42903b5a6cf8a44c5391474caa}\label{classMendiane_a87117e42903b5a6cf8a44c5391474caa} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classMendiane_a86a8e8a60152dd462876c0c893bc49f2}\label{classMendiane_a86a8e8a60152dd462876c0c893bc49f2} 
+glm\+::vec3 {\bfseries rotation}
+\item 
+\Hypertarget{classMendiane_adf8612e02fd58db165f9e93e007ee7f0}\label{classMendiane_adf8612e02fd58db165f9e93e007ee7f0} 
+glm\+::vec3 {\bfseries scale}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMendiane_a45ecb4133b982f7d3dbf5faf6b96caca}\label{classMendiane_a45ecb4133b982f7d3dbf5faf6b96caca} 
+static \mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries mesh}
+\item 
+\Hypertarget{classMendiane_aee1cfabef39a8ceef686816ba86c56fb}\label{classMendiane_aee1cfabef39a8ceef686816ba86c56fb} 
+static GLuint {\bfseries texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMendiane_a0c7112e9f2f3a2950db48f7661708041}\label{classMendiane_a0c7112e9f2f3a2950db48f7661708041} 
+\index{Mendiane@{Mendiane}!draw@{draw}}
+\index{draw@{draw}!Mendiane@{Mendiane}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Mendiane\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classMendiane_a3500fd64fd7764222550a55a3bc01347}\label{classMendiane_a3500fd64fd7764222550a55a3bc01347} 
+\index{Mendiane@{Mendiane}!getMineralType@{getMineralType}}
+\index{getMineralType@{getMineralType}!Mendiane@{Mendiane}}
+\doxysubsubsection{\texorpdfstring{getMineralType()}{getMineralType()}}
+{\footnotesize\ttfamily void Mendiane\+::get\+Mineral\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIMinerals}{IMinerals}}.
+
+\Hypertarget{classMendiane_a6d721eeb26da325b3964c6ea78ebd85c}\label{classMendiane_a6d721eeb26da325b3964c6ea78ebd85c} 
+\index{Mendiane@{Mendiane}!getType@{getType}}
+\index{getType@{getType}!Mendiane@{Mendiane}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Mendiane\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classMendiane_a31537d60418c773892f28d20020010d7}\label{classMendiane_a31537d60418c773892f28d20020010d7} 
+\index{Mendiane@{Mendiane}!update@{update}}
+\index{update@{update}!Mendiane@{Mendiane}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Mendiane\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+GRessources/\+Minerals/\+Mendiane/Mendiane.\+hpp\end{DoxyCompactItemize}

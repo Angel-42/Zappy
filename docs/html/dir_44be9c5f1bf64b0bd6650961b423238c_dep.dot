@@ -1,0 +1,12 @@
+digraph "src/ClientAPI/Resources/Food"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_0b24293f45dab6bae0c173901e62ce59 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="Resources", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_0b24293f45dab6bae0c173901e62ce59.html",tooltip=""]
+  dir_44be9c5f1bf64b0bd6650961b423238c [label="Food", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_44be9c5f1bf64b0bd6650961b423238c.html",tooltip=""];
+  }
+}

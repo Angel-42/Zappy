@@ -1,0 +1,12 @@
+digraph "src/GUI/SFMLUtils/Slider"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_9f84931f55929111578ca0cd40b141f1 {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="SFMLUtils", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_9f84931f55929111578ca0cd40b141f1.html",tooltip=""]
+  dir_8a9f09960d3a5520553fb31b2452b446 [label="Slider", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_8a9f09960d3a5520553fb31b2452b446.html",tooltip=""];
+  }
+}

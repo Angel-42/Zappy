@@ -1,0 +1,93 @@
+\doxysection{Deraumere Class Reference}
+\hypertarget{classDeraumere}{}\label{classDeraumere}\index{Deraumere@{Deraumere}}
+
+
+Inheritance diagram for Deraumere\+:
+% FIG 0
+
+
+Collaboration diagram for Deraumere\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDeraumere_a380a9376d588a090f698a5eba7d4b1ea}\label{classDeraumere_a380a9376d588a090f698a5eba7d4b1ea} 
+{\bfseries Deraumere} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl)
+\item 
+void \mbox{\hyperlink{classDeraumere_a194022b64688d5b133f4198a9bf59aa6}{draw}} () override final
+\item 
+void \mbox{\hyperlink{classDeraumere_aeb2d9436a847e94dde08865357bd88ad}{update}} (float delta\+Time) override final
+\item 
+std\+::string \mbox{\hyperlink{classDeraumere_a503817c6eeb13f49c1d757b84e2a2af5}{get\+Type}} () const override final
+\item 
+void \mbox{\hyperlink{classDeraumere_a8b1ad751922a12692d9623803fdc1934}{get\+Mineral\+Type}} () const override final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDeraumere_aa3dd6a1da2b02108799fd82e2d9b55a7}\label{classDeraumere_aa3dd6a1da2b02108799fd82e2d9b55a7} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classDeraumere_a04ac9a8a9e989976cb2fc0edb21aeb52}\label{classDeraumere_a04ac9a8a9e989976cb2fc0edb21aeb52} 
+glm\+::vec3 {\bfseries rotation}
+\item 
+\Hypertarget{classDeraumere_a2c7bd7f5e6b012f0534fa3a0998ffde1}\label{classDeraumere_a2c7bd7f5e6b012f0534fa3a0998ffde1} 
+glm\+::vec3 {\bfseries scale}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDeraumere_ab1bcb59420c87ea24114281335f4e346}\label{classDeraumere_ab1bcb59420c87ea24114281335f4e346} 
+static \mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries mesh}
+\item 
+\Hypertarget{classDeraumere_a2d5bb9a44d6d8c98443dc05d74c467a3}\label{classDeraumere_a2d5bb9a44d6d8c98443dc05d74c467a3} 
+static GLuint {\bfseries texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDeraumere_a194022b64688d5b133f4198a9bf59aa6}\label{classDeraumere_a194022b64688d5b133f4198a9bf59aa6} 
+\index{Deraumere@{Deraumere}!draw@{draw}}
+\index{draw@{draw}!Deraumere@{Deraumere}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Deraumere\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classDeraumere_a8b1ad751922a12692d9623803fdc1934}\label{classDeraumere_a8b1ad751922a12692d9623803fdc1934} 
+\index{Deraumere@{Deraumere}!getMineralType@{getMineralType}}
+\index{getMineralType@{getMineralType}!Deraumere@{Deraumere}}
+\doxysubsubsection{\texorpdfstring{getMineralType()}{getMineralType()}}
+{\footnotesize\ttfamily void Deraumere\+::get\+Mineral\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIMinerals}{IMinerals}}.
+
+\Hypertarget{classDeraumere_a503817c6eeb13f49c1d757b84e2a2af5}\label{classDeraumere_a503817c6eeb13f49c1d757b84e2a2af5} 
+\index{Deraumere@{Deraumere}!getType@{getType}}
+\index{getType@{getType}!Deraumere@{Deraumere}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Deraumere\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classDeraumere_aeb2d9436a847e94dde08865357bd88ad}\label{classDeraumere_aeb2d9436a847e94dde08865357bd88ad} 
+\index{Deraumere@{Deraumere}!update@{update}}
+\index{update@{update}!Deraumere@{Deraumere}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Deraumere\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+GRessources/\+Minerals/\+Deraumere/Deraumere.\+hpp\end{DoxyCompactItemize}

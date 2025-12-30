@@ -1,0 +1,10 @@
+// Init
+sf::Texture texture;
+texture.loadFromFile("spritesheet.png");
+AnimatedSprite anim(texture, 32, 32, 0.08f);
+anim.setLooped(true);
+anim.play();
+
+// In your game loop:
+anim.update(deltaTime);
+window.draw(anim);

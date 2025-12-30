@@ -1,0 +1,93 @@
+\doxysection{Linemate Class Reference}
+\hypertarget{classLinemate}{}\label{classLinemate}\index{Linemate@{Linemate}}
+
+
+Inheritance diagram for Linemate\+:
+% FIG 0
+
+
+Collaboration diagram for Linemate\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLinemate_aa5a55fc8a627ae985b4f3251754ec438}\label{classLinemate_aa5a55fc8a627ae985b4f3251754ec438} 
+{\bfseries Linemate} (const glm\+::vec3 \&pos, const glm\+::vec3 \&rot, const glm\+::vec3 \&scl)
+\item 
+void \mbox{\hyperlink{classLinemate_a515b4f3160412c25b8b2dfd27db0b985}{draw}} () override final
+\item 
+void \mbox{\hyperlink{classLinemate_a9d0a21ea1946be6b81c6041a204b8aa8}{update}} (float delta\+Time) override final
+\item 
+std\+::string \mbox{\hyperlink{classLinemate_aad8a87baef5338550e344335ee1766b7}{get\+Type}} () const override final
+\item 
+void \mbox{\hyperlink{classLinemate_aa0f44108c6a71393ea4b6c1e63a87189}{get\+Mineral\+Type}} () const override final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLinemate_a166442775948b83c475928f4777e8d3e}\label{classLinemate_a166442775948b83c475928f4777e8d3e} 
+glm\+::vec3 {\bfseries position}
+\item 
+\Hypertarget{classLinemate_ac2a774440c2b27e4b631d86588284a99}\label{classLinemate_ac2a774440c2b27e4b631d86588284a99} 
+glm\+::vec3 {\bfseries rotation}
+\item 
+\Hypertarget{classLinemate_ad3fa1a15243ae9a746bab7e0ac0aeac4}\label{classLinemate_ad3fa1a15243ae9a746bab7e0ac0aeac4} 
+glm\+::vec3 {\bfseries scale}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLinemate_a3f4470f507ec1d3b195dd27073b153cf}\label{classLinemate_a3f4470f507ec1d3b195dd27073b153cf} 
+static \mbox{\hyperlink{classIMesh}{IMesh}} \texorpdfstring{$\ast$}{*} {\bfseries mesh}
+\item 
+\Hypertarget{classLinemate_a5944048645d97e013a25de660915f690}\label{classLinemate_a5944048645d97e013a25de660915f690} 
+static GLuint {\bfseries texture\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLinemate_a515b4f3160412c25b8b2dfd27db0b985}\label{classLinemate_a515b4f3160412c25b8b2dfd27db0b985} 
+\index{Linemate@{Linemate}!draw@{draw}}
+\index{draw@{draw}!Linemate@{Linemate}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Linemate\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classLinemate_aa0f44108c6a71393ea4b6c1e63a87189}\label{classLinemate_aa0f44108c6a71393ea4b6c1e63a87189} 
+\index{Linemate@{Linemate}!getMineralType@{getMineralType}}
+\index{getMineralType@{getMineralType}!Linemate@{Linemate}}
+\doxysubsubsection{\texorpdfstring{getMineralType()}{getMineralType()}}
+{\footnotesize\ttfamily void Linemate\+::get\+Mineral\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIMinerals}{IMinerals}}.
+
+\Hypertarget{classLinemate_aad8a87baef5338550e344335ee1766b7}\label{classLinemate_aad8a87baef5338550e344335ee1766b7} 
+\index{Linemate@{Linemate}!getType@{getType}}
+\index{getType@{getType}!Linemate@{Linemate}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string Linemate\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+\Hypertarget{classLinemate_a9d0a21ea1946be6b81c6041a204b8aa8}\label{classLinemate_a9d0a21ea1946be6b81c6041a204b8aa8} 
+\index{Linemate@{Linemate}!update@{update}}
+\index{update@{update}!Linemate@{Linemate}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Linemate\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classIRessources}{IRessources}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+Renderer/3\+D/\+Objects/\+GRessources/\+Minerals/\+Linemate/Linemate.\+hpp\end{DoxyCompactItemize}

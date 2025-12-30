@@ -1,0 +1,69 @@
+\doxysection{Player.\+hpp}
+\hypertarget{GUI_2Renderer_23D_2Objects_2Players_2Player_8hpp_source}{}\label{GUI_2Renderer_23D_2Objects_2Players_2Player_8hpp_source}\index{src/GUI/Renderer/3D/Objects/Players/Player.hpp@{src/GUI/Renderer/3D/Objects/Players/Player.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ EPITECH\ PROJECT,\ 2024}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ Zappy}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**\ File\ description:}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Player.hpp}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}IPlayer.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../IMesh.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <glm/gtx/rotate\_vector.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }renderer3d}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrenderer3d_1_1Player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classIPlayer}{IPlayer}}}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrenderer3d_1_1Player}{Player}}(\textcolor{keyword}{const}\ glm::vec3\ \&pos,\ \textcolor{keyword}{const}\ glm::vec3\ \&rot,\ \textcolor{keyword}{const}\ glm::vec3\ \&scl,\ \textcolor{keyword}{const}\ std::string\ \&team);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrenderer3d_1_1Player}{\string~Player}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ draw()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ glm::vec3\ \&pos)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ glm::vec3\ getPosition()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setRotation(\textcolor{keyword}{const}\ glm::vec3\ \&rot)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ glm::vec3\ getRotation()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setScale(\textcolor{keyword}{const}\ glm::vec3\ \&scl)\ \{\ scale\ =\ scl;\ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ glm::vec3\ getScale()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ scale;\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setTeam(\textcolor{keyword}{const}\ std::string\ \&team)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::string\ getTeam()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setAuraColor(\textcolor{keyword}{const}\ glm::vec3\ \&color)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ glm::vec3\ getAuraColor()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ move(\textcolor{keyword}{const}\ glm::vec3\ \&direction,\ \textcolor{keywordtype}{float}\ speed);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ rotate(\textcolor{keyword}{const}\ glm::vec3\ \&axis,\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setMesh(\mbox{\hyperlink{classIMesh}{IMesh}}\ *m)\ \{\ mesh\ =\ m;\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classIMesh}{IMesh}}\ *getMesh()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mesh;\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setTextureId(GLuint\ \textcolor{keywordtype}{id})\ \{\ textureId\ =\ id;\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ GLuint\ getTextureId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ textureId;\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ glm::vec3\ rotation;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ glm::vec3\ scale;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::string\ team;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ glm::vec3\ auraColor;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classIMesh}{IMesh}}\ *mesh;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ GLuint\ textureId;}
+\DoxyCodeLine{00062\ \ \ \ \ \};}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}

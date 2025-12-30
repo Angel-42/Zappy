@@ -1,0 +1,100 @@
+\doxysection{Slider Class Reference}
+\hypertarget{classSlider}{}\label{classSlider}\index{Slider@{Slider}}
+
+
+Inheritance diagram for Slider\+:
+% FIG 0
+
+
+Collaboration diagram for Slider\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSlider_a251ceb48818ddeec77abb5b1577f4372}\label{classSlider_a251ceb48818ddeec77abb5b1577f4372} 
+{\bfseries Slider} (float min\+Value, float max\+Value, float initial\+Value=0.\+0f)
+\item 
+void \mbox{\hyperlink{classSlider_a8f98d0005920c989b691d60d557b198f}{set\+Position}} (const sf\+::\+Vector2f \&pos) override
+\item 
+void \mbox{\hyperlink{classSlider_ac560fa7547b939730288af52aec0e201}{set\+Size}} (const sf\+::\+Vector2f \&size) override
+\item 
+void \mbox{\hyperlink{classSlider_ad5c5815a5c75fe9f7e48a3e8c6a0a939}{set\+Value}} (float value) override
+\item 
+float \mbox{\hyperlink{classSlider_a6e96b788aad80ac4af7672f896b1e7d1}{get\+Value}} () const override
+\item 
+void \mbox{\hyperlink{classSlider_a03f2fd3d0aa016d0d691a2faf29529c5}{handle\+Event}} (const sf\+::\+Event \&event) override
+\item 
+void \mbox{\hyperlink{classSlider_a6cbf71025e5cb74dce4ea4b68b04c0ce}{draw}} (sf\+::\+Render\+Target \&target) const override
+\item 
+\Hypertarget{classSlider_af1f1c7e97d76d87488d14bbf766b1e4d}\label{classSlider_af1f1c7e97d76d87488d14bbf766b1e4d} 
+void {\bfseries set\+Callback} (std\+::function$<$ void(float)$>$ callback)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSlider_a6cbf71025e5cb74dce4ea4b68b04c0ce}\label{classSlider_a6cbf71025e5cb74dce4ea4b68b04c0ce} 
+\index{Slider@{Slider}!draw@{draw}}
+\index{draw@{draw}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Slider\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISlider}{ISlider}}.
+
+\Hypertarget{classSlider_a6e96b788aad80ac4af7672f896b1e7d1}\label{classSlider_a6e96b788aad80ac4af7672f896b1e7d1} 
+\index{Slider@{Slider}!getValue@{getValue}}
+\index{getValue@{getValue}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily float Slider\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISlider}{ISlider}}.
+
+\Hypertarget{classSlider_a03f2fd3d0aa016d0d691a2faf29529c5}\label{classSlider_a03f2fd3d0aa016d0d691a2faf29529c5} 
+\index{Slider@{Slider}!handleEvent@{handleEvent}}
+\index{handleEvent@{handleEvent}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{handleEvent()}{handleEvent()}}
+{\footnotesize\ttfamily void Slider\+::handle\+Event (\begin{DoxyParamCaption}\item[{const sf\+::\+Event \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISlider}{ISlider}}.
+
+\Hypertarget{classSlider_a8f98d0005920c989b691d60d557b198f}\label{classSlider_a8f98d0005920c989b691d60d557b198f} 
+\index{Slider@{Slider}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Slider\+::set\+Position (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISlider}{ISlider}}.
+
+\Hypertarget{classSlider_ac560fa7547b939730288af52aec0e201}\label{classSlider_ac560fa7547b939730288af52aec0e201} 
+\index{Slider@{Slider}!setSize@{setSize}}
+\index{setSize@{setSize}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void Slider\+::set\+Size (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISlider}{ISlider}}.
+
+\Hypertarget{classSlider_ad5c5815a5c75fe9f7e48a3e8c6a0a939}\label{classSlider_ad5c5815a5c75fe9f7e48a3e8c6a0a939} 
+\index{Slider@{Slider}!setValue@{setValue}}
+\index{setValue@{setValue}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{setValue()}{setValue()}}
+{\footnotesize\ttfamily void Slider\+::set\+Value (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classISlider}{ISlider}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+GUI/\+SFMLUtils/\+Slider/Slider.\+hpp\item 
+src/\+GUI/\+SFMLUtils/\+Slider/Slider.\+cpp\end{DoxyCompactItemize}
